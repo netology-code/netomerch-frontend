@@ -1,0 +1,19 @@
+.navBar {
+  padding: 10px;
+  background-color: rgb(41, 126, 206);
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.list {
+  list-style-type: none;
+  display: flex;
+}
+
+.list li {
+  margin-right: 20px;
+}
