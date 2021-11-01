@@ -1,12 +1,12 @@
 import React from 'react';
 import CardOne from '../Cards/CardOne';
-import Card2 from '../Cards/Card2';
+import CardFour from '../Cards/CardFour';
 
 const Examples = () => (
   <>
     <div>
       <CardOne />
-      <Card2 />
+      <CardFour />
     </div>
   </>
 );

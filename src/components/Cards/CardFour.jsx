@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './cardOne.module.css';
 
-const Card2 = () => (
+const CardFour = () => (
   <div className={styles.card}>
     <h2>Моя первая карточка</h2>
     <div>
@@ -13,4 +13,4 @@ const Card2 = () => (
   </div>
 );
 
-export default Card2;
+export default CardFour;
