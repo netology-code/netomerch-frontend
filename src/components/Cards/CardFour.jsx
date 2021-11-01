@@ -3,7 +3,7 @@ import styles from './cardOne.module.css';
 
 const CardFour = () => (
   <div className={styles.card}>
-    <h2>Моя первая карточка</h2>
+    <h2>Моя четвертая карточка</h2>
     <div>
       Имя: Максим
     </div>
