@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/netomerch-frontend/static/css/main.405cdf64.chunk.css",
+    "main.js": "/netomerch-frontend/static/js/main.9cb83243.chunk.js",
+    "main.js.map": "/netomerch-frontend/static/js/main.9cb83243.chunk.js.map",
+    "runtime-main.js": "/netomerch-frontend/static/js/runtime-main.058b481e.js",
+    "runtime-main.js.map": "/netomerch-frontend/static/js/runtime-main.058b481e.js.map",
+    "static/js/2.393dd10b.chunk.js": "/netomerch-frontend/static/js/2.393dd10b.chunk.js",
+    "static/js/2.393dd10b.chunk.js.map": "/netomerch-frontend/static/js/2.393dd10b.chunk.js.map",
+    "index.html": "/netomerch-frontend/index.html",
+    "static/css/main.405cdf64.chunk.css.map": "/netomerch-frontend/static/css/main.405cdf64.chunk.css.map",
+    "static/js/2.393dd10b.chunk.js.LICENSE.txt": "/netomerch-frontend/static/js/2.393dd10b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.058b481e.js",
+    "static/js/2.393dd10b.chunk.js",
+    "static/css/main.405cdf64.chunk.css",
+    "static/js/main.9cb83243.chunk.js"
+  ]
+}
