@@ -2,6 +2,7 @@ import React from 'react';
 import CardOne from '../Cards/CardOne';
 import CardTwo from '../Cards/CardTwo';
 import CardThree from '../Cards/CardThree';
+import CardFour from '../Cards/CardFour';
 
 const Examples = () => (
   <>
@@ -9,6 +10,7 @@ const Examples = () => (
       <CardOne />
       <CardTwo />
       <CardThree />
+      <CardFour />
     </div>
   </>
 );
