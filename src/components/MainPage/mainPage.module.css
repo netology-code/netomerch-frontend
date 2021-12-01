@@ -1,6 +1,9 @@
 .mainPage {
-  color: red;
+  font-family: Golos, sans-serif;
   text-align: center;
-  font-size: 50px;
-  margin-top: 20px;
+  font-size: 40px;
+  min-height: 280px;
+  padding-top: 100px;
+  background-color: #006AFF;
+  color: #FFFFFF;
 }

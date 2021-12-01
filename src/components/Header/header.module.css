@@ -1,0 +1,68 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80px;
+  width: 100%;
+}
+
+.headerLogo {
+  cursor: pointer;
+  width: 182px;
+  height: 20px;
+  margin-left: 1.5%;
+  background-image: url(../../svg/logo_netology_full.svg);
+}
+
+.headerLinks {
+  width: 34%;
+  padding: 10px;
+  color: grey;
+  font-size: 20px;
+}
+
+a {
+  font-family: Golos, sans-serif;
+  text-decoration: none;
+  color: inherit;
+}
+
+.headersLinksList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.headersLinksList li {
+  padding: 0;
+}
+
+.headerIcons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 1.5%;
+  width: 10%;
+}
+
+.headerSearch {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-image: url(../../svg/menu_search_btn.svg);
+}
+
+.headerHelp {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-image: url(../../svg/menu_help_btn.svg);
+}
+
+.headerCart {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-image: url(../../svg/menu_add_shopping_cart_btn.svg);
+}

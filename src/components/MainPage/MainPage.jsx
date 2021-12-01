@@ -3,7 +3,7 @@ import styles from './mainPage.module.css';
 
 const MainPage = () => (
   <div className={styles.mainPage}>
-    Hello World!!!
+    Тут ваш любимый сайт на ближайшие пару недель =)
   </div>
 );
 
