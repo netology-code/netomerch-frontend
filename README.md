@@ -17,4 +17,8 @@
  npm run test
 ```
 
-PS. Все компоненты созданы для примера и будут удалены из проекта=)
+### Публикация на gh-pages
+```
+  npm run predeploy
+  npm run deploy
+```
