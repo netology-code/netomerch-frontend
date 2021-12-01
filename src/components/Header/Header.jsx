@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './header.module.css';
 
 const Header = () => (
-  <div className={styles.header}>
+  <header className={styles.header}>
     <div className={styles.headerLogo} />
     <nav className={styles.headerLinks}>
       <ul className={styles.headersLinksList}>
@@ -23,7 +23,7 @@ const Header = () => (
       <div className={styles.headerHelp} />
       <div className={styles.headerCart} />
     </div>
-  </div>
+  </header>
 );
 
 export default Header;

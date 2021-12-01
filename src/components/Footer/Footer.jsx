@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './footer.module.css';
 
 const Footer = () => (
-  <div className={styles.footer}>
+  <footer className={styles.footer}>
     <div className={styles.footerLogo} />
     <div className={styles.footerLinks}>
       <p className={styles.footerLinksLabel}>Информация</p>
@@ -106,7 +106,7 @@ const Footer = () => (
         </li>
       </ul>
     </div>
-  </div>
+  </footer>
 );
 
 export default Footer;
