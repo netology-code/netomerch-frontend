@@ -39,6 +39,7 @@
 .madeByPhotos {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   width: 88%;
   min-height: 400px;
   margin-left: auto;
