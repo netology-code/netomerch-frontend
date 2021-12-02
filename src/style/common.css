@@ -1,0 +1,42 @@
+/* common.css */
+
+/* Обнуляющие стили -------------------------------------------------------------------- */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;
+	line-height: 1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: inherit;
+	font-weight: inherit;
+}
+
+ul, ol {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+button {
+	font-size: inherit;
+
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+img {
+	vertical-align: top;
+}
