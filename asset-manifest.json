@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/netomerch-frontend/static/css/main.f2f48711.chunk.css",
-    "main.js": "/netomerch-frontend/static/js/main.90e47d7b.chunk.js",
-    "main.js.map": "/netomerch-frontend/static/js/main.90e47d7b.chunk.js.map",
+    "main.css": "/netomerch-frontend/static/css/main.2e9dd33c.chunk.css",
+    "main.js": "/netomerch-frontend/static/js/main.dd81ebc8.chunk.js",
+    "main.js.map": "/netomerch-frontend/static/js/main.dd81ebc8.chunk.js.map",
     "runtime-main.js": "/netomerch-frontend/static/js/runtime-main.058b481e.js",
     "runtime-main.js.map": "/netomerch-frontend/static/js/runtime-main.058b481e.js.map",
     "static/js/2.c68edc56.chunk.js": "/netomerch-frontend/static/js/2.c68edc56.chunk.js",
     "static/js/2.c68edc56.chunk.js.map": "/netomerch-frontend/static/js/2.c68edc56.chunk.js.map",
     "index.html": "/netomerch-frontend/index.html",
-    "static/css/main.f2f48711.chunk.css.map": "/netomerch-frontend/static/css/main.f2f48711.chunk.css.map",
+    "static/css/main.2e9dd33c.chunk.css.map": "/netomerch-frontend/static/css/main.2e9dd33c.chunk.css.map",
     "static/js/2.c68edc56.chunk.js.LICENSE.txt": "/netomerch-frontend/static/js/2.c68edc56.chunk.js.LICENSE.txt",
     "static/media/footer.module.css": "/netomerch-frontend/static/media/social_btn.f718adba.svg",
     "static/media/header.module.css": "/netomerch-frontend/static/media/menu_search_btn.fc1ccbb5.svg"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.058b481e.js",
     "static/js/2.c68edc56.chunk.js",
-    "static/css/main.f2f48711.chunk.css",
-    "static/js/main.90e47d7b.chunk.js"
+    "static/css/main.2e9dd33c.chunk.css",
+    "static/js/main.dd81ebc8.chunk.js"
   ]
 }
