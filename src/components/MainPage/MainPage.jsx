@@ -1,11 +1,12 @@
 import React from 'react';
-import styles from './mainPage.module.css';
+import Answers from '../Answers/Answers';
 import MadeBy from './MadeBy/MadeBy';
 
 const MainPage = () => (
-  <div className={styles.mainPage}>
+  <>
     <MadeBy />
-  </div>
+    <Answers />
+  </>
 );
 
 export default MainPage;

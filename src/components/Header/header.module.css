@@ -11,7 +11,7 @@
   width: 182px;
   height: 20px;
   margin-left: 1.5%;
-  background-image: url(../../svg/logo_netology_full.svg);
+  background-image: url(../../assets/svg/logo_netology_full.svg);
 }
 
 .headerLinks {
@@ -50,19 +50,19 @@ a {
   cursor: pointer;
   width: 24px;
   height: 24px;
-  background-image: url(../../svg/menu_search_btn.svg);
+  background-image: url(../../assets/svg/menu_search_btn.svg);
 }
 
 .headerHelp {
   cursor: pointer;
   width: 24px;
   height: 24px;
-  background-image: url(../../svg/menu_help_btn.svg);
+  background-image: url(../../assets/svg/menu_help_btn.svg);
 }
 
 .headerCart {
   cursor: pointer;
   width: 24px;
   height: 24px;
-  background-image: url(../../svg/menu_add_shopping_cart_btn.svg);
+  background-image: url(../../assets/svg/menu_add_shopping_cart_btn.svg);
 }

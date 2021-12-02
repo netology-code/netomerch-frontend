@@ -1,0 +1,44 @@
+.answers {
+  padding: 60px 15px;
+  font-family: 'Golos', 'sans-serif';
+  max-width: 1630px;
+  margin: auto;
+}
+
+.answers h2 {
+  font-weight: 900;
+  color: #4B4950;
+  font-size: 36px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.answers h2::before {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 25px;
+  background-color: #006AFF;
+  margin-right: 35px;
+  flex-shrink: 0;
+}
+
+.answers h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-image: url('../../assets/img/atr_star.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.accordion {
+  max-width: 1150px;
+  margin: auto;
+}

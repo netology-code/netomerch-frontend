@@ -15,7 +15,7 @@
 .madeBySquare {
   width: 30px;
   height: 30px;
-  background-image: url(../../../svg/atr_cube.svg);
+  background-image: url(../../../assets/svg/atr_cube.svg);
 }
 
 .madeByHeading {
@@ -30,7 +30,7 @@
   position: absolute;
   width: 60px;
   height: 60px;
-  background-image: url(../../../svg/atr_star.svg);
+  background-image: url(../../../assets/svg/atr_star.svg);
   background-size: contain;
   left: 100%;
   bottom: 50%;
@@ -60,59 +60,59 @@
 
 .madeByPhoto:nth-child(9) {
   margin-left: 80px;
-  background-image: url(../../../img/crew1.png);
+  background-image: url(../../../assets/img/crew1.png);
 }
 
 .madeByPhoto:nth-child(2) {
-  background-image: url(../../../img/crew2.png);
+  background-image: url(../../../assets/img/crew2.png);
 }
 
 .madeByPhoto:nth-child(3) {
-  background-image: url(../../../img/crew3.png);
+  background-image: url(../../../assets/img/crew3.png);
 }
 
 .madeByPhoto:nth-child(4) {
-  background-image: url(../../../img/crew4.png);
+  background-image: url(../../../assets/img/crew4.png);
 }
 
 .madeByPhoto:nth-child(5) {
-  background-image: url(../../../img/crew5.png);
+  background-image: url(../../../assets/img/crew5.png);
 }
 
 .madeByPhoto:nth-child(6) {
-  background-image: url(../../../img/crew6.png);
+  background-image: url(../../../assets/img/crew6.png);
 }
 
 .madeByPhoto:nth-child(7) {
-  background-image: url(../../../img/crew7.png);
+  background-image: url(../../../assets/img/crew7.png);
 }
 
 .madeByPhoto:nth-child(8) {
-  background-image: url(../../../img/crew8.png);
+  background-image: url(../../../assets/img/crew8.png);
 }
 
 .madeByPhoto:nth-child(10) {
-  background-image: url(../../../img/crew9.png);
+  background-image: url(../../../assets/img/crew9.png);
 }
 
 .madeByPhoto:nth-child(11) {
-  background-image: url(../../../img/crew10.png);
+  background-image: url(../../../assets/img/crew10.png);
 }
 
 .madeByPhoto:nth-child(12) {
-  background-image: url(../../../img/crew11.png);
+  background-image: url(../../../assets/img/crew11.png);
 }
 
 .madeByPhoto:nth-child(13) {
-  background-image: url(../../../img/crew12.png);
+  background-image: url(../../../assets/img/crew12.png);
 }
 
 .madeByPhoto:nth-child(14) {
-  background-image: url(../../../img/crew13.png);
+  background-image: url(../../../assets/img/crew13.png);
 }
 
 .madeByPhoto:nth-child(15) {
-  background-image: url(../../../img/crew14.png);
+  background-image: url(../../../assets/img/crew14.png);
   
 }
 
