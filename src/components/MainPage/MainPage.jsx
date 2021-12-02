@@ -1,9 +1,10 @@
 import React from 'react';
+import MainTop from './MainTop';
 import styles from './mainPage.module.css';
 
 const MainPage = () => (
   <div className={styles.mainPage}>
-    Тут ваш любимый сайт на ближайшие пару недель =)
+    <MainTop />
   </div>
 );
 
