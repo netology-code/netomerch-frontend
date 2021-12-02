@@ -1,0 +1,179 @@
+.section {
+  font-family: 'Golos', sans-serif;
+  font-style: normal;
+  text-align: left;
+  background-color: #FFFFFF;
+}
+
+.wrapper {
+  position: relative;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 148px;
+  padding-right: 148px;
+}
+
+.square {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 67.5px;
+  background-image: url(../../../svg/atr_cube_about-merch.svg);
+}
+
+.header {
+  margin-left: 63px;
+  margin-bottom: 16px;
+  font-family: 'Golos Text', sans-serif;
+  font-weight: 900;
+  font-size: 38px;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  word-spacing: 5px;
+  text-transform: uppercase;
+  color: #4B4950;
+}
+
+.paragraph {
+  margin-left: 2px;
+  margin-bottom: 53px;
+  font-weight: 500;
+  font-size: 19.7px;
+  line-height: 1.2;
+  align-items: center;
+  color: #4B4950;
+  opacity: 0.7;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 82px;
+}
+
+.image {
+  position: relative;
+  max-width: 488px;
+  width: 100%;
+  max-height: 507px;
+  border-radius: 8px 8px 16px 16px;
+
+  /* background-color: #C4C4C4; */
+  margin-bottom: 30px;
+}
+
+.image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: #4B4950;
+}
+
+.star {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  background-image: url(../../../svg/atr_star_about-merch.svg);
+  background-size: contain;
+  left: 50px;
+  bottom: 72px;
+}
+
+.link {
+  font-family: 'Golos Text VF', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #4B4950;
+  padding-bottom: 9px;
+  border-bottom: 2px solid #4B4950;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 506px;
+  height: 52px;
+  background-color: #4B4950;
+}
+
+.button_link {
+  font-family: 'Golos Text', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.2;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+@media (max-width: 1750px) {
+  .wrapper {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .star {
+    left: 3%;
+  }
+}
+
+@media (max-width: 1630px) {
+  .link {
+    font-size: 100%;
+  }
+}
+
+@media (max-width: 872px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content div {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+  }
+
+  .header {
+    font-size: 30px;
+  }
+
+  .button {
+    width: 70%;
+  }
+}
+
+@media (min-width: 872px) {
+  .content div:nth-child(2) {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
+
+@media (max-width: 690px) {
+  .square {
+    width: 1px;
+    height: 1px;
+  }
+
+  .header {
+    margin-left: 0px;
+  }
+}
