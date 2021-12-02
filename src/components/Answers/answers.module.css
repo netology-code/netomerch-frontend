@@ -5,7 +5,7 @@
   margin: auto;
 }
 
-h2 {
+.answers h2 {
   font-weight: 900;
   color: #4B4950;
   font-size: 36px;
@@ -15,7 +15,7 @@ h2 {
   margin-bottom: 60px;
 }
 
-h2::before {
+.answers h2::before {
   content: "";
   display: block;
   width: 25px;
@@ -25,12 +25,12 @@ h2::before {
   flex-shrink: 0;
 }
 
-h2::after {
+.answers h2::after {
   content: "";
   display: block;
   width: 60px;
   height: 60px;
-  background-image: url('../../img/atr_star.png');
+  background-image: url('../../assets/img/atr_star.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

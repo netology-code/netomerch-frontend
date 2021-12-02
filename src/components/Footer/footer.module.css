@@ -13,7 +13,7 @@
   width: 182px;
   height: 20px;
   margin-left: 1.5%;
-  background-image: url(../../svg/logo_netology_full_white.svg);
+  background-image: url(../../assets/svg/logo_netology_full_white.svg);
 }
 
 .footerLinks:last-child {
@@ -43,7 +43,7 @@ li {
   cursor: pointer;
   width: 20px;
   height: 20px;
-  background-image: url(../../svg/add_shopping_cart_btn.svg);
+  background-image: url(../../assets/svg/add_shopping_cart_btn.svg);
 }
 
 .footerInline {
@@ -60,7 +60,7 @@ li {
   width: 24px;
   height: 24px;
   margin-right: 3%;
-  background-image: url(../../svg/social_btn.svg);
+  background-image: url(../../assets/svg/social_btn.svg);
 }
 
 .footerTelegram {
@@ -68,7 +68,7 @@ li {
   width: 24px;
   height: 24px;
   margin-right: 3%;
-  background-image: url(../../svg/social_btn-1.svg);
+  background-image: url(../../assets/svg/social_btn-1.svg);
 }
 
 .footerYoutube {
@@ -76,7 +76,7 @@ li {
   width: 24px;
   height: 24px;
   margin-right: 3%;
-  background-image: url(../../svg/social_btn-2.svg);
+  background-image: url(../../assets/svg/social_btn-2.svg);
 }
 
 .footerInstagram {
@@ -84,7 +84,7 @@ li {
   width: 24px;
   height: 24px;
   margin-right: 3%;
-  background-image: url(../../svg/social_btn-3.svg);
+  background-image: url(../../assets/svg/social_btn-3.svg);
 }
 
 .footerVkontakte {
@@ -92,5 +92,5 @@ li {
   width: 24px;
   height: 24px;
   margin-right: 3%;
-  background-image: url(../../svg/social_btn-4.svg);
+  background-image: url(../../assets/svg/social_btn-4.svg);
 }

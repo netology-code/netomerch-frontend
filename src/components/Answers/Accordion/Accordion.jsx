@@ -4,8 +4,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './accordion.module.css';
-import arrowUp from '../../../img/arrowUp.png';
-import arrowDown from '../../../img/arrowDown.png';
+import arrowUp from '../../../assets/img/arrowUp.png';
+import arrowDown from '../../../assets/img/arrowDown.png';
 
 const Accordion = ({
   id, title, content, isOpen, onClick,
