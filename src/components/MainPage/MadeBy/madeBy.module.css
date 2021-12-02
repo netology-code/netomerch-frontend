@@ -52,91 +52,67 @@
   background-color: #C4C4C4;
   border-radius: 50%;
   margin-right: 38px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .madeByPhoto:nth-child(9) {
   margin-left: 80px;
   background-image: url(../../../img/crew1.png);
-  background-position: center;
-  background-size: contain;
 }
 
 .madeByPhoto:nth-child(2) {
   background-image: url(../../../img/crew2.png);
-  background-position: center;
-  background-size: contain;
 }
 
 .madeByPhoto:nth-child(3) {
   background-image: url(../../../img/crew3.png);
-  background-position: center;
-  background-size: contain;
 }
 
 .madeByPhoto:nth-child(4) {
   background-image: url(../../../img/crew4.png);
-  background-position: center;
-  background-size: contain;
 }
 
 .madeByPhoto:nth-child(5) {
   background-image: url(../../../img/crew5.png);
-  background-position: center;
-  background-size: contain;
 }
 
 .madeByPhoto:nth-child(6) {
   background-image: url(../../../img/crew6.png);
-  background-position: center;
-  background-size: contain;
 }
 
 .madeByPhoto:nth-child(7) {
   background-image: url(../../../img/crew7.png);
-  background-position: center;
-  background-size: contain;
 }
 
 .madeByPhoto:nth-child(8) {
   background-image: url(../../../img/crew8.png);
-  background-position: center;
-  background-size: contain;
 }
 
 .madeByPhoto:nth-child(10) {
   background-image: url(../../../img/crew9.png);
-  background-position: center;
-  background-size: contain;
 }
 
 .madeByPhoto:nth-child(11) {
   background-image: url(../../../img/crew10.png);
-  background-position: center;
-  background-size: contain;
 }
 
 .madeByPhoto:nth-child(12) {
   background-image: url(../../../img/crew11.png);
-  background-position: center;
-  background-size: contain;
 }
 
 .madeByPhoto:nth-child(13) {
   background-image: url(../../../img/crew12.png);
-  background-position: center;
-  background-size: contain;
 }
 
 .madeByPhoto:nth-child(14) {
   background-image: url(../../../img/crew13.png);
-  background-position: center;
-  background-size: contain;
 }
 
 .madeByPhoto:nth-child(15) {
   background-image: url(../../../img/crew14.png);
-  background-position: center;
-  background-size: contain;
+  
 }
 
 .madeByPhoto:first-child {
