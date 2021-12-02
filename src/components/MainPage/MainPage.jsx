@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './mainPage.module.css';
+import MadeBy from './MadeBy/MadeBy';
 
 const MainPage = () => (
   <div className={styles.mainPage}>
-    Тут ваш любимый сайт на ближайшие пару недель =)
+    <MadeBy />
   </div>
 );
 
