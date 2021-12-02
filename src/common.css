@@ -8,8 +8,10 @@
 }
 
 body {
-	font-family: sans-serif;
+	font-family: Golos, sans-serif;
 	line-height: 1;
+
+	color: #4B4950;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
