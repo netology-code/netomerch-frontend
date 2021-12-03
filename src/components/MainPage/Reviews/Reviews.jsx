@@ -2,6 +2,11 @@
 import React from 'react';
 import './reviews.css';
 
+import img5 from './img/content_merch_5.png';
+import img6 from './img/content_merch_6.png';
+import img7 from './img/content_merch_7.png';
+import img8 from './img/content_merch_8.png';
+
 export default function Reviews() {
   return (
     <div className="reviews">
@@ -15,28 +20,32 @@ export default function Reviews() {
           <div className="slider-rewiews__container">
             <div className="slider-rewiew">
               <div className="slider-rewiew__img ibg">
-                <img src="https://placeimg.com/360/500/tech" alt="1" />
+                {/* <img src="https://placeimg.com/360/500/tech" alt="1" /> */}
+                <img src={img5} alt="1" />
               </div>
               <a className="slider-rewiew__link" href="/#">Наименование позиции 1</a>
             </div>
 
             <div className="slider-rewiew">
               <div className="slider-rewiew__img ibg">
-                <img src="https://placeimg.com/361/500/tech" alt="1" />
+                {/* <img src="https://placeimg.com/361/500/tech" alt="1" /> */}
+                <img src={img6} alt="1" />
               </div>
               <a className="slider-rewiew__link" href="/#">Наименование позиции 2</a>
             </div>
 
             <div className="slider-rewiew">
               <div className="slider-rewiew__img ibg">
-                <img src="https://placeimg.com/362/500/tech" alt="1" />
+                {/* <img src="https://placeimg.com/362/500/tech" alt="1" /> */}
+                <img src={img7} alt="1" />
               </div>
               <a className="slider-rewiew__link" href="/#">Наименование позиции 3</a>
             </div>
 
             <div className="slider-rewiew">
               <div className="slider-rewiew__img ibg">
-                <img src="https://placeimg.com/363/500/tech" alt="1" />
+                {/* <img src="https://placeimg.com/363/500/tech" alt="1" /> */}
+                <img src={img8} alt="1" />
               </div>
               <a className="slider-rewiew__link" href="/#">Наименование позиции 4</a>
             </div>
