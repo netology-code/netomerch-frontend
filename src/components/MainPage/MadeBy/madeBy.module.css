@@ -5,11 +5,10 @@
 .madeByLabel {
   position: relative;
   display: flex;
-  width: 88%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 124px;
 }
 
 .madeBySquare {
@@ -39,12 +38,7 @@
 .madeByPhotos {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  width: 88%;
-  min-height: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 100px;
+  margin-bottom: -38px;
 }
 
 .madeByPhoto {
@@ -52,14 +46,18 @@
   height: 160px;
   background-color: #C4C4C4;
   border-radius: 50%;
-  margin-right: 38px;
+  margin-bottom: 38px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
+.madeByPhoto:not(:last-child) {
+  margin-right: 38px;
+}
+
 .madeByPhoto:nth-child(9) {
-  margin-left: 80px;
+  margin-left: 78px;
   background-image: url(../../../assets/img/crew1.png);
 }
 
@@ -125,9 +123,9 @@
 }
 
 .madeByDescription {
-  width: 88%;
+  max-width: 1608px;
+  margin-top: 110px;
   margin-left: auto;
-  margin-right: auto;
   min-height: 200px;
   border: 1.3px solid #4B4950;
   margin-bottom: 100px;
@@ -152,11 +150,11 @@
 }
 
 @media (max-width: 1895px) {
-  .madeByPhoto:nth-child(9) {
-    margin-left: 0;
+  .madeByPhotos {
+    justify-content: center;
   }
 
-  .madeByPhoto {
-    margin-top: 38px;
+  .madeByPhoto:nth-child(9) {
+    margin-left: 0;
   }
 }
