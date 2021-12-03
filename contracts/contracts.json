@@ -18,18 +18,21 @@
   ],
   "reviews": [
     {
+      "id": "number",
       "image": "string",
       "text": "string",
       "author?": "string",
       "item_id?": "number"
     },
     {
+      "id": "number",
       "image": "string",
       "text": "string",
       "author?": "string",
       "item_id?": "number"
     },
     {
+      "id": "number",
       "image": "string",
       "text": "string",
       "author?": "string",
