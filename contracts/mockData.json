@@ -1,0 +1,39 @@
+{
+  "popular": [
+    {
+      "item_id": 12566479879,
+      "name": "Футболка черная с принтом",
+      "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    },
+    {
+      "item_id": 1541654,
+      "name": "Толстовка белая",
+      "image": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=772&q=80"
+    },
+    {
+      "item_id": 458754547,
+      "name": "Толстовка черная с принтом",
+      "image": "https://images.unsplash.com/photo-1633292750937-120a94f5c2bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+    }
+  ],
+  "reviews": [
+    {
+      "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      "text": "Нравится что черная - не видно капель крови! Стирал много раз, а она как новая",
+      "author?": "Дракула",
+      "item_id?": 12566479879
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=772&q=80",
+      "text": "Теплый, мягкий! Качественно сшит, нитки не торчат! Каеф!!!",
+      "author?": "Олег",
+      "item_id?": 1541654
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1633292750937-120a94f5c2bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      "text": "Заказал на размер побольше, но на мой кузов все равно не налазиет! Пичаль =(",
+      "author?": "БамблБи",
+      "item_id?": 458754547
+    }
+  ]
+}

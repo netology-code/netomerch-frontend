@@ -1,0 +1,39 @@
+{
+  "popular": [
+    {
+      "item_id": "number",
+      "name": "string",
+      "image": "string"
+    },
+    {
+      "item_id": "number",
+      "name": "string",
+      "image": "string"
+    },
+    {
+      "item_id": "number",
+      "name": "string",
+      "image": "string"
+    }
+  ],
+  "reviews": [
+    {
+      "image": "string",
+      "text": "string",
+      "author?": "string",
+      "item_id?": "number"
+    },
+    {
+      "image": "string",
+      "text": "string",
+      "author?": "string",
+      "item_id?": "number"
+    },
+    {
+      "image": "string",
+      "text": "string",
+      "author?": "string",
+      "item_id?": "number"
+    }
+  ]
+}
