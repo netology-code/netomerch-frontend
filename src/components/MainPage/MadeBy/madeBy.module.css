@@ -1,5 +1,6 @@
 .madeBy {
   background-color: #FFFFFF;
+  margin-bottom: 120px;
 }
 
 .madeByLabel {
@@ -130,7 +131,6 @@
   margin-right: auto;
   min-height: 200px;
   border: 1.3px solid #4B4950;
-  margin-bottom: 100px;
   box-shadow: -15px 15px #49D2A4;
   padding: 24px;
 }
