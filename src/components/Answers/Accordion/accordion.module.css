@@ -17,8 +17,12 @@
   line-height: 1.2;
   color: #FFFFFF;
   padding: 20px 70px;
-  border-top-right-radius: 8px;
-  border-top-left-radius: 8px;
+  border-radius: 8px;
+}
+
+.open .title {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .arrow {
