@@ -1,30 +1,35 @@
 {
   "files": {
-    "main.css": "/netomerch-frontend/static/css/main.ee53c20f.chunk.css",
-    "main.js": "/netomerch-frontend/static/js/main.01687c56.chunk.js",
-    "main.js.map": "/netomerch-frontend/static/js/main.01687c56.chunk.js.map",
+    "main.css": "/netomerch-frontend/static/css/main.b49674a7.chunk.css",
+    "main.js": "/netomerch-frontend/static/js/main.fc1ebd56.chunk.js",
+    "main.js.map": "/netomerch-frontend/static/js/main.fc1ebd56.chunk.js.map",
     "runtime-main.js": "/netomerch-frontend/static/js/runtime-main.058b481e.js",
     "runtime-main.js.map": "/netomerch-frontend/static/js/runtime-main.058b481e.js.map",
     "static/js/2.528ba5eb.chunk.js": "/netomerch-frontend/static/js/2.528ba5eb.chunk.js",
     "static/js/2.528ba5eb.chunk.js.map": "/netomerch-frontend/static/js/2.528ba5eb.chunk.js.map",
     "index.html": "/netomerch-frontend/index.html",
-    "static/css/main.ee53c20f.chunk.css.map": "/netomerch-frontend/static/css/main.ee53c20f.chunk.css.map",
+    "static/css/main.b49674a7.chunk.css.map": "/netomerch-frontend/static/css/main.b49674a7.chunk.css.map",
     "static/js/2.528ba5eb.chunk.js.LICENSE.txt": "/netomerch-frontend/static/js/2.528ba5eb.chunk.js.LICENSE.txt",
     "static/media/index.css": "/netomerch-frontend/static/media/Golos-Text_VF.c9fccb86.ttf",
-    "static/media/footer.module.css": "/netomerch-frontend/static/media/social_btn.f718adba.svg",
+    "static/media/footer.module.css": "/netomerch-frontend/static/media/social_btn.7bd9ee65.svg",
     "static/media/madeBy.module.css": "/netomerch-frontend/static/media/crew9.f26cb29d.png",
-    "static/media/aboutMerch.module.css": "/netomerch-frontend/static/media/atr_star_about-merch.c96e0b15.svg",
+    "static/media/aboutMerch.module.css": "/netomerch-frontend/static/media/atr_star_about-merch.e2b157a7.svg",
+    "static/media/content_merch_1.ae9dd1fe.png": "/netomerch-frontend/static/media/content_merch_1.ae9dd1fe.png",
     "static/media/content_merch_2.32e6fb1c.jpg": "/netomerch-frontend/static/media/content_merch_2.32e6fb1c.jpg",
     "static/media/content_merch_3.e9e6b517.jpg": "/netomerch-frontend/static/media/content_merch_3.e9e6b517.jpg",
     "static/media/content_merch_4.435c06db.jpg": "/netomerch-frontend/static/media/content_merch_4.435c06db.jpg",
-    "static/media/header.module.css": "/netomerch-frontend/static/media/menu_search_btn.fc1ccbb5.svg",
-    "static/media/main-top.css": "/netomerch-frontend/static/media/main-top-bg.b021b2ff.svg",
-    "static/media/slider.css": "/netomerch-frontend/static/media/slider__arrow_gray.f0e453e0.svg"
+    "static/media/content_merch_5.a2149b21.png": "/netomerch-frontend/static/media/content_merch_5.a2149b21.png",
+    "static/media/content_merch_6.3fb18d42.png": "/netomerch-frontend/static/media/content_merch_6.3fb18d42.png",
+    "static/media/content_merch_7.2dccc004.png": "/netomerch-frontend/static/media/content_merch_7.2dccc004.png",
+    "static/media/content_merch_8.1bc0321f.png": "/netomerch-frontend/static/media/content_merch_8.1bc0321f.png",
+    "static/media/header.module.css": "/netomerch-frontend/static/media/menu_search_btn.2f858fdd.svg",
+    "static/media/main-top.css": "/netomerch-frontend/static/media/main-top-bg.ba62805b.svg",
+    "static/media/slider.css": "/netomerch-frontend/static/media/slider__arrow_gray.8f4d9a05.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.058b481e.js",
     "static/js/2.528ba5eb.chunk.js",
-    "static/css/main.ee53c20f.chunk.css",
-    "static/js/main.01687c56.chunk.js"
+    "static/css/main.b49674a7.chunk.css",
+    "static/js/main.fc1ebd56.chunk.js"
   ]
 }
