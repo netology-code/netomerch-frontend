@@ -1,3 +1,4 @@
+/* eslint-disable prefer-template */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable max-len */
 import React from 'react';
@@ -15,20 +16,28 @@ export default function AboutMerch() {
         <h2 className={styles.aboutMerch_header}>информационный блок о мерче</h2>
         <p className={styles.aboutMerch_text}>Часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum,</p>
 
-        <ul className={styles.aboutMerch_list}>
-          <li className={styles.aboutMerch_item}>
-            <img className={styles.aboutMerch_image} src={img2} alt="толстовка" />
+        <div className={styles.aboutMerch_slider}>
+          <div className={styles.aboutMerch_item}>
+            <div className={styles.aboutMerch_image}>
+              <img src={img2} alt="толстовка" />
+            </div>
             <a className={styles.aboutMerch_link} href="#0">наименование позиции 1</a>
-          </li>
-          <li className={styles.aboutMerch_item}>
-            <img className={styles.aboutMerch_image} src={img3} alt="футболка" />
+          </div>
+
+          <div className={styles.aboutMerch_item}>
+            <div className={styles.aboutMerch_image}>
+              <img src={img3} alt="футболка" />
+            </div>
             <a className={styles.aboutMerch_link} href="#0">наименование позиции 1</a>
-          </li>
-          <li className={styles.aboutMerch_item}>
-            <img className={styles.aboutMerch_image} src={img4} alt="блокноты" />
+          </div>
+
+          <div className={styles.aboutMerch_item}>
+            <div className={styles.aboutMerch_image}>
+              <img src={img4} alt="блокноты" />
+            </div>
             <a className={styles.aboutMerch_link} href="#0">наименование позиции 1</a>
-          </li>
-        </ul>
+          </div>
+        </div>
 
         <div className={styles.aboutMerch_star} />
 
