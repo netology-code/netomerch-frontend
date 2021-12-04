@@ -19,7 +19,7 @@ const Header = () => (
       </ul>
     </nav>
     <div className={styles.headerIcons}>
-      <div className={styles.headerSearch} />
+      {/* <div className={styles.headerSearch} /> */}
       <div className={styles.headerHelp} />
       <div className={styles.headerCart} />
     </div>
