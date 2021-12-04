@@ -41,9 +41,13 @@ a {
 .headerIcons {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: right;
   margin-right: 1.5%;
-  width: 10%;
+  width: 182px;
+}
+
+.headerIcons > *:not(:last-child) {
+  margin-right: 25px;
 }
 
 .headerSearch {
