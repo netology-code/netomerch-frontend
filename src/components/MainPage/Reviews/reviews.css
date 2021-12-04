@@ -46,6 +46,7 @@
 
 
 .reviews {
+  margin-bottom: 120px;
   overflow: hidden; /* Срезать padding'и у отзывов при уменьшеном экране. */
 }
 

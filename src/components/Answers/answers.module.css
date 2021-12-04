@@ -1,8 +1,8 @@
 .answers {
-  padding: 60px 15px;
+  padding: 0 15px;
   font-family: 'Golos', 'sans-serif';
-  max-width: 1630px;
-  margin: auto;
+  max-width: 1654px;
+  margin: 0 auto 90px auto;
 }
 
 .answers h2 {
