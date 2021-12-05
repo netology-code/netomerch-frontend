@@ -12,7 +12,7 @@
 
 .headerMenu {
   padding: 0 20px;
-
+  margin-left: -150px;
 }
 
 .headerMenuList {
@@ -59,6 +59,10 @@
 @media(max-width: 1200px) {
   .headerBody {
     min-height: 70px;
+  }
+
+  .headerMenu {
+    margin-left: 0;
   }
 
   .headerMenuList li:not(:last-child) {
