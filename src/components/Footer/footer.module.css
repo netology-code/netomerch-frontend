@@ -1,6 +1,6 @@
 .footer {
   display: flex;
-  padding: 40px 15px 70px 15px;
+  padding: 40px 30px 70px 30px;
 
   color: #ffffff;
   background-color: #4B4950;
@@ -116,6 +116,12 @@
   height: 24px;
   margin-right: 3%;
   background-image: url(../../assets/svg/social_btn-4.svg);
+}
+
+@media(max-width: 992px) {
+  .footer {
+    padding: 40px 15px 70px 15px;
+  }
 }
 
 @media(max-width: 768px) {
