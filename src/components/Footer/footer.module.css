@@ -31,7 +31,12 @@
 }
 
 .footerMenuColumn {
+  flex: 1 1 auto;
   padding: 30px 10px;
+}
+
+.footerInfo {
+  max-width: 435px;
 }
 
 .footerMenuLabel {
@@ -70,11 +75,24 @@
 .footerMerch {
  display: flex; 
  flex-direction: column;
+ max-width: 315px;
 }
 
 .footerLinksMerch {
   flex: 1 0 auto;
   margin-bottom: 25px;
+}
+
+.footerProducts {
+  max-width: 202px;
+}
+
+.footerCategories {
+  max-width: 315px;
+}
+
+.footerAdditional {
+  max-width: 276px;
 }
 
 .footerSocial {

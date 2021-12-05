@@ -15,7 +15,7 @@ const Footer = () => (
 
         <div className={styles.footerColumn2}>
           <div className={styles.footerMenu}>
-            <div className={styles.footerMenuColumn}>
+            <div className={`${styles.footerMenuColumn} ${styles.footerInfo}`}>
               <div className={styles.footerMenuLabel}>Информация</div>
               <ul className={`${styles.footerLinks} ${styles.footerLinksInfo}`}>
                 <li>
@@ -59,7 +59,7 @@ const Footer = () => (
                 <div className={styles.footerVkontakte} />
               </div>
             </div>
-            <div className={styles.footerMenuColumn}>
+            <div className={`${styles.footerMenuColumn} ${styles.footerProducts}`}>
               <div className={styles.footerMenuLabel}>Каталог по товарам</div>
               <ul className={`${styles.footerLinks} ${styles.footerLinksProducts}`}>
                 <li>
@@ -82,7 +82,7 @@ const Footer = () => (
                 </li>
               </ul>
             </div>
-            <div className={styles.footerMenuColumn}>
+            <div className={`${styles.footerMenuColumn} ${styles.footerCategories}`}>
               <div className={styles.footerMenuLabel}>Каталог по направлениям</div>
               <ul className={`${styles.footerLinks} ${styles.footerLinksCategories}`}>
                 <li>
@@ -99,7 +99,7 @@ const Footer = () => (
                 </li>
               </ul>
             </div>
-            <div className={styles.footerMenuColumn}>
+            <div className={`${styles.footerMenuColumn} ${styles.footerAdditional}`}>
               <div className={styles.footerInline}>
                 <div className={styles.footerMenuLabel}>Перейти в корзину</div>
                 <div className={styles.footerCart} />
