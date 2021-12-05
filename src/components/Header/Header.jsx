@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './header.module.css';
+import logo from '../../assets/svg/logo_netology_full.svg';
 
 const Header = () => (
   <header className={styles.header}>
-    <div className={styles.headerLogo} />
-    <nav className={styles.headerLinks}>
-      <ul className={styles.headersLinksList}>
+    <a href="/#" className={styles.headerLogo}>
+      <img src={logo} alt="Logo Netologia" />
+    </a>
+    <nav className={styles.headerMenu}>
+      <ul className={styles.headerMenuList}>
         <li>
           <Link to="/">Каталог</Link>
         </li>
@@ -20,8 +23,12 @@ const Header = () => (
     </nav>
     <div className={styles.headerIcons}>
       {/* <div className={styles.headerSearch} /> */}
-      <div className={styles.headerHelp} />
-      <div className={styles.headerCart} />
+      <a href="/#">
+        <div className={styles.headerHelp} />
+      </a>
+      <a href="/#">
+        <div className={styles.headerCart} />
+      </a>
     </div>
   </header>
 );
