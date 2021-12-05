@@ -1,9 +1,8 @@
-.header {
+.headerBody {
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 80px;
-  padding: 0 30px;
 }
 
 .headerLogo {
@@ -58,7 +57,7 @@
 }
 
 @media(max-width: 1200px) {
-  .header {
+  .headerBody {
     min-height: 70px;
   }
 
@@ -68,9 +67,8 @@
 }
 
 @media(max-width: 992px) {
-  .header {
+  .headerBody {
     min-height: 60px;
-    padding: 0 15px;
   }
 
   .headerMenuList li:not(:last-child) {
@@ -87,7 +85,7 @@
 }
 
 @media(max-width: 768px) {
-  .header {
+  .headerBody {
     min-height: 50px;
   }
 

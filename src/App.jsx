@@ -8,12 +8,10 @@ import Footer from './components/Footer/Footer';
 function App() {
   return (
     <Router basename="/">
-      <div className="wrapper">
-        <Header />
-        <Route exact path="/" component={MainPage} />
-        {/* <Route path="/examples" component={Examples} /> */}
-        <Footer />
-      </div>
+      <Header />
+      <Route exact path="/" component={MainPage} />
+      {/* <Route path="/examples" component={Examples} /> */}
+      <Footer />
     </Router>
   );
 }
