@@ -27,6 +27,7 @@
 .headerMenuList a {
   font-size: 20px;
   line-height: calc(24 / 20 * 100%);
+  font-weight: 500;
 }
 
 .headerIcons {
