@@ -1,44 +1,63 @@
 .footer {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  color: #FFFFFF;
   background-color: #4B4950;
-  min-height: 340px;
-  padding-top: 40px;
+}
+
+.footerBody {
+  display: flex;
+  padding: 40px 0 70px 0;
+
+  color: #ffffff;
+}
+
+.footerColumn1 {
+  flex: 0 1 317px;
+  padding-right: 20px;
 }
 
 .footerLogo {
-  cursor: pointer;
   width: 182px;
   height: 20px;
-  margin-left: 1.5%;
-  background-image: url(../../assets/svg/logo_netology_full_white.svg);
 }
 
-.footerLinks:last-child {
-  margin-right: 1.5%;
+.footerColumn2 {
+  flex: 1 1 auto;
 }
 
-ul {
-  padding: 0;
+.footerMenu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: -30px -10px;
 }
 
-.footerLinks li {
-  padding-top: 20px;
+.footerMenuColumn {
+  flex: 1 1 auto;
+  padding: 30px 10px;
 }
 
-li {
-  cursor: pointer;
-  font-family: Golos, sans-serif;
-  color: inherit;
-  list-style-type: none;
+.footerInfo {
+  max-width: 435px;
 }
 
-.footerLinksLabel {
-  font-family: Golos, sans-serif;
-  font-weight: bold;
-  margin-top: 0;
+.footerMenuLabel {
+  margin-bottom: 25px;
+
+  font-size: 16px;
+  line-height: calc(19 / 16 * 100%);
+  font-weight: 700;
+}
+
+.footerLinks li:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.footerLinks a {
+  font-weight: 500;
+}
+
+.footerInline {
+  display: flex;
+  margin-bottom: 40px;
 }
 
 .footerCart {
@@ -49,12 +68,34 @@ li {
   background-image: url(../../assets/svg/add_shopping_cart_btn.svg);
 }
 
-.footerInline {
-  display: flex;
+.footerInline .footerMenuLabel {
+  margin-bottom: 0;
+}
+
+.footerMerch {
+ display: flex; 
+ flex-direction: column;
+ max-width: 315px;
+}
+
+.footerLinksMerch {
+  flex: 1 0 auto;
+  margin-bottom: 25px;
+}
+
+.footerProducts {
+  max-width: 202px;
+}
+
+.footerCategories {
+  max-width: 315px;
+}
+
+.footerAdditional {
+  max-width: 276px;
 }
 
 .footerSocial {
-  margin-top: 90px;
   display: flex;
 }
 
@@ -96,4 +137,21 @@ li {
   height: 24px;
   margin-right: 3%;
   background-image: url(../../assets/svg/social_btn-4.svg);
+}
+
+@media(max-width: 992px) {
+  .footerBody {
+    padding: 40px 0 70px 0;
+  }
+}
+
+@media(max-width: 768px) {
+  .footerBody {
+    display: block;
+    padding: 30px 0 40px 0;
+  }
+
+  .footerColumn1 {
+    margin-bottom: 30px;
+  }
 }
