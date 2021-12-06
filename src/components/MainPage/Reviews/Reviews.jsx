@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 import React from 'react';
 import './reviews.css';
@@ -7,7 +8,8 @@ import img6 from './img/content_merch_6.png';
 import img7 from './img/content_merch_7.png';
 import img8 from './img/content_merch_8.png';
 
-export default function Reviews() {
+export default function Reviews({ reviews }) {
+  console.log(reviews);
   return (
     <div className="reviews">
       <div className="container">

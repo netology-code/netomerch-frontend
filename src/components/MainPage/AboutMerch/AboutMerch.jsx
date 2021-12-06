@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable prefer-template */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable max-len */
@@ -7,7 +8,8 @@ import img2 from './img/content_merch_2.jpg';
 import img3 from './img/content_merch_3.jpg';
 import img4 from './img/content_merch_4.jpg';
 
-export default function AboutMerch() {
+export default function AboutMerch({ popular }) {
+  console.log(popular);
   return (
     <section className={styles.aboutMerch_section}>
       <div className={styles.aboutMerch_container}>
