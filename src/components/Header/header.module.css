@@ -1,72 +1,117 @@
-.header {
+.headerBody {
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 80px;
-  width: 100%;
 }
 
 .headerLogo {
-  cursor: pointer;
-  width: 182px;
+  flex: 0 0 183px;
   height: 20px;
-  margin-left: 1.5%;
-  background-image: url(../../assets/svg/logo_netology_full.svg);
 }
 
-.headerLinks {
-  width: 20%;
-  padding: 10px;
-  color: grey;
-  font-size: 20px;
+.headerMenu {
+  padding: 0 20px;
+  margin-left: -150px;
 }
 
-a {
-  font-family: Golos, sans-serif;
-  text-decoration: none;
-  color: inherit;
-}
-
-.headersLinksList {
+.headerMenuList {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  list-style-type: none;
 }
 
-.headersLinksList li {
-  padding: 0;
+.headerMenuList li:not(:last-child) {
+  margin-right: 100px;
+}
+
+.headerMenuList a {
+  font-size: 20px;
+  line-height: calc(24 / 20 * 100%);
 }
 
 .headerIcons {
   display: flex;
-  align-items: center;
   justify-content: right;
-  margin-right: 1.5%;
-  width: 182px;
+  flex: 0 0 182px;
 }
 
 .headerIcons > *:not(:last-child) {
   margin-right: 25px;
 }
 
-.headerSearch {
-  cursor: pointer;
+.headerIcons div {
   width: 24px;
   height: 24px;
+}
+
+.headerSearch {
   background-image: url(../../assets/svg/menu_search_btn.svg);
 }
 
 .headerHelp {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
   background-image: url(../../assets/svg/menu_help_btn.svg);
 }
 
 .headerCart {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
   background-image: url(../../assets/svg/menu_add_shopping_cart_btn.svg);
+}
+
+@media(max-width: 1200px) {
+  .headerBody {
+    min-height: 70px;
+  }
+
+  .headerMenu {
+    margin-left: 0;
+  }
+
+  .headerMenuList li:not(:last-child) {
+    margin-right: 80px;
+  }
+}
+
+@media(max-width: 992px) {
+  .headerBody {
+    min-height: 60px;
+  }
+
+  .headerMenuList li:not(:last-child) {
+    margin-right: 50px;
+  }
+
+  .headerMenuList a {
+    font-size: 18px;
+  }
+
+  .headerIcons {
+    flex: 0 0 110px;
+  }
+}
+
+@media(max-width: 768px) {
+  .headerBody {
+    min-height: 50px;
+  }
+
+  .headerLogo {
+    flex: 0 0 120px;
+    height: 14px;
+  }
+  
+  .headerMenuList li:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .headerMenuList a {
+    font-size: 16px;
+  }
+
+  .headerIcons {
+    flex: 0 0 80px;
+  }
+
+  .headerIcons div {
+    width: 24px;
+    height: 24px;
+  }
 }

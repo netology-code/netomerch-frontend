@@ -28,6 +28,7 @@ ul, ol {
 
 a {
 	text-decoration: none;
+	color: inherit;
 	cursor: pointer;
 }
 
@@ -46,10 +47,15 @@ img {
 
 /* Технические классы ------------------------------------------------------------------ */
 
+.max-container {
+	max-width: 1920px;
+	padding: 0 30px;
+	margin: 0 auto;
+}
+
 .container {
 	max-width: 1654px; /* 1624px - ширина контента по макету + 30px компенсировать отступы */
 	padding: 0 15px;
-
 	margin: 0 auto;
 }
 
@@ -76,3 +82,9 @@ img {
 	clip: rect(1px, 1px, 1px, 1px);
 }
 /* ------------------------------------------------------------------------------------- */
+
+@media(max-width: 992px) {
+  .max-container {
+    padding: 0 15px;
+  }
+}

@@ -24,12 +24,15 @@ ul {
   padding: 0;
 }
 
+.footerLinks li {
+  padding-top: 20px;
+}
+
 li {
   cursor: pointer;
   font-family: Golos, sans-serif;
   color: inherit;
   list-style-type: none;
-  padding-top: 20px;
 }
 
 .footerLinksLabel {
