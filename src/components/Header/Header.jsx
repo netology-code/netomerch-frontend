@@ -7,13 +7,13 @@ const Header = () => (
   <header className={styles.header}>
     <div className="max-container">
       <div className={styles.headerBody}>
-        <a href="/#" className={styles.headerLogo}>
+        <a href="/" className={styles.headerLogo}>
           <img src={logo} alt="Logo Netologia" />
         </a>
         <nav className={styles.headerMenu}>
           <ul className={styles.headerMenuList}>
             <li>
-              <Link to="/">Каталог</Link>
+              <Link to="/catalog">Каталог</Link>
             </li>
             <li>
               <Link to="/examples">О Нетологии</Link>
