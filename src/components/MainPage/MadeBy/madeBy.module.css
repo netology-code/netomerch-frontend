@@ -20,7 +20,7 @@
 
 .madeByHeading {
   font-size: 36px;
-  font-weight: bold;
+  font-weight: 900;
   text-transform: uppercase;
   margin-left: 3%;
   margin-right: 34%;
@@ -134,7 +134,7 @@
 }
 
 .madeByMinorLabel {
-  font-weight: bold;
+  font-weight: 600;
   font-size: 24px;
 }
 
@@ -142,11 +142,13 @@
   margin-top: 24px;
   margin-bottom: 24px;
   font-size: 20px;
+  font-weight: 500;
 }
 
 .madeByLink {
   color: #0066FF;
   font-size: 20px;
+  font-weight: 700;
 }
 
 @media (max-width: 1895px) {
