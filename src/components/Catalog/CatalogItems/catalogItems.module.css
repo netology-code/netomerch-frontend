@@ -1,0 +1,71 @@
+.catalogItems_content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+  max-width: 1625px;
+  margin-top: 50px; /* удалить после добав. CatalogFilter */
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Golos Text', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-align: left;
+  background-color: #FFFFFF;
+}
+
+.catalogItems_item {
+  flex: 0 1 20%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 285px;
+  min-height: 424px;
+  margin-bottom: 51px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.catalogItems_image {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 20px; 
+  overflow: hidden;
+}
+
+.catalogItems_link {
+  margin-left: 1px;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #4B4950;
+}
+
+.catalogItems_block_price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.catalogItems_price {
+  margin-left: 2px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #4B4950;
+}
+
+.catalogItems_cart {
+  width: 30px;
+  height: 25px;
+  background-image: url(../../../assets/svg/catalog_add__shopping_cart_btn.svg);
+  background-size: contain;
+}
+
+@media (max-width: 1650px) {
+  .catalogItems_content {
+    justify-content: space-around;
+  }
+}
