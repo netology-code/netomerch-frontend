@@ -1,8 +1,12 @@
+.catalogItems_wrapper {
+  position: relative;
+  display: flex;
+}
+
 .catalogItems_content {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  position: relative;
   max-width: 1625px;
   margin-top: 50px; /* удалить после добав. CatalogFilter */
   margin-left: auto;
@@ -12,6 +16,38 @@
   font-weight: normal;
   text-align: left;
   background-color: #FFFFFF;
+}
+
+.catalogItems_star {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  background-image: url(../../../assets/svg/atr_star_about-merch.svg);
+  background-size: contain;
+}
+
+.catalogItems_star__1 {
+  left: 39px;
+  top: 59px;
+}
+
+.catalogItems_star__2 {
+  left: 753px;
+  top: 358px;
+}
+
+.catalogItems_star__3 {
+  left: 1091px;
+  top: 484px;
+
+  background-image: url(../../../assets/svg/atr_star.svg);
+}
+
+.catalogItems_star__4 {
+  left: 1845px;
+  top: 787px;
+
+  background-image: url(../../../assets/svg/atr_star.svg);
 }
 
 .catalogItems_item {
