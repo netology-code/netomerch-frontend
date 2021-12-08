@@ -32,3 +32,29 @@
 
   transform: translateY(100%);
 }
+
+@media(max-width: 1200px) {
+  .main-top {
+    padding: 60px 0 60px 0;
+  }
+
+  .slider-main__control {
+    bottom: -14px;
+  }
+}
+
+@media(max-width: 992px) {
+  .main-top {
+    padding: 50px 0 60px 0;
+  }
+}
+
+@media(max-width: 768px) {
+  .main-top {
+    padding: 40px 0 40px 0;
+  }
+
+  .slider-main__control {
+    bottom: -5px;
+  }
+}
