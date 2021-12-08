@@ -4,13 +4,8 @@
   background-color: #FFFFFF;
 }
 
-.aboutMerch_container {
+.aboutMerch_body {
   position: relative;
-  max-width: 1920px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 148px;
-  padding-right: 148px;
 }
 
 .aboutMerch_square {
@@ -44,25 +39,23 @@
   opacity: 0.7;
 }
 
-.aboutMerch_slider {
+.aboutMerch_items {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 139px;
+  margin: 0 -40px 70px -40px;
 }
 
 .aboutMerch_item {
-  flex: 0 0 33.33%;
-  max-width: 488px;
+  flex: 0 1 33.33%;
+  padding: 0 40px;
 }
 
 .aboutMerch_image {
   position: relative;
-  width: 100%;
-  height: 100%;
   border-radius: 8px 8px 16px 16px;
   margin-bottom: 30px;
 
   padding-bottom: 91.9%;
+  overflow: hidden;
 }
 
 .aboutMerch_image::after {
@@ -73,7 +66,6 @@
   width: 100%;
   height: 8px;
   background-color: #4B4950;
-  border-radius: 16px 16px 8px 8px ;
 }
 
 .aboutMerch_image img {
@@ -91,11 +83,12 @@
   height: 54px;
   background-image: url(../../../assets/svg/atr_star_about-merch.svg);
   background-size: contain;
-  left: 50px;
-  bottom: 72px;
+  left: -90px;
+  bottom: -10px;
 }
 
 .aboutMerch_link {
+  display: inline-block;
   font-family: 'Golos Text VF', sans-serif;
   font-weight: 500;
   font-size: 24px;
@@ -112,76 +105,107 @@
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  width: 506px;
-  height: 52px;
+  padding: 14px 10px;
+  max-width: 506px;
   background-color: #4B4950;
-  font-family: 'Golos Text', sans-serif;
-  font-style: normal;
   font-weight: bold;
   font-size: 20px;
   line-height: 1.2;
-  align-items: center;
   text-align: center;
   color: #FFFFFF;
 }
 
-@media (max-width: 1750px) {
-  .aboutMerch_container {
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: 5%;
-    margin-right: 5%;
-  }
 
+@media (max-width: 1750px) {
   .aboutMerch_star {
     left: 3%;
+    bottom: -3%;
   }
 }
 
-@media (max-width: 1630px) {
+@media (max-width: 1400px) {
   .aboutMerch_link {
-    font-size: 100%;
+    font-size: 21px;
+  }
+
+  .aboutMerch_items {
+    margin: 0 -30px 70px -30px;
+  }
+  
+  .aboutMerch_item {
+    padding: 0 30px;
   }
 }
 
-@media (max-width: 872px) {
-  .aboutMerch_slider {
-    margin-bottom: 5%;
+@media (max-width: 1200px) {
+  .aboutMerch_link {
+    font-size: 18px;
   }
 
-  .aboutMerch_slider {
-    display: flex;
-    flex-direction: column;
+  .aboutMerch_items {
+    margin: 0 -20px 70px -20px;
   }
-
-  .aboutMerch_slider .aboutMerch_item {
-    display: flex;
-    flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10%;
+  
+  .aboutMerch_item {
+    padding: 0 20px;
   }
+}
 
+@media (max-width: 992px) {
   .aboutMerch_header {
     font-size: 30px;
   }
 
-  .aboutMerch_button {
-    width: 70%;
+  .aboutMerch_items {
+    margin: 0 -10px 50px -10px;
   }
+  
+  .aboutMerch_item {
+    padding: 0 10px;
+  }
+
+  .aboutMerch_link {
+    font-size: 17px;
+  }
+
 }
 
-@media (min-width: 872px) {
-  .aboutMerch_slider .aboutMerch_item:nth-child(2) {
-    margin-left: 25px;
-    margin-right: 25px;
+
+@media (max-width: 768px) {
+  .aboutMerch_text {
+    margin-bottom: 30px;
+    font-size: 17px;
   }
+
+  .aboutMerch_items {
+    display: block;
+    margin: 0;
+    margin: 0 0 50px 0;
+  }
+  
+  .aboutMerch_item {
+    max-width: 488px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .aboutMerch_item:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  .aboutMerch_image {
+    margin-bottom: 15px;
+  }
+
 }
 
 @media (max-width: 690px) {
+  .aboutMerch_header {
+    font-size: 23px;
+  }
+
   .aboutMerch_square {
-    width: 1px;
-    height: 1px;
+    display: none;
   }
 
   .aboutMerch_header {
