@@ -3,19 +3,24 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   max-width: 285px;
-  min-height: 424px;
   margin-bottom: 51px;
 
   z-index: 10;
 }
 
 .catalogItem_image {
-  width: 100%;
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+
+  padding-bottom: 10px;
+
   border-radius: 20px; 
   overflow: hidden;
+}
+
+.catalogItem_image img {
+  border-radius: 20px;
 }
 
 .catalogItem_link {
@@ -26,6 +31,8 @@
 }
 
 .catalogItem_block_price {
+  align-self: stretch;
+
   display: flex;
   justify-content: space-between;
   align-items: center;

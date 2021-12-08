@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import styles from './catalogItem.module.css';
 import img from '../../../../assets/img/catalog_unit_content.png';
@@ -5,7 +6,7 @@ import img from '../../../../assets/img/catalog_unit_content.png';
 const CatalogItem = () => (
   <div className={styles.catalogItem_item}>
     <div>
-      <div className={styles.catalogItem_image}>
+      <div className={`${styles.catalogItem_image} ${styles.ibg}`}>
         <img src={img} alt="1" />
       </div>
 

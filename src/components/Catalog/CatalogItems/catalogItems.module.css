@@ -24,7 +24,6 @@
   position: absolute;
   width: 46px;
   height: 46px;
-  /* background-image: url(../../../assets/svg/atr_star_about-merch.svg); */
   mask-image: url(../../../assets/svg/atr_star.svg);
   background-size: contain;
   background-color: #49D2A4;
@@ -33,7 +32,6 @@
 .catalogItems_star__1 {
   left: 33px;
   top: 58px;
-
 }
 
 .catalogItems_star__2 {
@@ -44,7 +42,6 @@
 .catalogItems_star__3 {
   left: 1085px;
   top: 482px;
-
   background-color: #006AFF;
 }
 
