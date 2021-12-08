@@ -1,6 +1,8 @@
 .catalogItems_wrapper {
   position: relative;
   display: flex;
+
+  overflow: hidden;
 }
 
 .catalogItems_content {
@@ -22,82 +24,40 @@
   position: absolute;
   width: 46px;
   height: 46px;
-  background-image: url(../../../assets/svg/atr_star_about-merch.svg);
+  /* background-image: url(../../../assets/svg/atr_star_about-merch.svg); */
+  mask-image: url(../../../assets/svg/atr_star.svg);
   background-size: contain;
+  background-color: #49D2A4;
 }
 
 .catalogItems_star__1 {
-  left: 39px;
-  top: 59px;
+  left: 33px;
+  top: 58px;
+
 }
 
 .catalogItems_star__2 {
-  left: 753px;
-  top: 358px;
+  left: 746px;
+  top: 356px;
 }
 
 .catalogItems_star__3 {
-  left: 1091px;
-  top: 484px;
+  left: 1085px;
+  top: 482px;
 
-  background-image: url(../../../assets/svg/atr_star.svg);
+  background-color: #006AFF;
 }
 
 .catalogItems_star__4 {
-  left: 1845px;
-  top: 787px;
-
-  background-image: url(../../../assets/svg/atr_star.svg);
+  left: 1839px;
+  top: 786px;
+  background-color: #006AFF;
 }
 
-.catalogItems_item {
-  flex: 0 1 20%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  max-width: 285px;
-  min-height: 424px;
-  margin-bottom: 51px;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-.catalogItems_image {
-  width: 100%;
-  margin-bottom: 10px;
-  border-radius: 20px; 
-  overflow: hidden;
-}
-
-.catalogItems_link {
-  margin-left: 1px;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 1.2;
-  color: #4B4950;
-}
-
-.catalogItems_block_price {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.catalogItems_price {
-  margin-left: 2px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 1.2;
-  color: #4B4950;
-}
-
-.catalogItems_cart {
-  width: 30px;
-  height: 25px;
-  background-image: url(../../../assets/svg/catalog_add__shopping_cart_btn.svg);
-  background-size: contain;
+.catalogItems_star__5 {
+  left: 154px;
+  top: 1074px;
+  background-color: #006AFF;
 }
 
 @media (max-width: 1650px) {
