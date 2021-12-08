@@ -9,10 +9,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  max-width: 1625px;
   margin-top: 50px; /* удалить после добав. CatalogFilter */
-  margin-left: auto;
-  margin-right: auto;
   font-family: 'Golos Text', sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -62,3 +59,12 @@
     justify-content: space-around;
   }
 }
+
+@media (max-width: 1400px) {
+  .catalogItems_content {
+    flex-wrap: wrap;
+    /* flex-flow: column wrap;
+    align-content: center; */
+  }
+}
+
