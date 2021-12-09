@@ -1,6 +1,7 @@
 .madeBy {
   background-color: #FFFFFF;
   margin-bottom: 120px;
+  overflow: hidden;
 }
 
 .madeByLabel {
@@ -158,5 +159,14 @@
 
   .madeByPhoto:nth-child(9) {
     margin-left: 0;
+  }
+}
+
+@media (max-width: 1700px) {
+  .madeByStar {
+    top: -70px;
+    left: auto;
+    right: -30px;
+    bottom: auto;
   }
 }
