@@ -1,0 +1,17 @@
+{
+  "items": [
+    {
+      "items_id": "number",
+      "name": "string",
+      "popular": "boolean",
+      "short_description": "string",
+      "image": "string",
+      "price": "number",
+      "categories": ["string"],
+      "properties": {
+        "size": ["string"],
+        "color?": ["string"]
+      }
+    }
+  ]
+}
