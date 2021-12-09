@@ -1,0 +1,70 @@
+.catalogItems_wrapper {
+  position: relative;
+  display: flex;
+
+  overflow: hidden;
+}
+
+.catalogItems_content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 50px; /* удалить после добав. CatalogFilter */
+  font-family: 'Golos Text', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-align: left;
+  background-color: #FFFFFF;
+}
+
+.catalogItems_star {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  mask-image: url(../../../assets/svg/atr_star.svg);
+  background-size: contain;
+  background-color: #49D2A4;
+}
+
+.catalogItems_star__1 {
+  left: 33px;
+  top: 58px;
+}
+
+.catalogItems_star__2 {
+  left: 746px;
+  top: 356px;
+}
+
+.catalogItems_star__3 {
+  left: 1085px;
+  top: 482px;
+  background-color: #006AFF;
+}
+
+.catalogItems_star__4 {
+  left: 1839px;
+  top: 786px;
+  background-color: #006AFF;
+}
+
+.catalogItems_star__5 {
+  left: 154px;
+  top: 1074px;
+  background-color: #006AFF;
+}
+
+@media (max-width: 1650px) {
+  .catalogItems_content {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 1400px) {
+  .catalogItems_content {
+    flex-wrap: wrap;
+    /* flex-flow: column wrap;
+    align-content: center; */
+  }
+}
+
