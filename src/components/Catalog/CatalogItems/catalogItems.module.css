@@ -7,7 +7,7 @@
 
 .catalogItems_content {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin-top: 50px; /* удалить после добав. CatalogFilter */
   font-family: 'Golos Text', sans-serif;
@@ -15,6 +15,9 @@
   font-weight: normal;
   text-align: left;
   background-color: #FFFFFF;
+
+  margin-left: -25px;
+  margin-right: -25px;
 }
 
 .catalogItems_star {
@@ -55,13 +58,16 @@
 }
 
 @media (max-width: 1650px) {
-  .catalogItems_content {
-    justify-content: space-around;
+  .catalogItem_item {
+    margin-left: -1.49%;
+    margin-right: -1.49%;
   }
 }
 
-@media (max-width: 1400px) {
-  .catalogItems_content {
-    flex-wrap: wrap;
+
+@media (max-width: 1600px) {
+  .catalogItem_content {
+    margin-left: -0.57%;
+    margin-right: -0.57%;
   }
 }
