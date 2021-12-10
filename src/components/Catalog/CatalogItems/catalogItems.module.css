@@ -63,8 +63,5 @@
 @media (max-width: 1400px) {
   .catalogItems_content {
     flex-wrap: wrap;
-    /* flex-flow: column wrap;
-    align-content: center; */
   }
 }
-
