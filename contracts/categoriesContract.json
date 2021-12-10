@@ -12,5 +12,19 @@
       "id": "number",
       "name": "string"
     }
+  ],
+  "direction": [
+    {
+      "id": "number",
+      "name": "string"
+    },
+    {
+      "id": "number",
+      "name": "string"
+    },
+    {
+      "id": "number",
+      "name": "string"
+    }
   ]
 }
