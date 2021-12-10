@@ -7,13 +7,14 @@ import img5 from './img/content_merch_5.png';
 import img6 from './img/content_merch_6.png';
 import img7 from './img/content_merch_7.png';
 import img8 from './img/content_merch_8.png';
+import Title from '../../ui/Title';
 
 export default function Reviews({ reviews }) {
-  console.log(reviews);
+  console.log('reviews', reviews);
   return (
     <div className="reviews">
       <div className="container">
-        <div className="reviews__title title">Блок с отзывами на товары</div>
+        <Title cn="reviews__title" text="Блок с отзывами на товары" />
         <div className="reviews__text">
           Часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века. В то время некий безымянный для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum.
         </div>

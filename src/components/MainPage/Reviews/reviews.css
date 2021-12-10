@@ -1,34 +1,5 @@
 /* reviews.css */
 
-.title {
-  padding-left: 64px;
-  font-size: 36px;
-  line-height: calc(43 / 36 * 100%); /* Автоматический пересчет line-height при смене font-size. */
-  font-weight: 900;
-
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.title::before {
-  content: '';
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  margin: 8px 34px 0 -64px;
-  vertical-align: top;
-
-  background-color: #006AFF;
-}
-
-.title__pink::before {
-  background-color: #E51A5E;
-}
-
-.title__green::before {
-  background-color: #49D2A4;
-}
-
 .btn {
   display: block;
   max-width: 506px;

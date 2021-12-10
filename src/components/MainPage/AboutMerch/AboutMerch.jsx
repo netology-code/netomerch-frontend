@@ -4,6 +4,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import styles from './aboutMerch.module.css';
+import Title from '../../ui/Title';
 import img2 from './img/content_merch_2.jpg';
 import img3 from './img/content_merch_3.jpg';
 import img4 from './img/content_merch_4.jpg';
@@ -14,9 +15,7 @@ export default function AboutMerch({ popular }) {
     <section className={styles.aboutMerch_section}>
       <div className="container">
         <div className={styles.aboutMerch_body}>
-          <div className={styles.aboutMerch_square} />
-
-          <h2 className={styles.aboutMerch_header}>информационный блок о мерче</h2>
+          <Title cn={styles.aboutMerch_header} text="информационный блок о мерче" sqColor="pink" />
           <p className={styles.aboutMerch_text}>Часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum,</p>
 
           <div className={styles.aboutMerch_items}>
