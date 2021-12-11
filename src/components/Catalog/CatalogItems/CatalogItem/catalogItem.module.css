@@ -89,20 +89,9 @@
 @media (max-width: 1000px) { 
   .catalogItem_item {
     flex-basis: 33.33%;
-  }
-
-  .catalogItem_content {
-    margin-left: -1%;
-    margin-right: -1%;
-  }
-
-  .catalogItem_item {
+    margin-bottom: 5.4%;
     padding-left: 1%;
     padding-right: 1%;
-  }
-
-  .catalogItem_item {
-    margin-bottom: 5.4%;
   }
 }
 
@@ -135,9 +124,6 @@
 @media (max-width: 320px) {
   .catalogItem_item {
     flex-basis: 100%;
-  }
-
-  .catalogItem_item {
     margin-bottom: 30px;
   }
 }

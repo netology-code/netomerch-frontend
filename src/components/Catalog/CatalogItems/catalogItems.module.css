@@ -1,7 +1,6 @@
 .catalogItems_wrapper {
   position: relative;
   display: flex;
-
   overflow: hidden;
 }
 
@@ -15,12 +14,6 @@
   font-weight: normal;
   text-align: left;
   background-color: #FFFFFF;
-
-  padding-left: 25px;
-  padding-right: 25px;
-
-  margin-left: -25px;
-  margin-right: -25px;
 }
 
 .catalogItems_star {
@@ -61,16 +54,22 @@
 }
 
 @media (max-width: 1650px) {
-  .catalogItem_item {
+  .catalogItem_content {
     margin-left: -1.49%;
     margin-right: -1.49%;
   }
 }
 
-
 @media (max-width: 1600px) {
   .catalogItem_content {
     margin-left: -0.57%;
     margin-right: -0.57%;
+  }
+}
+
+@media (max-width: 1000px) { 
+  .catalogItem_content {
+    margin-left: -1%;
+    margin-right: -1%;
   }
 }
