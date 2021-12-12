@@ -1,27 +1,10 @@
 .answers {
-  padding: 0 15px;
-  max-width: 1654px;
-  margin: 0 auto 90px auto;
+  margin-bottom: 90px;
 }
 
 .answers h2 {
-  font-weight: 900;
-  color: #4B4950;
-  font-size: 36px;
-  text-transform: uppercase;
   display: flex;
-  align-items: center;
   margin-bottom: 60px;
-}
-
-.answers h2::before {
-  content: "";
-  display: block;
-  width: 25px;
-  height: 25px;
-  background-color: #006AFF;
-  margin-right: 35px;
-  flex-shrink: 0;
 }
 
 .answers h2::after {
@@ -35,9 +18,10 @@
   background-size: contain;
   margin-left: auto;
   flex-shrink: 0;
+  transform: translateY(-10px);
 }
 
 .accordion {
   max-width: 1150px;
-  margin: auto;
+  margin: 0 auto;
 }
