@@ -5,6 +5,7 @@
   "price": "integer",
   "images": [
     {
+      "is_main": "boolean",
       "color":  "string",
       "images": ["string"]
     }
