@@ -6,8 +6,13 @@
   "images": [
     {
       "is_main": "boolean",
-      "color":  "string",
-      "images": ["string"]
+      "color": "string",
+      "images": [
+        {
+          "is_main": "bool",
+          "image": "string"
+        }
+      ]
     }
   ],
   "size": ["string"],
