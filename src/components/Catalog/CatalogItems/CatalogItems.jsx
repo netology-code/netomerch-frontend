@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './catalogItems.module.css';
 import CatalogItem from './CatalogItem/CatalogItem';
 
-const mockData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const mockData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 export default function CatalogItems() {
   const content = mockData;
@@ -26,7 +26,7 @@ export default function CatalogItems() {
   }, [fetching]);
 
   const scrollHandler = (e) => {
-    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100 && partContent.length < totalCount) {
+    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 300 && partContent.length < totalCount) {
       setFetching(true);
     }
   };
