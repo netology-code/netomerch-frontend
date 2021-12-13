@@ -27,6 +27,12 @@
       "name": "string"
     }
   ],
+  "sizes": [
+    {
+      "id": "number",
+      "name": "string"
+    }
+  ],
   "items": [
     {
       "items_id": "number",
@@ -36,7 +42,7 @@
       "image": "string",
       "price": "number",
       "categories": "string",
-      "specialization": ["string"],
+      "specialization": "string",  /* Обсудили с дизами, что товар к 1 специализации принадлежит */
       "size": ["string"]
     }
   ]

@@ -1,7 +1,7 @@
 {
     "name": "string",
     "email": "string",
-    "phone": "phonefield(+79999999999)",
+    "phone": "phonefield (+79999999999)",
     "total_sum": "integer",
     "final_sum": "integer",
     "address": "String",

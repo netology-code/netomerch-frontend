@@ -1,7 +1,5 @@
 {
-  "id": "integer",
-  "promocode": "string",
-  "email": "string",
+  "promocode": "string", /* это Primary_key */
   "item": {
     "item_id": "integer",
     "name": "string",
