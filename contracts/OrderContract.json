@@ -1,0 +1,19 @@
+{
+    "name": "string",
+    "email": "string",
+    "phone": "phonefield(+79999999999)",
+    "total_sum": "integer",
+    "final_sum": "integer",
+    "address": "String",
+    "comment": "String",
+    "promocode": "integer",
+    "items": [
+        {
+            "item_id": "integer",
+            "count": "integer",
+            "size": "string",
+            "color": "string",
+            "price": "integer"
+        }
+    ]
+}

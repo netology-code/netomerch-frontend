@@ -1,0 +1,43 @@
+{
+  "categories": [
+    {
+      "id": "number",
+      "name": "string"
+    },
+    {
+      "id": "number",
+      "name": "string"
+    },
+    {
+      "id": "number",
+      "name": "string"
+    }
+  ],
+  "specialization": [
+    {
+      "id": "number",
+      "name": "string"
+    },
+    {
+      "id": "number",
+      "name": "string"
+    },
+    {
+      "id": "number",
+      "name": "string"
+    }
+  ],
+  "items": [
+    {
+      "items_id": "number",
+      "name": "string",
+      "popular": "boolean",
+      "short_description": "string",
+      "image": "string",
+      "price": "number",
+      "categories": "string",
+      "specialization": ["string"],
+      "size": ["string"]
+    }
+  ]
+}

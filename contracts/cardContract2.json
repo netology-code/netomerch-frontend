@@ -1,0 +1,36 @@
+{
+  "item_id": "integer",
+  "name": "string",
+  "description": "string",
+  "price": "integer",
+  "images": [
+    {
+      "color":  "string",
+      "images": ["string"]
+    }
+  ],
+  "size": ["string"],
+  "reviews": [
+    {
+      "id": "number",
+      "text": "string",
+      "author": "string",
+      "author_image": "string",
+      "date": "timestamp"
+    },
+    {
+      "id": "number",
+      "text": "string",
+      "author": "string",
+      "author_image": "string",
+      "date": "timestamp"
+    },
+    {
+      "id": "number",
+      "text": "string",
+      "author": "string",
+      "author_image": "string",
+      "date": "timestamp"
+    }
+  ]
+}
