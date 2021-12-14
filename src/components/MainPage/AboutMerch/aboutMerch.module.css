@@ -8,24 +8,8 @@
   position: relative;
 }
 
-.aboutMerch_square {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  top: 9px;
-  background-image: url(../../../assets/svg/atr_cube_about-merch.svg);
-}
-
 .aboutMerch_header {
-  margin-left: 63px;
   margin-bottom: 16px;
-  font-weight: 900;
-  font-size: 38px;
-  line-height: 1.2;
-  letter-spacing: 2px;
-  word-spacing: 5px;
-  text-transform: uppercase;
-  color: #4B4950;
 }
 
 .aboutMerch_text {
