@@ -2,11 +2,11 @@
     "name": "string",
     "email": "string",
     "phone": "phonefield (+79999999999)",
-    "total_sum": "integer",
-    "final_sum": "integer",
+    "total_sum": "decimal",
+    "final_sum": "decimal",
     "address": "String",
     "comment": "String",
-    "promocode": "integer",
+    "promocode": "string",
     "items": [
         {
             "item_id": "integer",

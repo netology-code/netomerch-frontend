@@ -15,7 +15,7 @@
       ]
     }
   ],
-  "size": ["string"],
+  "sizes": ["string"],
   "reviews": [
     {
       "id": "number",

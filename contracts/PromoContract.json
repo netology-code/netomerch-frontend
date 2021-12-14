@@ -7,10 +7,16 @@
     "price": "integer",
     "images": [
       {
-        "color":  "string",
-        "images": ["string"]
+        "is_main": "boolean",
+        "color": "string",
+        "images": [
+          {
+            "is_main": "bool",
+            "image": "string"
+          }
+        ]
       }
     ],
-    "size": ["string"]
+    "sizes": ["string"]
   }
 }
