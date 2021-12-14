@@ -72,6 +72,7 @@
 
 .slider-rewiews__container {
   display: flex;
+  justify-content: center;
   margin: 0 -30px 46px -30px;
 }
 
@@ -119,7 +120,6 @@
   }
 
   .slider-rewiew {
-    flex: 0 1 25%;
     padding: 0 20px;
   }
 
@@ -129,7 +129,27 @@
 }
 
 @media(max-width: 992px) {
+  .slider-rewiews {
+    position: relative;
+  }
 
+  .slider-rewiews::after {
+    content: 'Отзывы пока без адаптива';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid gray;
+
+    font-size: 50px;
+    font-weight: 600;
+    color: #006AFF;
+  }
+
+  /*
   .slider-rewiews__container {
     margin: 0 -15px 46px -15px;
   }
@@ -141,9 +161,9 @@
 
   .slider-rewiew__link {
     font-size: 20px;
-  }
+  }*/
 }
-
+/*
 @media(max-width: 768px) {
 
   .slider-rewiews__container {
@@ -160,7 +180,7 @@
     font-size: 20px;
   }
 }
-
+*/
 .reviews__btn {
   margin: 0 auto;
 }
