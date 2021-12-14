@@ -32,9 +32,9 @@ export const fetchMainPage = () => async (dispatch) => {
       throw new Error(response.statusText || 'Что-то пошло не так');
     }
 
-    const json = await response.json();
+    const { reviews, popular } = await response.json();
 
-    dispatch(fetchMainPageSuccess({ reviews: json.reviews, popular: json.items }));
+    dispatch(fetchMainPageSuccess({ reviews, popular }));
   } catch (error) {
     dispatch(fetchMainPageFailure(error.message));
   }
