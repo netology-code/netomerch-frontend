@@ -7,6 +7,7 @@
 import React, { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import './reviews.css';
+import Title from '../../ui/Title';
 
 /*
 import img5 from './img/content_merch_5.png';
@@ -87,7 +88,7 @@ export default function Reviews(/* { reviews } */) {
   return (
     <div className="reviews">
       <div className="container">
-        <div className="reviews__title title">Блок с отзывами на товары</div>
+        <Title cn="reviews__title" text="Блок с отзывами на товары" />
         <div className="reviews__text">
           Часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века. В то время некий безымянный для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum.
         </div>

@@ -4,6 +4,7 @@
 import React, { useState } from 'react';
 import Accordion from './Accordion/Accordion';
 import style from './answers.module.css';
+import Title from '../ui/Title';
 
 const mockData = [
   {
@@ -47,21 +48,23 @@ const Answers = () => {
 
   return (
     <section className={style.answers}>
-      <header>
-        <h2>Раздел с ответами на часто встречающиеся вопросы</h2>
-      </header>
+      <div className="container">
+        <header>
+          <Title text="Раздел с ответами на часто встречающиеся вопросы" sqSize="25" />
+        </header>
 
-      <div className={style.accordion}>
-        { content.map((item) => (
-          <Accordion
-            key={item.id}
-            id={item.id}
-            title={item.question}
-            content={item.answer}
-            isOpen={item.isOpen}
-            onClick={handleClick}
-          />
-        ))}
+        <div className={style.accordion}>
+          { content.map((item) => (
+            <Accordion
+              key={item.id}
+              id={item.id}
+              title={item.question}
+              content={item.answer}
+              isOpen={item.isOpen}
+              onClick={handleClick}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
