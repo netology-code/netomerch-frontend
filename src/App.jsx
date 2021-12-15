@@ -5,6 +5,7 @@ import MainPage from './components/MainPage/MainPage';
 import Catalog from './components/Catalog/Catalog';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Product from './components/Product/Product';
 import './app.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route exact path="/" component={MainPage} />
           <Route exact path="/catalog" component={Catalog} />
           {/* <Route path="/examples" component={Examples} /> */}
+          <Route exact path="/product" component={Product} />
         </main>
         <Footer />
       </div>
