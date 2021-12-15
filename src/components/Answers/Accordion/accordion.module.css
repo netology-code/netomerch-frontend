@@ -75,7 +75,7 @@
   width: 50%;
   height: 3px;
   background-color: #FFFFFF;
-  transition: all .3s;
+  transition: all .4s;
 }
 
 .cross::before {
@@ -117,10 +117,10 @@
   font-size: 20px;
   max-height: 0;
   overflow: hidden;
-  transition: max-height .2s;
+  transition: max-height 0.25s cubic-bezier(0, 1, 0, 1);;
 }
 
 .open .content {
-  max-height: 400px;
-  overflow-y: scroll;
+  max-height: 9999px;
+  transition: max-height 0.2s cubic-bezier(1, 0, 1, 0);
 }
