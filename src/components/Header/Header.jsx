@@ -16,21 +16,21 @@ const Header = () => (
               <Link to="/catalog">Каталог</Link>
             </li>
             <li>
-              <Link to="/examples">О Нетологии</Link>
+              <Link to="/">О Нетологии</Link>
             </li>
             <li>
-              <Link to="/examples">FAQ</Link>
+              <Link to="/support">FAQ</Link>
             </li>
           </ul>
         </nav>
         <div className={styles.headerIcons}>
           {/* <div className={styles.headerSearch} /> */}
-          <a href="/#">
+          <Link to="/">
             <div className={styles.headerHelp} />
-          </a>
-          <a href="/#">
+          </Link>
+          <Link to="/cart">
             <div className={styles.headerCart} />
-          </a>
+          </Link>
         </div>
       </div>
     </div>
