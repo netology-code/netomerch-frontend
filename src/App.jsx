@@ -5,11 +5,13 @@ import MainPage from './components/MainPage/MainPage';
 import Catalog from './components/Catalog/Catalog';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Error404 from './components/Error404/Error404';
 import './app.css';
 
 function App() {
   return (
     <Router basename="/">
+      <Route exact path="/error" component={Error404} />
       <div className="wrapper">
         <Header />
         <main className="main">
