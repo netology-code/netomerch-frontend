@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/netomerch-frontend/static/css/main.23b6b6a3.chunk.css",
-    "main.js": "/netomerch-frontend/static/js/main.3481a50b.chunk.js",
-    "main.js.map": "/netomerch-frontend/static/js/main.3481a50b.chunk.js.map",
+    "main.css": "/netomerch-frontend/static/css/main.4054e07a.chunk.css",
+    "main.js": "/netomerch-frontend/static/js/main.050955ad.chunk.js",
+    "main.js.map": "/netomerch-frontend/static/js/main.050955ad.chunk.js.map",
     "runtime-main.js": "/netomerch-frontend/static/js/runtime-main.058b481e.js",
     "runtime-main.js.map": "/netomerch-frontend/static/js/runtime-main.058b481e.js.map",
-    "static/js/2.61802540.chunk.js": "/netomerch-frontend/static/js/2.61802540.chunk.js",
-    "static/js/2.61802540.chunk.js.map": "/netomerch-frontend/static/js/2.61802540.chunk.js.map",
+    "static/js/2.ccf34066.chunk.js": "/netomerch-frontend/static/js/2.ccf34066.chunk.js",
+    "static/js/2.ccf34066.chunk.js.map": "/netomerch-frontend/static/js/2.ccf34066.chunk.js.map",
     "index.html": "/netomerch-frontend/index.html",
-    "static/css/main.23b6b6a3.chunk.css.map": "/netomerch-frontend/static/css/main.23b6b6a3.chunk.css.map",
-    "static/js/2.61802540.chunk.js.LICENSE.txt": "/netomerch-frontend/static/js/2.61802540.chunk.js.LICENSE.txt",
+    "static/css/main.4054e07a.chunk.css.map": "/netomerch-frontend/static/css/main.4054e07a.chunk.css.map",
+    "static/js/2.ccf34066.chunk.js.LICENSE.txt": "/netomerch-frontend/static/js/2.ccf34066.chunk.js.LICENSE.txt",
     "static/media/index.css": "/netomerch-frontend/static/media/GolosText-Regular.e33fa9da.woff2",
     "static/media/footer.module.css": "/netomerch-frontend/static/media/social_btn.7bd9ee65.svg",
     "static/media/catalogBanner.module.css": "/netomerch-frontend/static/media/announcement_screen.0af3b7d3.svg",
@@ -25,12 +25,8 @@
     "static/media/content_merch_4.435c06db.jpg": "/netomerch-frontend/static/media/content_merch_4.435c06db.jpg",
     "static/media/content_merch_4.58963b7b.jpg": "/netomerch-frontend/static/media/content_merch_4.58963b7b.jpg",
     "static/media/content_merch_5.3c725c0b.jpg": "/netomerch-frontend/static/media/content_merch_5.3c725c0b.jpg",
-    "static/media/content_merch_5.a2149b21.png": "/netomerch-frontend/static/media/content_merch_5.a2149b21.png",
-    "static/media/content_merch_6.3fb18d42.png": "/netomerch-frontend/static/media/content_merch_6.3fb18d42.png",
     "static/media/content_merch_6.8ebed018.jpg": "/netomerch-frontend/static/media/content_merch_6.8ebed018.jpg",
-    "static/media/content_merch_7.2dccc004.png": "/netomerch-frontend/static/media/content_merch_7.2dccc004.png",
     "static/media/content_merch_7.d814afd3.jpg": "/netomerch-frontend/static/media/content_merch_7.d814afd3.jpg",
-    "static/media/content_merch_8.1bc0321f.png": "/netomerch-frontend/static/media/content_merch_8.1bc0321f.png",
     "static/media/madeBy.module.css": "/netomerch-frontend/static/media/crew9.f26cb29d.png",
     "static/media/logo_netology_full.9eed29a2.svg": "/netomerch-frontend/static/media/logo_netology_full.9eed29a2.svg",
     "static/media/logo_netology_full_white.ea18481d.svg": "/netomerch-frontend/static/media/logo_netology_full_white.ea18481d.svg",
@@ -40,8 +36,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.058b481e.js",
-    "static/js/2.61802540.chunk.js",
-    "static/css/main.23b6b6a3.chunk.css",
-    "static/js/main.3481a50b.chunk.js"
+    "static/js/2.ccf34066.chunk.js",
+    "static/css/main.4054e07a.chunk.css",
+    "static/js/main.050955ad.chunk.js"
   ]
 }
