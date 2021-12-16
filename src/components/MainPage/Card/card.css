@@ -1,11 +1,16 @@
 /* card.css */
 
+.card {
+  margin-bottom: 180px;
+}
+
 .card__title {
   margin-bottom: 50px;
 }
 
 .card__content {
   display: flex;
+  margin-bottom: 30px;
 }
 
 .card__column-1 {
@@ -52,7 +57,10 @@
 .actions-card__row-1 {
   display: flex;
   flex-wrap: wrap;
+  gap: 25px;
   padding: 24px 40px;
+  margin-bottom: 50px;
+
   background-color: #F2F2F2;
 }
 
@@ -69,16 +77,6 @@
   border-radius: 4px;
 }
 
-.actions-card__btn:not(:last-child) {
-  /* margin-right: 25px; */
-}
-
-/* .card-sizes {
-  display: flex;
-  gap: 25px;
-  flex-wrap: wrap;
-} */
-
 .card-sizes__btn {
   font-weight: 500;
   color: #4B4950;
@@ -87,10 +85,13 @@
   border: 1px solid #4B4950;
 }
 
+.card-sizes__btn_selected {
+  border-color: #006AFF;
+  background-color: #006AFF;
+  color: #ffffff;
+}
+
 .card-colors {
-  /* display: flex;
-  gap: 25px;
-  flex-wrap: wrap; */
   justify-content: end;
 }
 
@@ -98,4 +99,76 @@
   border: 1px solid rgba(75, 73, 80, 0.3);
   box-sizing: border-box;
   border-radius: 4px;
+}
+
+.card-colors__btn_selected {
+  border-color: #006AFF;
+  outline: 2px solid #006AFF;
+}
+
+.actions-card__row-2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.btn {
+  display: block;
+  max-width: 506px;
+  padding: 14px 10px;
+
+  font-weight: bold;
+  font-size: 20px;
+  line-height: calc(24 / 20 * 100%);
+  text-align: center;
+
+  border-radius: 4px;
+  background-color: #4B4950;
+
+  color: #ffffff;
+}
+
+.card__btn {
+  flex: 0 1 317px;
+}
+
+.count-card {
+  display: inline-flex;
+  flex: 0 0 157px;
+  height: 57px;
+
+  border: 1px solid rgba(75, 73, 80, 0.3);  
+  border-radius: 4px;
+}
+
+.count-card__item {
+  flex: 0 0 52px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.count-card__btn {
+  color: rgba(75, 73, 80, 0.3);
+}
+
+.count-card__input {
+  width: 100%;
+
+  font-weight: 500;
+  text-align: center;
+  color: #4B4950;
+}
+
+.card__footer {
+  display: flex;
+  justify-content: end;
+}
+
+.card__price {
+  font-weight: 500;
+  font-size: 36px;
+  line-height: calc(43 / 36 * 100%);
+  letter-spacing: 0.05em;
 }
