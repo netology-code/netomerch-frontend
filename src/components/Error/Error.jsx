@@ -9,7 +9,7 @@ const styles = {
 };
 
 const Error = ({ message }) => (
-  <div style={styles}>{message}</div>
+  <div style={styles}>{message || 'error'}</div>
 );
 
 export default Error;

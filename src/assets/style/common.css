@@ -7,7 +7,8 @@
 	box-sizing: border-box;
 }
 
-body {
+html, body {
+	height: 100%;
 	font-family: 'Golos Text', sans-serif;
 	line-height: 1;
 

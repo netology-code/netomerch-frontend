@@ -48,7 +48,7 @@ export default function MainTop() {
               {imgs.map((img, index) =>
                 <li
                   key={index}
-                  className={`slider__point ${index === imgCurr ? 'slider__point_active' : ''}`}
+                  className={`slider__point${index === imgCurr ? ' slider__point_active' : ''}`}
                 >
                   <span className="visually-hidden">Точка слайдера</span>
                 </li>)}
