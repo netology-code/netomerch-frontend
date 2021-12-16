@@ -1,0 +1,101 @@
+/* card.css */
+
+.card__title {
+  margin-bottom: 50px;
+}
+
+.card__content {
+  display: flex;
+}
+
+.card__column-1 {
+  flex: 0 0 41.565%; /* 675 по макету */
+  margin-right: 118px;
+}
+
+.card__img-main {
+  padding-bottom: 670px;
+  margin-bottom: 50px;
+
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card__imgs {
+  display: flex;
+}
+
+.card__img {
+  flex: 0 1 25%;
+  padding-bottom: 20%;
+
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card__img:not(:last-child) {
+  margin-right: 45px;
+}
+
+.card__column-2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__description {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+}
+
+.actions-card__row-1 {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 24px 40px;
+  background-color: #F2F2F2;
+}
+
+.actions-card__item {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  flex: 1 0 auto;
+}
+
+.actions-card__btn {
+  flex: 0 0 52px;
+  height: 52px;
+  border-radius: 4px;
+}
+
+.actions-card__btn:not(:last-child) {
+  /* margin-right: 25px; */
+}
+
+/* .card-sizes {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+} */
+
+.card-sizes__btn {
+  font-weight: 500;
+  color: #4B4950;
+  
+  text-transform: uppercase;
+  border: 1px solid #4B4950;
+}
+
+.card-colors {
+  /* display: flex;
+  gap: 25px;
+  flex-wrap: wrap; */
+  justify-content: end;
+}
+
+.card-colors__btn {
+  border: 1px solid rgba(75, 73, 80, 0.3);
+  box-sizing: border-box;
+  border-radius: 4px;
+}

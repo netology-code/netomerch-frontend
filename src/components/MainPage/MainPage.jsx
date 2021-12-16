@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import MainTop from './MainTop';
@@ -9,6 +10,7 @@ import styles from './mainPage.module.css';
 import { fetchMainPage } from '../../actions/actionCreators';
 import Error from '../Error/Error';
 import Loader from '../Loader/Loader';
+import Card from './Card/Card';
 
 const MainPage = () => {
   const {
@@ -32,11 +34,12 @@ const MainPage = () => {
 
   return (
     <div className={styles.mainPage}>
-      <MainTop />
-      <AboutMerch popular={popular} />
-      <Reviews reviews={reviews} />
-      <MadeBy />
-      <Answers />
+      <Card />
+      {/* <MainTop /> */}
+      {/* <AboutMerch popular={popular} /> */}
+      {/* <Reviews reviews={reviews} /> */}
+      {/* <MadeBy /> */}
+      {/* <Answers /> */}
     </div>
   );
 };
