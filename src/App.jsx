@@ -10,10 +10,12 @@ import Cart from './components/Cart/Cart';
 import Support from './components/Support/Support';
 import MainPage from './components/MainPage/MainPage';
 import './app.css';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App() {
   return (
     <Router basename="/">
+      <ScrollToTop />
       <ParentElement>
         <Switch>
           <Route path="/catalog/:id" component={Product} />

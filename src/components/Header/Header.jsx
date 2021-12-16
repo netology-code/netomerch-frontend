@@ -14,9 +14,9 @@ const Header = () => {
     <header className={styles.header}>
       <div className="max-container">
         <div className={styles.headerBody}>
-          <a href="/" className={styles.headerLogo}>
+          <Link to="/" className={styles.headerLogo}>
             <img src={logo} alt="Logo Netologia" />
-          </a>
+          </Link>
           <nav className={styles.headerMenu}>
             <ul className={styles.headerMenuList}>
               <li>
@@ -26,7 +26,7 @@ const Header = () => {
                 <Link to="/">О Нетологии</Link>
               </li>
               <li>
-                <Link to="/support">FAQ</Link>
+                <Link to="/support">Центр поддержки</Link>
               </li>
             </ul>
           </nav>

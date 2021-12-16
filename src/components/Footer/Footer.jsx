@@ -15,9 +15,9 @@ const Footer = () => {
       <div className="max-container">
         <div className={styles.footerBody}>
           <div className={styles.footerColumn1}>
-            <a href="/#" className={styles.footerLogo}>
+            <Link to="/" className={styles.footerLogo}>
               <img src={logo} alt="Logo Netologia" />
-            </a>
+            </Link>
           </div>
 
           <div className={styles.footerColumn2}>
