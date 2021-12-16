@@ -4,6 +4,7 @@ import { FETCH_CATALOG_FAILURE, FETCH_CATALOG_START, FETCH_CATALOG_SUCCESS } fro
 const initialState = {
   catalog: [],
   categories: [],
+  specialization: [],
   error: null,
   loading: false,
 };
@@ -17,8 +18,10 @@ function fetchCatalogReducer(state = initialState, action) {
       return { ...state, loading: false, error };
     case FETCH_CATALOG_SUCCESS:
       const { data } = action.payload;
-      console.log(data);
-      return state;
+      const { catalog, categories, specialization } = data;
+      return {
+        ...state, catalog, categories, specialization, loading: false, error: null,
+      };
     default:
       return state;
   }

@@ -43,12 +43,15 @@ export const fetchCatalog = () => async (dispatch) => {
   dispatch(fetchCatalogStart());
 
   try {
-    const responses = await Promise.all([
-      httpService.get('categories/'),
-      httpService.get('items/'),
-    ]);
-    const responsesJson = await Promise.all(responses.map((res) => res.json()));
-    console.log(responsesJson);
+    const response = await httpService.get('catalog/');
+
+    if (!response.ok) {
+      throw new Error(response.statusText || 'Что-то пошло не так');
+    }
+
+    const { categories, items, specialization } = await response.json();
+
+    dispatch(fetchCatalogSuccess({ categories, catalog: items, specialization }));
   } catch (error) {
     dispatch(fetchCatalogFailure(error.message));
   }
