@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/netomerch-frontend/static/css/main.65e6cf1c.chunk.css",
-    "main.js": "/netomerch-frontend/static/js/main.5c7a791e.chunk.js",
-    "main.js.map": "/netomerch-frontend/static/js/main.5c7a791e.chunk.js.map",
+    "main.js": "/netomerch-frontend/static/js/main.ac1acb42.chunk.js",
+    "main.js.map": "/netomerch-frontend/static/js/main.ac1acb42.chunk.js.map",
     "runtime-main.js": "/netomerch-frontend/static/js/runtime-main.058b481e.js",
     "runtime-main.js.map": "/netomerch-frontend/static/js/runtime-main.058b481e.js.map",
     "static/js/2.8a9653d0.chunk.js": "/netomerch-frontend/static/js/2.8a9653d0.chunk.js",
@@ -39,6 +39,6 @@
     "static/js/runtime-main.058b481e.js",
     "static/js/2.8a9653d0.chunk.js",
     "static/css/main.65e6cf1c.chunk.css",
-    "static/js/main.5c7a791e.chunk.js"
+    "static/js/main.ac1acb42.chunk.js"
   ]
 }
