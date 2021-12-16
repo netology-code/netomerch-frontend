@@ -3,13 +3,13 @@ import {
   HashRouter as Router, Route, Switch, Redirect,
 } from 'react-router-dom';
 import Error404 from './components/Error404/Error404';
-import './app.css';
 import ParentElement from './components/ParentElement/ParentElement';
 import Product from './components/Product/Product';
 import Catalog from './components/Catalog/Catalog';
 import Cart from './components/Cart/Cart';
 import Support from './components/Support/Support';
 import MainPage from './components/MainPage/MainPage';
+import './app.css';
 
 function App() {
   return (
