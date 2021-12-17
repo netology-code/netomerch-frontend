@@ -4,6 +4,8 @@ import CatalogBanner from './CatalogBanner/CatalogBanner';
 import CatalogItems from './CatalogItems/CatalogItems';
 import styles from './catalog.module.css';
 import { fetchCatalog } from '../../actions/actionCreators';
+import Loader from '../Loader/Loader';
+import Error from '../Error/Error';
 
 const Catalog = () => {
   const {
@@ -11,11 +13,20 @@ const Catalog = () => {
   } = useSelector((state) => state.fetchCatalog);
   const dispatch = useDispatch();
 
-  console.log(catalog, categories, specialization, error, loading);
-
   useEffect(() => {
     dispatch(fetchCatalog());
   }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return <Error message={error} />;
+  }
+
+  console.log(catalog, categories, specialization);
+
   return (
     <div className={styles.catalog}>
       <CatalogBanner />
