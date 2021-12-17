@@ -3,12 +3,18 @@ import CatalogBanner from './CatalogBanner/CatalogBanner';
 import CatalogItems from './CatalogItems/CatalogItems';
 import styles from './catalog.module.css';
 
-const Catalog = () => (
-  <div className={styles.catalog}>
-    <CatalogBanner />
-    {/* <CatalogFilter /> */}
-    <CatalogItems />
-  </div>
-);
+import mockData from './mockDataCatalog.json';
+
+const Catalog = () => {
+  const { items } = mockData;
+
+  return (
+    <div className={styles.catalog}>
+      <CatalogBanner />
+      {/* <CatalogFilter /> */}
+      <CatalogItems items={items} />
+    </div>
+  );
+};
 
 export default Catalog;
