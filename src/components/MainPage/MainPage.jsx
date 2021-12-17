@@ -10,7 +10,6 @@ import styles from './mainPage.module.css';
 import { fetchMainPage } from '../../actions/actionCreators';
 import Error from '../Error/Error';
 import Loader from '../Loader/Loader';
-import Card from './Card/Card';
 
 const MainPage = () => {
   const {
@@ -34,12 +33,11 @@ const MainPage = () => {
 
   return (
     <div className={styles.mainPage}>
-      <Card />
-      {/* <MainTop /> */}
-      {/* <AboutMerch popular={popular} /> */}
-      {/* <Reviews reviews={reviews} /> */}
-      {/* <MadeBy /> */}
-      {/* <Answers /> */}
+      <MainTop />
+      <AboutMerch popular={popular} />
+      <Reviews reviews={reviews} />
+      <MadeBy />
+      <Answers />
     </div>
   );
 };
