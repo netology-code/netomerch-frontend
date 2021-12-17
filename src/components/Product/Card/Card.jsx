@@ -1,9 +1,33 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 /* eslint-disable max-len */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Title from '../../ui/Title';
 import './card.css';
 
-export default function Card() {
+export default function Card({ mockData }) {
+  // fetch('https://dev.netomerch.tk/api/v1/card/2')
+  //   .then((response) => response.json())
+  //   .then((data) => console.log('data', data));
+
+  const { colors } = mockData;
+  const [currColor, setCurrColor] = useState({});
+  // const colorMain =
+  // const imgMain =
+
+  useEffect(() => {
+    const colorMain = colors.find((item) => item.is_main);
+    setCurrColor(colorMain);
+    console.log('colorMain', colorMain);
+  }, []);
+
+  const handleOnColorClick = (color) => {
+    if (color.color_code === currColor.color_code) return;
+    console.log('handleOnColorClick', color.name);
+    setCurrColor(color);
+  };
+
   return (
     <div className="card">
       <div className="container">
@@ -31,9 +55,7 @@ export default function Card() {
           </div>
 
           <div className="card__column-2">
-            <div className="card__description">
-              <p>Это худи поднимет настроение тебе и твоим друзьям. Мягкий природный гипаллергенный материал. Над принтом работали самые талантливые дизайнеры. Команда сделала все, что бы вам нравилось. Для текстов на латинице с начала XVI века. В то время некий  безымянный печатник создал большую коллекцию размеров</p>
-            </div>
+            <div className="card__description">{mockData.description}</div>
 
             <div className="card__actions actions-card">
               <div className="actions-card__row-1">
@@ -43,24 +65,20 @@ export default function Card() {
                   <button className="actions-card__btn card-sizes__btn" type="button">l</button>
                 </div>
                 <div className="actions-card__item card-colors">
-                  <button className="actions-card__btn card-colors__btn card-colors__btn_selected" type="button"><span className="visually-hidden">Color name</span></button>
-                  <button className="actions-card__btn card-colors__btn" type="button"><span className="visually-hidden">Color name</span></button>
-                  <button className="actions-card__btn card-colors__btn" type="button"><span className="visually-hidden">Color name</span></button>
+                  {colors.map((color) => (
+                    <button
+                      className={`actions-card__btn card-colors__btn${color.color_code === currColor.color_code ? ' card-colors__btn_selected' : ''}`}
+                      style={{ backgroundColor: color.color_code }}
+                      onClick={() => handleOnColorClick(color)}
+                      type="button"
+                    >
+                      <span className="visually-hidden">{color.name}</span>
+                    </button>
+                  ))}
+                  {/* <button className="actions-card__btn card-colors__btn card-colors__btn_selected" type="button"><span className="visually-hidden">{currColor.name}</span></button>
+                  <button className="actions-card__btn card-colors__btn" type="button"><span className="visually-hidden">{currColor.name}</span></button>
+                  <button className="actions-card__btn card-colors__btn" type="button"><span className="visually-hidden">{currColor.name}</span></button> */}
                 </div>
-                {/* <div className="actions-card__item">
-                  <div className="card-sizes">
-                    <button className="actions-card__btn card-sizes__btn" type="button">s</button>
-                    <button className="actions-card__btn card-sizes__btn" type="button">m</button>
-                    <button className="actions-card__btn card-sizes__btn" type="button">l</button>
-                  </div>
-                </div>
-                <div className="actions-card__item">
-                  <div className="card-colors">
-                    <button className="actions-card__btn card-colors__btn" type="button">1<span className="visually-hidden">Color name</span></button>
-                    <button className="actions-card__btn card-colors__btn" type="button">2<span className="visually-hidden">Color name</span></button>
-                    <button className="actions-card__btn card-colors__btn" type="button">2<span className="visually-hidden">Color name</span></button>
-                  </div>
-                </div> */}
               </div>
 
               <div className="actions-card__row-2">

@@ -1,16 +1,46 @@
 {
-  "item_id": "integer",
-  "name": "string",
-  "description": "string",
-  "price": "integer",
-  "images": [
+  "item_id": 1,
+  "name": "Худи с принтом на правой руке",
+  "description": "Это худи поднимет настроение тебе и твоим друзьям. Мягкий природный гипаллергенный материал. Над принтом работали самые талантливые дизайнеры. Команда сделала все, что бы вам нравилось. Для текстов на латинице с начала XVI века. В то время некий  безымянный печатник создал большую коллекцию размеров",
+  "price": "2500.00",
+  "colors": [
     {
-      "is_main": "boolean",
-      "color": "string",
+      "is_main": true,
+      "name": "Белый",
+      "name_eng": "White",
+      "color_code": "#FFFFFF",
       "images": [
         {
-          "is_main": "bool",
-          "image": "string"
+          "is_main": true,
+          "image": "https://placeimg.com/360/500/tech"
+        },
+        {
+          "is_main": false,
+          "image": "https://placeimg.com/361/500/tech"
+        },
+        {
+          "is_main": false,
+          "image": "https://placeimg.com/362/500/tech"
+        }
+      ]
+    },
+    {
+      "is_main": false,
+      "name": "Красный",
+      "name_eng": "Red",
+      "color_code": "#FF0000",
+      "images": [
+        {
+          "is_main": true,
+          "image": "https://placeimg.com/360/500/tech"
+        },
+        {
+          "is_main": false,
+          "image": "https://placeimg.com/361/500/tech"
+        },
+        {
+          "is_main": false,
+          "image": "https://placeimg.com/362/500/tech"
         }
       ]
     }

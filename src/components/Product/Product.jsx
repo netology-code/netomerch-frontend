@@ -12,7 +12,7 @@ const Product = () => {
   return (
     <div className={styles.product}>
       <ProductTop />
-      <Card />
+      <Card mockData={mockData} />
       <ProductReviews reviews={reviews} />
     </div>
   );
