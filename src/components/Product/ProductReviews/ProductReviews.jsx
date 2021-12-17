@@ -12,7 +12,7 @@ export default function ProductReviews(props) {
   // Можно управлять количеством отображаемых отзывов и количеством листания.
   const [pos, setPos] = useState(0); // Начальная позиция в массиве отзывов, с которой отображаются видимые отзывы.
   const [vCount, setVCount] = useState(3); // Количество отображаемых отзывов (1 - 3).
-  const [lCount, setLCount] = useState(3); // На сколько отзывов листается (1 - 3).
+  const [lCount, setLCount] = useState(1); // На сколько отзывов листается (1 - 3).
   const [vReviews, setVReviews] = useState([]); // Видимые отзывы.
   const [points, setPoints] = useState([]); // Массив для отрисовки точек слайдера.
   const [isSliderControl, setIsSliderControl] = useState(false); // Если все отзывы вмещаются на экран, тогда управление листанием скрыто.
