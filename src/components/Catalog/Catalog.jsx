@@ -6,6 +6,7 @@ import styles from './catalog.module.css';
 import { fetchCatalog } from '../../actions/actionCreators';
 import Loader from '../Loader/Loader';
 import Error from '../Error/Error';
+import CatalogFilter from './CatalogFilter/CatalogFilter';
 
 const Catalog = () => {
   const {
@@ -30,7 +31,7 @@ const Catalog = () => {
   return (
     <div className={styles.catalog}>
       <CatalogBanner />
-      {/* <CatalogFilter /> */}
+      <CatalogFilter categories={categories} specialization={specialization} />
       <CatalogItems />
     </div>
   );
