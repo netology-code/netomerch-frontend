@@ -7,12 +7,14 @@ import { fetchCatalog } from '../../actions/actionCreators';
 import Loader from '../Loader/Loader';
 import Error from '../Error/Error';
 import CatalogFilter from './CatalogFilter/CatalogFilter';
+import mockData from './mockDataCatalog.json';
 
 const Catalog = () => {
   const {
     catalog, categories, specialization, error, loading,
   } = useSelector((state) => state.fetchCatalog);
   const dispatch = useDispatch();
+  const { items } = mockData;
 
   useEffect(() => {
     dispatch(fetchCatalog());
@@ -32,7 +34,7 @@ const Catalog = () => {
     <div className={styles.catalog}>
       <CatalogBanner />
       <CatalogFilter categories={categories} specialization={specialization} />
-      <CatalogItems />
+      <CatalogItems items={items} />
     </div>
   );
 };
