@@ -50,7 +50,7 @@ export default function AboutMerch({ popular }) {
 
           <div className={styles.aboutMerch_star} />
 
-          <Link className={styles.aboutMerch_button_link} to="/catalog">Перейти в каталог супер - мерча</Link>
+          <Link className="main-page__btn btn" to="/catalog">Перейти в каталог супер - мерча</Link>
         </div>
       </div>
     </section>

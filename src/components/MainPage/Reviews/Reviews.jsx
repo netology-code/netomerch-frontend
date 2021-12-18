@@ -125,7 +125,7 @@ export default function Reviews(/* { reviews } */) {
           </div>}
         </div>}
 
-        <Link className="reviews__btn btn" to="/catalog">Мне все нравится, хочу такое же!</Link>
+        <Link className="main-page__btn btn" to="/catalog">Мне все нравится, хочу такое же!</Link>
       </div>
     </div>
   );

@@ -1,2 +1,3 @@
+@import './fonts.css';
 @import './common.css';
-@import './fonts.css'
+@import '../../components/ui/ui.css';

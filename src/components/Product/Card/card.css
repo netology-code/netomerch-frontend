@@ -142,30 +142,8 @@
   gap: 25px;
 }
 
-.btn {
-  display: block;
-  max-width: 506px;
-  padding: 14px 10px;
-
-  font-weight: bold;
-  font-size: 20px;
-  line-height: calc(24 / 20 * 100%);
-  text-align: center;
-
-  border-radius: 4px;
-  background-color: #4B4950;
-
-  color: #ffffff;
-  transition-property: background-color;
-  transition-duration: 400ms;
-}
-
-.btn:hover {
-  background-color: #006AFF;
-}
-
 .card__btn-add {
-  flex: 0 1 317px;
+  flex: 0 1 320px;
 }
 
 .card__message {
