@@ -1,7 +1,7 @@
 {
   "item_id": 1,
-  "name": "Худи с принтом на правой руке",
-  "description": "Это худи поднимет настроение тебе и твоим друзьям. Мягкий природный гипаллергенный материал. Над принтом работали самые талантливые дизайнеры. Команда сделала все, что бы вам нравилось. Для текстов на латинице с начала XVI века. В то время некий  безымянный печатник создал большую коллекцию размеров",
+  "name": "Толстовка с принтом на груди",
+  "description": "Эта толстовка поднимет настроение тебе и твоим друзьям. Мягкий природный гипаллергенный материал. Над принтом работали самые талантливые дизайнеры. Команда сделала все, что бы вам нравилось. Для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров",
   "price": "2500.00",
   "colors": [
     {
@@ -12,40 +12,68 @@
       "images": [
         {
           "is_main": true,
-          "image": "https://placeimg.com/360/500/tech"
+          "image": "https://placeimg.com/140/140/tech"
         },
         {
           "is_main": false,
-          "image": "https://placeimg.com/361/500/tech"
+          "image": "https://placeimg.com/141/140/tech"
         },
         {
           "is_main": false,
-          "image": "https://placeimg.com/362/500/tech"
+          "image": "https://placeimg.com/142/140/tech"
+        },
+        {
+          "is_main": false,
+          "image": "https://placeimg.com/143/140/tech"
         }
       ]
     },
     {
       "is_main": false,
-      "name": "Красный",
-      "name_eng": "Red",
-      "color_code": "#FF0000",
+      "name": "Черный",
+      "name_eng": "Black",
+      "color_code": "#000000",
       "images": [
         {
           "is_main": true,
-          "image": "https://placeimg.com/360/500/tech"
+          "image": "https://placeimg.com/140/140/tech"
         },
         {
           "is_main": false,
-          "image": "https://placeimg.com/361/500/tech"
+          "image": "https://placeimg.com/141/140/tech"
         },
         {
           "is_main": false,
-          "image": "https://placeimg.com/362/500/tech"
+          "image": "https://placeimg.com/142/140/tech"
+        },
+        {
+          "is_main": false,
+          "image": "https://placeimg.com/142/140/tech"
+        }
+      ]
+    },
+    {
+      "is_main": false,
+      "name": "Персик",
+      "name_eng": "Peach",
+      "color_code": "#DDB0A2",
+      "images": [
+        {
+          "is_main": true,
+          "image": "https://placeimg.com/140/140/tech"
+        },
+        {
+          "is_main": false,
+          "image": "https://placeimg.com/141/140/tech"
+        },
+        {
+          "is_main": false,
+          "image": "https://placeimg.com/142/140/tech"
         }
       ]
     }
   ],
-  "sizes": ["string"],
+  "sizes": ["s", "m", "l"],
   "reviews": [
     {
       "id": 1,
