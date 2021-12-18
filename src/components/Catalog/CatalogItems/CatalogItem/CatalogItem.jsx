@@ -21,7 +21,7 @@ const CatalogItem = (props) => {
       </Link>
 
       <div className={styles.catalogItem_footer}>
-        <Link className={styles.catalogItem_link} href="/catalog/2">Худи с принтом на правой руке</Link>
+        <Link className={styles.catalogItem_link} to="/catalog/2">Худи с принтом на правой руке</Link>
         <div className={styles.catalogItem_block_price}>
           <p className={styles.catalogItem_price}>2500 p.</p>
           <a className={styles.catalogItem_cart} href="#0" />
