@@ -22,29 +22,29 @@ export default function AboutMerch({ popular }) {
           <div className={styles.aboutMerch_items}>
             <div className={styles.aboutMerch_item}>
               <div className={styles.aboutMerch_image}>
-                <Link to="/catalog/1">
+                <Link to="/catalog/2">
                   <img src={img2} alt="толстовка" />
                 </Link>
               </div>
-              <Link className={styles.aboutMerch_link} to="/catalog/1">наименование позиции 1</Link>
+              <Link className={styles.aboutMerch_link} to="/catalog/2">наименование позиции 1</Link>
             </div>
 
             <div className={styles.aboutMerch_item}>
               <div className={styles.aboutMerch_image}>
-                <Link to="/catalog/1">
+                <Link to="/catalog/2">
                   <img src={img3} alt="футболка" />
                 </Link>
               </div>
-              <Link className={styles.aboutMerch_link} to="/catalog/1">наименование позиции 1</Link>
+              <Link className={styles.aboutMerch_link} to="/catalog/2">наименование позиции 1</Link>
             </div>
 
             <div className={styles.aboutMerch_item}>
               <div className={styles.aboutMerch_image}>
-                <Link to="/catalog/1">
+                <Link to="/catalog/2">
                   <img src={img4} alt="блокноты" />
                 </Link>
               </div>
-              <Link className={styles.aboutMerch_link} to="/catalog/1">наименование позиции 1</Link>
+              <Link className={styles.aboutMerch_link} to="/catalog/2">наименование позиции 1</Link>
             </div>
           </div>
 
