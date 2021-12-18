@@ -4,21 +4,21 @@ import styles from './catalogItems.module.css';
 import CatalogItem from './CatalogItem/CatalogItem';
 
 export default function CatalogItems(props) {
-  const { items } = props;
+  const { catalog } = props;
 
-  const [partItems, setPartItems] = useState([]);
+  const [partCatalog, setPartCatalog] = useState([]);
   const [currentCount, setCurrentCount] = useState(0);
   const [fetching, setFetching] = useState(true);
 
   const handleClick = () => {
     let numOfProducts = 5;
-    if (partItems.length === 0) {
+    if (partCatalog.length === 0) {
       numOfProducts = 10;
     }
 
-    if (partItems.length < items.length) {
-      const arr = items.slice(currentCount, (currentCount + numOfProducts));
-      setPartItems([...partItems, ...arr]);
+    if (partCatalog.length < catalog.length) {
+      const arr = catalog.slice(currentCount, (currentCount + numOfProducts));
+      setPartCatalog([...partCatalog, ...arr]);
       setCurrentCount(currentCount + numOfProducts);
       setFetching(false);
     }
@@ -46,7 +46,7 @@ export default function CatalogItems(props) {
 
       <div className="container">
         <div className={styles.catalogItems_content}>
-          { partItems.map((item) => (
+          { partCatalog.map((item) => (
             <CatalogItem
               key={item.item_id}
               item_id={item.item_id}
@@ -61,7 +61,7 @@ export default function CatalogItems(props) {
             />
           ))}
         </div>
-        {(partItems.length !== items.length) ? <Button /> : null}
+        {(partCatalog.length !== catalog.length) ? <Button /> : null}
       </div>
     </div>
   );

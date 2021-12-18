@@ -1,13 +1,12 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable no-unused-vars */
-/* eslint-disable camelcase */
-/* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/anchor-has-content */
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable camelcase */
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './catalogItem.module.css';
-// import img from '../../../../assets/img/catalog_unit_content.png';
 
 const CatalogItem = (props) => {
   const {
@@ -17,13 +16,13 @@ const CatalogItem = (props) => {
   return (
     <div className={styles.catalogItem_item}>
       <Link className={`${styles.catalogItem_image} ibg`} to="/catalog/2">
-        <img src={image} alt="1" />
+        <img src={image} alt="image prodict" />
       </Link>
 
       <div className={styles.catalogItem_footer}>
-        <Link className={styles.catalogItem_link} to="/catalog/2">Худи с принтом на правой руке</Link>
+        <Link className={styles.catalogItem_link} to="/catalog/2">{name}</Link>
         <div className={styles.catalogItem_block_price}>
-          <p className={styles.catalogItem_price}>2500 p.</p>
+          <p className={styles.catalogItem_price}>{`${price} p.`}</p>
           <a className={styles.catalogItem_cart} href="#0" />
         </div>
       </div>
