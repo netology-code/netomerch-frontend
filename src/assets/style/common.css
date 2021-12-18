@@ -33,10 +33,14 @@ a {
 	cursor: pointer;
 }
 
-button {
+button, input {
+	font-family: inherit;
 	font-size: inherit;
 
 	border: none;
+}
+
+button {
 	background-color: transparent;
 	cursor: pointer;
 }
