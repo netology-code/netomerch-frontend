@@ -11,12 +11,28 @@
 .catalogItem_image {
   padding-bottom: 344px;
   margin-bottom: 10px;
-  border-radius: 20px; 
+  border-radius: 20px;
+  text-indent: -9999px; 
   overflow: hidden;
 }
 
 .catalogItem_image img {
   border-radius: 20px;
+}
+
+/* скрывает изображение сломанной иконки */ 
+.catalogItem_image img[alt]:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #D3D8DC;
+  background-image: url('../../../../assets/img/no_img.png');
+  background-repeat: none;
+  background-position: center;
+  background-size: cover;
+  content: attr(alt);
 }
 
 .catalogItem_footer {
