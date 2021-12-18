@@ -3,7 +3,13 @@ import {
   FETCH_CATALOG_FAILURE,
   FETCH_CATALOG_START,
   FETCH_CATALOG_SUCCESS,
-  FETCH_MAINPAGE_FAILURE, FETCH_MAINPAGE_START, FETCH_MAINPAGE_SUCCESS, UPDATE_CART,
+  FETCH_MAINPAGE_FAILURE,
+  FETCH_MAINPAGE_START,
+  FETCH_MAINPAGE_SUCCESS,
+  FETCH_PRODUCT_FAILURE,
+  FETCH_PRODUCT_START,
+  FETCH_PRODUCT_SUCCESS,
+  UPDATE_CART,
 } from './actionTypes';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -38,6 +44,38 @@ export const fetchCatalogSuccess = (data) => ({
   type: FETCH_CATALOG_SUCCESS,
   payload: { data },
 });
+
+export const fetchProductStart = () => ({
+  type: FETCH_PRODUCT_START,
+});
+
+export const fetchProductFailure = (error) => ({
+  type: FETCH_PRODUCT_FAILURE,
+  payload: { error },
+});
+
+export const fetchProductSuccess = (data) => ({
+  type: FETCH_PRODUCT_SUCCESS,
+  payload: { data },
+});
+
+export const fetchProduct = (id) => async (dispatch) => {
+  dispatch(fetchProductStart());
+
+  try {
+    const response = await httpService.get(`card/${id}/`);
+
+    if (!response.ok) {
+      throw new Error(response.statusText || 'Что-то пошло не так');
+    }
+
+    const json = await response.json();
+
+    dispatch(fetchProductSuccess(json));
+  } catch (error) {
+    dispatch(fetchProductFailure(error.message));
+  }
+};
 
 export const fetchCatalog = () => async (dispatch) => {
   dispatch(fetchCatalogStart());
