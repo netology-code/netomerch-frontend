@@ -11,7 +11,7 @@ import img3 from './img/content_merch_3.jpg';
 import img4 from './img/content_merch_4.jpg';
 
 export default function AboutMerch({ popular }) {
-  console.log(popular);
+  console.log('popular', popular);
   return (
     <section className={styles.aboutMerch_section}>
       <div className="container">
@@ -22,23 +22,29 @@ export default function AboutMerch({ popular }) {
           <div className={styles.aboutMerch_items}>
             <div className={styles.aboutMerch_item}>
               <div className={styles.aboutMerch_image}>
-                <img src={img2} alt="толстовка" />
+                <Link to="/catalog/2">
+                  <img src={img2} alt="толстовка" />
+                </Link>
               </div>
-              <a className={styles.aboutMerch_link} href="#0">наименование позиции 1</a>
+              <Link className={styles.aboutMerch_link} to="/catalog/2">наименование позиции 1</Link>
             </div>
 
             <div className={styles.aboutMerch_item}>
               <div className={styles.aboutMerch_image}>
-                <img src={img3} alt="футболка" />
+                <Link to="/catalog/2">
+                  <img src={img3} alt="футболка" />
+                </Link>
               </div>
-              <a className={styles.aboutMerch_link} href="#0">наименование позиции 1</a>
+              <Link className={styles.aboutMerch_link} to="/catalog/2">наименование позиции 1</Link>
             </div>
 
             <div className={styles.aboutMerch_item}>
               <div className={styles.aboutMerch_image}>
-                <img src={img4} alt="блокноты" />
+                <Link to="/catalog/2">
+                  <img src={img4} alt="блокноты" />
+                </Link>
               </div>
-              <a className={styles.aboutMerch_link} href="#0">наименование позиции 1</a>
+              <Link className={styles.aboutMerch_link} to="/catalog/2">наименование позиции 1</Link>
             </div>
           </div>
 
