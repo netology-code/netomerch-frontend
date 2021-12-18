@@ -1,0 +1,22 @@
+/* btn.css */
+
+.btn {
+  display: block;
+  padding: 14px 10px;
+
+  font-weight: bold;
+  font-size: 20px;
+  line-height: calc(24 / 20 * 100%);
+  text-align: center;
+
+  background-color: #4B4950;
+  border-radius: 4px;
+
+  color: #ffffff;
+  transition-property: background-color;
+  transition-duration: 400ms;
+}
+
+.btn:hover {
+  background-color: #006AFF;
+}

@@ -6,6 +6,7 @@ import Answers from '../Answers/Answers';
 import MadeBy from './MadeBy/MadeBy';
 import AboutMerch from './AboutMerch/AboutMerch';
 import styles from './mainPage.module.css';
+import './main-page.css';
 import { fetchMainPage } from '../../actions/actionCreators';
 import Error from '../Error/Error';
 import Loader from '../Loader/Loader';
