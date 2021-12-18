@@ -28,7 +28,7 @@ const Catalog = () => {
     return <Error message={error} />;
   }
 
-  console.log(catalog, categories, specialization);
+  console.log(catalog);
 
   return (
     <div className={styles.catalog}>

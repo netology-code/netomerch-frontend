@@ -97,6 +97,12 @@
   line-height: 1.2;
   text-align: center;
   color: #FFFFFF;
+  transition-property: background-color;
+  transition-duration: 400ms;
+}
+
+.aboutMerch_button_link:hover {
+  background-color: #006AFF;
 }
 
 

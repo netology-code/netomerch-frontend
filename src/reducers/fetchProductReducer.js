@@ -3,7 +3,6 @@ import { FETCH_PRODUCT_FAILURE, FETCH_PRODUCT_START, FETCH_PRODUCT_SUCCESS } fro
 
 const initialState = {
   product: {},
-  reviews: [],
   loading: false,
   error: null,
 };
@@ -17,9 +16,8 @@ function fetchProductReducer(state = initialState, action) {
       return { ...state, loading: false, error };
     case FETCH_PRODUCT_SUCCESS:
       const { data } = action.payload;
-      const { reviews, product } = data;
       return {
-        ...state, product, reviews, loading: false, error: null,
+        ...state, product: data, loading: false, error: null,
       };
     default:
       return state;

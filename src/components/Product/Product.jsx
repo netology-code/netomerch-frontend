@@ -47,7 +47,7 @@ const Product = ({ match }) => {
     return <Error message={error} />;
   }
 
-  console.log(product);
+  console.log('product', product);
 
   return (
     <div className={styles.product}>

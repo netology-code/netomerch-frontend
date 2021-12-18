@@ -63,14 +63,15 @@ export const fetchProduct = (id) => async (dispatch) => {
   dispatch(fetchProductStart());
 
   try {
-    const response = await httpService.get(`card/${id}`);
+    const response = await httpService.get(`card/${id}/`);
 
     if (!response.ok) {
       throw new Error(response.statusText || 'Что-то пошло не так');
     }
 
     const json = await response.json();
-    console.log(json);
+
+    dispatch(fetchProductSuccess(json));
   } catch (error) {
     dispatch(fetchProductFailure(error.message));
   }
