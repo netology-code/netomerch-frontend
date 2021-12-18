@@ -7,6 +7,7 @@
 import React, { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import './reviews.css';
+import { Link } from 'react-router-dom';
 import Title from '../../ui/Title';
 
 /*
@@ -124,7 +125,7 @@ export default function Reviews(/* { reviews } */) {
           </div>}
         </div>}
 
-        <a className="reviews__btn btn" href="/#">Мне все нравится, хочу такое же!</a>
+        <Link className="reviews__btn btn" to="/catalog">Мне все нравится, хочу такое же!</Link>
       </div>
     </div>
   );

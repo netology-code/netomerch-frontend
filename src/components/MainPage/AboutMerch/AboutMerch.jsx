@@ -3,6 +3,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable max-len */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './aboutMerch.module.css';
 import Title from '../../ui/Title';
 import img2 from './img/content_merch_2.jpg';
@@ -43,7 +44,7 @@ export default function AboutMerch({ popular }) {
 
           <div className={styles.aboutMerch_star} />
 
-          <a className={styles.aboutMerch_button_link} href="#0">Перейти в каталог супер - мерча</a>
+          <Link className={styles.aboutMerch_button_link} to="/catalog">Перейти в каталог супер - мерча</Link>
         </div>
       </div>
     </section>
