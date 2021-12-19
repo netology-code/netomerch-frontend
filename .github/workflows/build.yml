@@ -8,7 +8,7 @@ env:
   MODE: dev
 
 jobs:
-  tests:
+  build-push:
    runs-on: ubuntu-latest
    steps:
      - uses: actions/checkout@v2
@@ -27,7 +27,6 @@ jobs:
      - name: Build and push
        uses: docker/build-push-action@v2
        with:
-         context: frontend
          push: true
          tags: ${{ env.REGISTRY }}/${{ github.repository }}:${{ env.MODE }}
          cache-from: type=gha
