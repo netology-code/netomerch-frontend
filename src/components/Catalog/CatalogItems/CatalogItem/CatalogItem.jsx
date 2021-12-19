@@ -1,12 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable max-len */
-/* eslint-disable react/button-has-type */
-/* eslint-disable jsx-a11y/img-redundant-alt */
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable no-unused-vars */
-/* eslint-disable camelcase */
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './catalogItem.module.css';
