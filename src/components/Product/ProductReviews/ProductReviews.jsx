@@ -6,8 +6,8 @@ import { nanoid } from 'nanoid';
 import styles from './productReviews.module.css';
 import ProductReview from './ProductReview/ProductReview';
 
-export default function ProductReviews(props) {
-  const { reviews } = props;
+export default function ProductReviews({ reviews }) {
+  if (!reviews) return null;
 
   // Можно управлять количеством отображаемых отзывов и количеством листания.
   const [pos, setPos] = useState(0); // Начальная позиция в массиве отзывов, с которой отображаются видимые отзывы.
