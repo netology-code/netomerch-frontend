@@ -1,3 +1,11 @@
+.header {
+  position: fixed;
+  background-color: #FFFFFF;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
 .headerBody {
   display: flex;
   align-items: center;
