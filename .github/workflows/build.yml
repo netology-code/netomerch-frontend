@@ -30,7 +30,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}:${{ env.MODE }}
+          tags: ${{ env.REGISTRY }}/${{ env.FRONTEND_IMAGE_NAME }}:${{ env.MODE }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - name: Deploy on server
