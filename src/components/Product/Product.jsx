@@ -31,9 +31,9 @@ mockData.colors[2].images[2].image = imgs.peach3;
 /* ---------------------------------------------------------------------------- */
 
 const Product = ({ match }) => {
-  const { product, error, loading } = useSelector((state) => state.fetchProduct);
+  const { product, loading, error } = useSelector((state) => state.fetchProduct);
   const dispatch = useDispatch();
-  const { reviews } = mockData;
+  // const { reviews } = mockData;
 
   useEffect(() => {
     dispatch(fetchProduct(match.params.id));
@@ -47,13 +47,15 @@ const Product = ({ match }) => {
     return <Error message={error} />;
   }
 
-  console.log('product', product);
+  if (Object.keys(product).length === 0) {
+    return null;
+  }
 
   return (
     <div className={styles.product}>
       {/* <ProductTop /> */}
-      <Card mockData={mockData} />
-      <ProductReviews reviews={reviews} />
+      <Card product={product} />
+      <ProductReviews reviews={product.reviews} />
     </div>
   );
 };
