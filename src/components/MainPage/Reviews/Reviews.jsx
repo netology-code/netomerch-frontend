@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable operator-linebreak */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable react/jsx-wrap-multilines */
@@ -16,15 +17,15 @@ import img6 from './img/content_merch_6.png';
 import img7 from './img/content_merch_7.png';
 import img8 from './img/content_merch_8.png'; */
 
-export default function Reviews(/* { reviews } */) {
+export default function Reviews({ reviews }) {
   // Заглушка для теста отзывов. Пришлось пока оставить так как с бэка не приходит, то что нужно.
-  const reviews = [];
-  const reviewsCount = 10; // Количество отзывов.
-  for (let i = 1; i <= reviewsCount; i += 1) {
-    reviews.push({
-      item: { name: `${i}`, image: [{ image: 'https://dev.netomerch.tk/media/item/cup_uSeRI4R.jpeg' }] },
-    });
-  }
+  // const reviews = [];
+  // const reviewsCount = 10; // Количество отзывов.
+  // for (let i = 1; i <= reviewsCount; i += 1) {
+  //   reviews.push({
+  //     item: { name: `${i}`, image: [{ image: 'https://dev.netomerch.tk/media/item/cup_uSeRI4R.jpeg' }] },
+  //   });
+  // }
   console.log('reviews', reviews);
   // --------------------------------------------------------------------------------------------
 
@@ -100,9 +101,13 @@ export default function Reviews(/* { reviews } */) {
             {vReviews.map((vReview) =>
               <div className="slider-rewiew" key={nanoid()}>
                 <div className="slider-rewiew__img ibg">
-                  <img src={vReview.item.image[0].image} alt={vReview.item.name} />
+                  <Link to={`/catalog/${vReview.item_id}`}>
+                    {/* <img src={vReview.item.image[0].image} alt={vReview.item.name} /> */}
+                    <img src={vReview.image} alt="image rewiew" />
+                  </Link>
                 </div>
-                <a className="slider-rewiew__link" href="/#">{vReview.item.name}</a>
+                {/* <a className="slider-rewiew__link" href="/#">{vReview.item.name}</a> */}
+                <Link className="slider-rewiew__link" to={`/catalog/${vReview.item_id}`}>{vReview.text}</Link>
               </div>)}
           </div>
 
