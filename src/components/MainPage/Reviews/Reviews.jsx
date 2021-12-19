@@ -89,9 +89,9 @@ export default function Reviews(/* { reviews } */) {
   return (
     <div className="reviews">
       <div className="container">
-        <Title cn="reviews__title" text="Блок с отзывами на товары" />
+        <Title cn="reviews__title" text="Отзывы, которые мы заслужили" />
         <div className="reviews__text">
-          Часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной рыбой для текстов на латинице с начала XVI века. В то время некий безымянный для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum.
+          Здесь мы собрали отзывы наших клиентов о самых популярных товарах. Они рассказывают, почему выбрали наш мерч, как его используют и за что ценят.
         </div>
 
         {reviews.length !== 0 &&
@@ -125,7 +125,7 @@ export default function Reviews(/* { reviews } */) {
           </div>}
         </div>}
 
-        <Link className="main-page__btn btn" to="/catalog">Мне все нравится, хочу такое же!</Link>
+        <Link className="main-page__btn btn" to="/catalog">Убедили! В каталог</Link>
       </div>
     </div>
   );
