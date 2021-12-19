@@ -17,7 +17,7 @@ const CatalogItem = (props) => {
 
   return (
     <div className={styles.catalogItem_item}>
-      <Link className={`${styles.catalogItem_image} ibg`} to="/catalog/2">
+      <Link className={`${styles.catalogItem_image} ibg`} to={`/catalog/${id}`}>
         <img src={image} alt="photo product" />
         <span className={`${styles.catalogItem_item__color} ${styles.square_white}`} />
         <span className={`${styles.catalogItem_item__color} ${styles.square_black}`} />
@@ -25,7 +25,7 @@ const CatalogItem = (props) => {
       </Link>
 
       <div className={styles.catalogItem_footer}>
-        <Link className={styles.catalogItem_link} to="/catalog/2">{name}</Link>
+        <Link className={styles.catalogItem_link} to={`/catalog/${id}`}>{name}</Link>
         <div className={styles.catalogItem_block_price}>
           <p className={styles.catalogItem_price}>{`${price} p.`}</p>
           <div className={styles.catalogItem_cart} onClick={onClick}>
