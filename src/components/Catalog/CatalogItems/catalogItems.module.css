@@ -2,13 +2,13 @@
   position: relative;
   display: flex;
   overflow: hidden;
+  margin-bottom: 80px;
 }
 
 .catalogItems_content {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  margin-top: 50px; /* удалить после добав. CatalogFilter */
   font-family: 'Golos Text', sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -81,7 +81,6 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 62px;
-  margin-bottom: 80px;
   padding: 16px 10px;
   width: 320px;
   background-color: #4B4950;
@@ -91,4 +90,10 @@
   text-align: center;
   color: #FFFFFF;
   border-radius: 4px;
+  transition-property: background-color;
+  transition-duration: 400ms;
+}
+
+.catalogItems_button:hover {
+  background-color: #006AFF;
 }

@@ -83,29 +83,6 @@
   border-bottom: 2px solid #4B4950;
 }
 
-.aboutMerch_button_link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 14px 10px;
-  max-width: 506px;
-  background-color: #4B4950;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 1.2;
-  text-align: center;
-  color: #FFFFFF;
-  transition-property: background-color;
-  transition-duration: 400ms;
-}
-
-.aboutMerch_button_link:hover {
-  background-color: #006AFF;
-}
-
-
 @media (max-width: 1750px) {
   .aboutMerch_star {
     left: 3%;
