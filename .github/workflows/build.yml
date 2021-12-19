@@ -5,7 +5,8 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ${{ secrets.IMAGE_NAME }}
+  FRONTEND_IMAGE_NAME: ${{ github.repository }}
   MODE: dev
 
 jobs:
@@ -43,12 +44,12 @@ jobs:
 
             export REGISTRY=${{ env.REGISTRY }}
             export FRONTEND_IMAGE_NAME=${{ env.FRONTEND_IMAGE_NAME }}
-            export IMAGE_NAME=netology-code/netomerch-backend
+            export IMAGE_NAME=${{ env.IMAGE_NAME }}
             export MODE=${{ env.MODE }}
             export DOMAIN_NAME=${{ secrets.DOMAIN_NAME }}
 
             echo "${{ github.token }}" | docker login ${{ env.REGISTRY }} --username ${{ github.actor }} --password-stdin
-            docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.MODE }}
+            docker pull ${{ env.REGISTRY }}/${{ env.FRONTEND_IMAGE_NAME }}:${{ env.MODE }}
 
             docker-compose stop frontend
             docker-compose rm -f frontend
