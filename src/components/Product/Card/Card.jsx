@@ -9,12 +9,12 @@ import './card.css';
 
 const regCount = /^\d{0,3}$/;
 
-export default function Card({ mockData }) {
+export default function Card({ product }) {
   // fetch('https://dev.netomerch.tk/api/v1/card/1')
   //   .then((response) => response.json())
   //   .then((data) => console.log('data', data));
 
-  const { name, description, price, colors, sizes } = mockData;
+  const { name, description, price, colors, sizes } = product;
   const [currColor, setCurrColor] = useState(colors.find((item) => item.is_main));
   const [currImg, setCurrImg] = useState('');
   const [currSize, setCurrSize] = useState(null);
@@ -22,7 +22,7 @@ export default function Card({ mockData }) {
   const [isMsgAdd, setIsMsgAdd] = useState(false);
 
   useEffect(() => {
-    setCurrImg(currColor.images.find((image) => image.is_main).image);
+    setCurrImg(currColor.images.find((image) => image.is_main).images);
   }, [currColor]);
 
   const handleOnColorClick = (color) => {
@@ -97,12 +97,12 @@ export default function Card({ mockData }) {
               {currColor.images.map((image) => (
                 <div className="card__img-wrapp img-wrapp-card">
                   <button
-                    className={`img-wrapp-card__btn${image.image === currImg ? ' img-wrapp-card__btn_selected' : ''}`}
-                    onClick={() => handleOnImgClick(image.image)}
+                    className={`img-wrapp-card__btn${image.images === currImg ? ' img-wrapp-card__btn_selected' : ''}`}
+                    onClick={() => handleOnImgClick(image.images)}
                     type="button"
                   >
                     <div className="card__img card__img_selected ibg">
-                      <img src={image.image} alt={name} />
+                      <img src={image.images} alt={name} />
                     </div>
                   </button>
                 </div>
