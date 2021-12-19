@@ -7,14 +7,14 @@ import { fetchCatalog } from '../../actions/actionCreators';
 import Loader from '../Loader/Loader';
 import Error from '../Error/Error';
 import CatalogFilter from './CatalogFilter/CatalogFilter';
-import mockData from './mockDataCatalog.json';
+// import mockData from './mockDataCatalog.json';
 
 const Catalog = () => {
   const {
     catalog, categories, specialization, error, loading,
   } = useSelector((state) => state.fetchCatalog);
   const dispatch = useDispatch();
-  const { items } = mockData;
+  // const { catalog } = mockData;
 
   useEffect(() => {
     dispatch(fetchCatalog());
@@ -28,13 +28,14 @@ const Catalog = () => {
     return <Error message={error} />;
   }
 
+  // eslint-disable-next-line no-console
   console.log(catalog);
 
   return (
     <div className={styles.catalog}>
       <CatalogBanner />
       <CatalogFilter categories={categories} specialization={specialization} />
-      <CatalogItems items={items} />
+      <CatalogItems catalog={catalog} />
     </div>
   );
 };
