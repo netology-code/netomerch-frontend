@@ -9,14 +9,58 @@
 }
 
 .catalogItem_image {
+  position: relative;
   padding-bottom: 344px;
   margin-bottom: 10px;
-  border-radius: 20px; 
+  border-radius: 20px;
+  text-indent: -9999px; 
   overflow: hidden;
 }
 
 .catalogItem_image img {
   border-radius: 20px;
+}
+
+/* скрывает изображение сломанной иконки */ 
+.catalogItem_image img[alt]:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #D3D8DC;
+  background-image: url('../../../../assets/img/no_img.png');
+  background-repeat: none;
+  background-position: center;
+  background-size: cover;
+  content: attr(alt);
+}
+
+.catalogItem_item__color {
+  position: absolute;
+  width: 25.24px;
+  height: 25.24px;
+  right: 11.76px;
+  border: 0.485437px solid rgba(75, 73, 80, 0.3);
+  box-sizing: border-box;
+  border-radius: 4px;
+  transform: matrix(0, 1, 1, 0, 0, 0);
+  z-index: 10;
+}
+
+.square_white {
+  bottom: 86.76px;
+  background: #FFFFFF;
+}
+
+.square_black {
+  bottom: 49.38px;
+  background: #000000
+}
+
+.square_beige {
+  bottom: 12px;
+  background: #DDB0A2;
 }
 
 .catalogItem_footer {
@@ -48,10 +92,92 @@
 }
 
 .catalogItem_cart {
+  position: relative;
   width: 30px;
   height: 25px;
   background-image: url(../../../../assets/svg/catalog_add__shopping_cart_btn.svg);
   background-size: contain;
+  cursor: pointer
+}
+
+.catalogItem_popap {
+  position: absolute;
+  width: 274.8px;
+  height: 291px;
+  right: 0;
+  bottom: 80px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 35px;
+  padding-left: 40px;
+  padding-right: 39px;
+
+  background: #FFFFFF;
+  border-radius: 20px;
+
+  z-index: 100;
+  border: 1px solid rgba(75, 73, 80, 0.3);
+  visibility: hidden;
+}
+
+.catalogItem_popap_size, .catalogItem_popap_color {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.catalogItem_popap_size span {
+  min-width: 52px;
+  height: 52px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.3px solid #4B4950;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.catalogItem_popap_color span {
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(75, 73, 80, 0.3);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.catalogItem_popap_color_white {
+  background: #FFFFFF;
+}
+.catalogItem_popap_color_black {
+  background: #000000;
+}
+.catalogItem_popap_color_beige {
+  background: #DDB0A2;
+}
+
+.catalogItem_popap_btn {
+  width: 206px;
+  height: 52px;
+  background: #4B4950;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
 }
 
 @media (max-width: 1650px) {

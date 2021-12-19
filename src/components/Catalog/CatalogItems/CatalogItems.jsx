@@ -1,24 +1,23 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import styles from './catalogItems.module.css';
 import CatalogItem from './CatalogItem/CatalogItem';
 
-export default function CatalogItems(props) {
-  const { items } = props;
-
-  const [partItems, setPartItems] = useState([]);
+export default function CatalogItems({ catalog }) {
+  const [partCatalog, setPartCatalog] = useState([]);
   const [currentCount, setCurrentCount] = useState(0);
   const [fetching, setFetching] = useState(true);
 
   const handleClick = () => {
     let numOfProducts = 5;
-    if (partItems.length === 0) {
+    if (partCatalog.length === 0) {
       numOfProducts = 10;
     }
 
-    if (partItems.length < items.length) {
-      const arr = items.slice(currentCount, (currentCount + numOfProducts));
-      setPartItems([...partItems, ...arr]);
+    if (partCatalog.length < catalog.length) {
+      const arr = catalog.slice(currentCount, (currentCount + numOfProducts));
+      setPartCatalog([...partCatalog, ...arr]);
       setCurrentCount(currentCount + numOfProducts);
       setFetching(false);
     }
@@ -36,6 +35,14 @@ export default function CatalogItems(props) {
     </button>
   );
 
+  const hidenOrVisiblePopap = (event) => {
+    if (event.target.firstChild.style.visibility === 'visible') {
+      event.target.firstChild.style.visibility = 'hidden';
+    } else {
+      event.target.firstChild.style.visibility = 'visible';
+    }
+  };
+
   return (
     <div className={styles.catalogItems_wrapper}>
       <div className={`${styles.catalogItems_star} ${styles.catalogItems_star__1}`} />
@@ -46,10 +53,10 @@ export default function CatalogItems(props) {
 
       <div className="container">
         <div className={styles.catalogItems_content}>
-          { partItems.map((item) => (
+          { partCatalog.map((item) => (
             <CatalogItem
               key={item.item_id}
-              item_id={item.item_id}
+              id={item.item_id}
               name={item.name}
               popular={item.popular}
               short_description={item.short_description}
@@ -58,10 +65,11 @@ export default function CatalogItems(props) {
               category={item.category}
               specialization={item.specialization}
               sizes={item.sizes}
+              onClick={hidenOrVisiblePopap}
             />
           ))}
         </div>
-        {(partItems.length !== items.length) ? <Button /> : null}
+        {(partCatalog.length !== catalog.length) ? <Button /> : null}
       </div>
     </div>
   );
