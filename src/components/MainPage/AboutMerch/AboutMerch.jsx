@@ -26,13 +26,13 @@ export default function AboutMerch({ popular }) {
           <div className={styles.aboutMerch_items}>
 
             {partPopular.map((item) => (
-              <div className={styles.aboutMerch_item}>
+              <div className={styles.aboutMerch_item} key={item.item_id}>
                 <div className={styles.aboutMerch_image}>
-                  <Link to="/catalog/2">
+                  <Link to={`/catalog/${item.item_id}`}>
                     <img src={item.image} alt="photo product" />
                   </Link>
                 </div>
-                <Link className={styles.aboutMerch_link} to="/catalog/2">{item.name}</Link>
+                <Link className={styles.aboutMerch_link} to={`/catalog/${item.item_id}`}>{item.name}</Link>
               </div>
             ))}
 
