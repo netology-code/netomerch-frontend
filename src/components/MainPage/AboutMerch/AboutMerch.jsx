@@ -21,7 +21,7 @@ export default function AboutMerch({ popular }) {
       <div className="container">
         <div className={styles.aboutMerch_body}>
           <Title cn={styles.aboutMerch_header} text="мерч, который вдохновляет на перемены" sqColor="pink" />
-          <p className={styles.aboutMerch_text}>Мы создали мерч/”X” для тех, кто не боится новых идей, развития и роста. Теперь, достигая успеха в профессии, вы можете физически ощутить нашу поддержку. Выбранные вами вещи напомнят, какой путь вы уже прошли и чего добились.</p>
+          <p className={styles.aboutMerch_text}>Мы создали НеМерч для тех, кто не боится новых идей, развития и роста. Теперь, достигая успеха в профессии, вы можете физически ощутить нашу поддержку. Выбранные вами вещи напомнят, какой путь вы уже прошли и чего добились.</p>
 
           <div className={styles.aboutMerch_items}>
 
