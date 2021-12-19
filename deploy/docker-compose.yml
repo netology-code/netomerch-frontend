@@ -1,0 +1,12 @@
+version: '3.7'
+
+networks:
+  proxy:
+    external: true
+
+services:
+  frontend:
+    image: ${REGISTRY}/${FRONTEND_IMAGE_NAME}:${MODE}
+    restart: unless-stopped
+    networks:
+      - proxy
