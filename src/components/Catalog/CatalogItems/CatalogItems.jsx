@@ -35,7 +35,7 @@ export default function CatalogItems({ catalog }) {
     </button>
   );
 
-  const hidenPopap = (event) => {
+  const hidenOrVisiblePopap = (event) => {
     if (event.target.firstChild.style.visibility === 'visible') {
       event.target.firstChild.style.visibility = 'hidden';
     } else {
@@ -65,7 +65,7 @@ export default function CatalogItems({ catalog }) {
               category={item.category}
               specialization={item.specialization}
               sizes={item.sizes}
-              onClick={hidenPopap}
+              onClick={hidenOrVisiblePopap}
             />
           ))}
         </div>
