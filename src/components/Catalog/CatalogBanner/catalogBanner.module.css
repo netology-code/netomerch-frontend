@@ -10,8 +10,9 @@
 
 .bannerTextContainer {
   background-color:#631AD9;
-  width: 35%;
+  width: 38%;
   min-height: 242px;
+  border-radius: 10px;
   position: absolute;
   top: 190px;
   left: 10%;
@@ -20,7 +21,9 @@
 .bannerText {
   color: #FFFFFF;
   font-size: 50px;
-  padding-top: 24px;
+  line-height: 55px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   padding-left: 5%;
   padding-right: 30%;
   font-weight: bold;
