@@ -1,17 +1,50 @@
 {
+  "categories": [
+    {
+      "id": "number",
+      "name": "string"
+    },
+    {
+      "id": "number",
+      "name": "string"
+    },
+    {
+      "id": "number",
+      "name": "string"
+    }
+  ],
+  "specialization": [
+    {
+      "id": "number",
+      "name": "string"
+    },
+    {
+      "id": "number",
+      "name": "string"
+    },
+    {
+      "id": "number",
+      "name": "string"
+    }
+  ],
+  "sizes": [
+    {
+      "id": "number",
+      "name": "string"
+    }
+  ],
   "items": [
     {
-      "items_id": "number",
+      "item_id": "number",
       "name": "string",
       "popular": "boolean",
       "short_description": "string",
       "image": "string",
       "price": "number",
-      "categories": ["string"],
-      "properties": {
-        "size": ["string"],
-        "color?": ["string"]
-      }
+      "category": "string",
+      "specialization": "string",
+      "sizes": ["string"],
+      "colors": ["string"]
     }
   ]
 }

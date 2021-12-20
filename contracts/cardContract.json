@@ -1,13 +1,21 @@
 {
-  "item_id": "number",
+  "item_id": "integer",
   "name": "string",
   "description": "string",
-  "images": ["string"],
-  "price": "number",
-  "properties": {
-    "size": ["string"],
-    "color": ["string"]
-  },
+  "price": "integer",
+  "images": [
+    {
+      "is_main": "boolean",
+      "color": "string",
+      "images": [
+        {
+          "is_main": "bool",
+          "image": "string"
+        }
+      ]
+    }
+  ],
+  "sizes": ["string"],
   "reviews": [
     {
       "id": "number",
