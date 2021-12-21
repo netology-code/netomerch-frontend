@@ -83,7 +83,7 @@
 }
 
 .open .cross {
-  background-color: #5D5FEF;
+  background-color: #E51A5E;
 }
 
 .open .cross::after {
@@ -96,8 +96,6 @@
 
 .content p {
   line-height: 1.2;
-  color: #78767C;
-  opacity: 0.7;
 }
 
 .content .line {
@@ -123,4 +121,34 @@
 .open .content {
   max-height: 9999px;
   transition: max-height 0.2s cubic-bezier(1, 0, 1, 0);
+}
+
+@media(max-width: 560px) {
+  .title {
+    font-size: 20px;
+    padding: 15px 10px;
+  }
+
+  .content {
+    font-size: 18px;
+  }
+
+  .icon {
+    margin-right: 10px;
+    width: 40px;
+  }
+
+  .cross {
+    width: 30px;
+    height: 30px;
+  }
+
+  .content .line {
+    margin-right: 15px;
+    width: 2px;
+  }
+
+  .content>div {
+    padding: 20px;
+  }
 }
