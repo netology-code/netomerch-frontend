@@ -92,7 +92,9 @@ export default function Card({ product }) {
             <div className="card__img-main ibg">
               <img src={currImg} alt={`Главная картинка. ${name}`} />
             </div>
+          </div>
 
+          <div className="card__column-2">
             <div className="card__imgs">
               {currColor.images.map((image) => (
                 <div className="card__img-wrapp img-wrapp-card">
@@ -108,9 +110,7 @@ export default function Card({ product }) {
                 </div>
               ))}
             </div>
-          </div>
 
-          <div className="card__column-2">
             <div className="card__description">{description}</div>
 
             <div className="card__actions actions-card">
