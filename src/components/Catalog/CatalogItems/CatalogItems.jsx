@@ -35,12 +35,15 @@ export default function CatalogItems({ catalog }) {
     </button>
   );
 
-  const hidenOrVisiblePopap = (event) => {
-    if (event.target.firstChild.style.visibility === 'visible') {
-      event.target.firstChild.style.visibility = 'hidden';
-    } else {
-      event.target.firstChild.style.visibility = 'visible';
-    }
+  const showPopapCart = (id) => {
+    setPartCatalog(partCatalog.map((cont) => {
+      if (id === cont.item_id) {
+        cont.isOpen = !cont.isOpen;
+      } else {
+        cont.isOpen = false;
+      }
+      return cont;
+    }));
   };
 
   return (
@@ -65,11 +68,12 @@ export default function CatalogItems({ catalog }) {
               category={item.category}
               specialization={item.specialization}
               sizes={item.sizes}
-              onClick={hidenOrVisiblePopap}
+              isOpen={item.isOpen}
+              onClick={showPopapCart}
             />
           ))}
         </div>
-        {(partCatalog.length !== catalog.length) ? <Button /> : null}
+        { (partCatalog.length !== catalog.length) ? <Button /> : null }
       </div>
     </div>
   );

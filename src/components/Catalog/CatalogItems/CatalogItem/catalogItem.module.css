@@ -63,6 +63,86 @@
   background: #DDB0A2;
 }
 
+/* ---------- start popap_cart ---------- */
+
+.catalogItem_popap {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 291px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 39px 35px 40px;
+
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  z-index: 10;
+  border: 1px solid rgba(75, 73, 80, 0.3);
+}
+
+.catalogItem_popap_size, .catalogItem_popap_color {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 52px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.catalogItem_popap_size span {
+  width: 52px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.3px solid #4B4950;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.catalogItem_popap_color span {
+  width: 52px;
+  border: 1px solid rgba(75, 73, 80, 0.3);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.catalogItem_popap_color_white {
+  background: #FFFFFF;
+}
+.catalogItem_popap_color_black {
+  background: #000000;
+}
+.catalogItem_popap_color_beige {
+  background: #DDB0A2;
+}
+
+.catalogItem_popap_btn {
+  max-width: 206px;
+  height: 52px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #4B4950;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+/* ---------- end popap_cart ---------- */
+
 .catalogItem_footer {
   flex: 1 0 70px;
   display: flex;
@@ -95,89 +175,10 @@
   position: relative;
   width: 30px;
   height: 25px;
-  background-image: url(../../../../assets/svg/catalog_add__shopping_cart_btn.svg);
+  background-image: url(../../../../assets/svg/group941.svg);
+  background-repeat: no-repeat;
   background-size: contain;
-  cursor: pointer
-}
-
-.catalogItem_popap {
-  position: absolute;
-  width: 274.8px;
-  height: 291px;
-  right: 0;
-  bottom: 80px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-top: 30px;
-  padding-bottom: 35px;
-  padding-left: 40px;
-  padding-right: 39px;
-
-  background: #FFFFFF;
-  border-radius: 20px;
-
-  z-index: 100;
-  border: 1px solid rgba(75, 73, 80, 0.3);
-  visibility: hidden;
-}
-
-.catalogItem_popap_size, .catalogItem_popap_color {
-  display: flex;
-  justify-content: space-between;
-
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.catalogItem_popap_size span {
-  min-width: 52px;
-  height: 52px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1.3px solid #4B4950;
-  box-sizing: border-box;
-  border-radius: 4px;
-}
-
-.catalogItem_popap_color span {
-  width: 52px;
-  height: 52px;
-  border: 1px solid rgba(75, 73, 80, 0.3);
-  box-sizing: border-box;
-  border-radius: 4px;
-}
-
-.catalogItem_popap_color_white {
-  background: #FFFFFF;
-}
-.catalogItem_popap_color_black {
-  background: #000000;
-}
-.catalogItem_popap_color_beige {
-  background: #DDB0A2;
-}
-
-.catalogItem_popap_btn {
-  width: 206px;
-  height: 52px;
-  background: #4B4950;
-  border-radius: 4px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #FFFFFF;
+  cursor: pointer;
 }
 
 @media (max-width: 1650px) {
@@ -191,6 +192,11 @@
   .catalogItem_item {
     padding-left: 0.57%;
     padding-right: 0.57%;
+  }
+
+  .catalogItem_popap {
+    height: 85%;
+    padding: 10% 13.9% 12.5% 14.3%;
   }
 }
 
@@ -244,6 +250,22 @@
 
   .catalogItem_item {
     margin-bottom: 25px;
+  }
+
+  .catalogItem_popap {
+    padding: 9% 10% 10% 11%;
+  }
+
+  .catalogItem_popap_size, .catalogItem_popap_color {
+    height: 30%;
+  }
+
+  .catalogItem_popap_size span {
+    width: 32%;
+  }
+
+  .catalogItem_popap_color span {
+    width: 32%;
   }
 }
 
