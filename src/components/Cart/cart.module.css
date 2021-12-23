@@ -1,0 +1,10 @@
+.cart {
+  min-width: 84%;
+  padding-left: 8%;
+  padding-right: auto;
+}
+
+.cart_header {
+  margin-bottom: 16px;
+  margin-top: 80px;
+}
