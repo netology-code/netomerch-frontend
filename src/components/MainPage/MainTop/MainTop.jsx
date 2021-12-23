@@ -5,16 +5,14 @@ import React, { useEffect, useState } from 'react';
 import './main-top.css';
 import '../Slider/slider.css';
 
-import img1 from './img/content_merch_1.jpg';
-import img2 from './img/content_merch_2.jpg';
-import img3 from './img/content_merch_3.jpg';
-import img4 from './img/content_merch_4.jpg';
-import img5 from './img/content_merch_5.jpg';
-import img6 from './img/content_merch_6.jpg';
-import img7 from './img/content_merch_7.jpg';
+import img1 from '../../../assets/img/main-top-slider/slider-1.jpg';
+import img2 from '../../../assets/img/main-top-slider/slider-2.jpg';
+import img3 from '../../../assets/img/main-top-slider/slider-3.jpg';
+import img4 from '../../../assets/img/main-top-slider/slider-4.jpg';
+import img5 from '../../../assets/img/main-top-slider/slider-5.jpg';
 
 export default function MainTop() {
-  const imgs = [img1, img2, img3, img4, img5, img6, img7];
+  const imgs = [img1, img2, img3, img4, img5];
   const [imgCurr, setImgCurr] = useState(0);
 
   const handleOnRightClick = () => {
@@ -36,9 +34,11 @@ export default function MainTop() {
     <div className="main-top">
       <div className="container">
         <div className="slider slider-main">
-          <div className="slider-main__img ibg">
-            <img src={imgs[imgCurr]} alt="slider" />
-          </div>
+          <a className="slider-main__link" href="/#">
+            <div className="slider-main__img ibg">
+              <img src={imgs[imgCurr]} alt="slider" />
+            </div>
+          </a>
           <div className="slider__control slider-main__control">
             <button className="slider__arrow" type="button" onClick={handleOnLeftClick}>
               <span className="visually-hidden">Назад</span>
