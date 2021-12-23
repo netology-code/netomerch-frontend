@@ -9,7 +9,7 @@ import Loader from '../Loader/Loader';
 import mockData from './mockDataProductReviews.json';
 import { fetchProduct } from '../../actions/actionCreators';
 
-// import ProductTop from './ProductTop/ProductTop';
+import ProductTop from './ProductTop/ProductTop';
 import Card from './Card';
 
 /* Заглушка для фото ---------------------------------------------------------- */
@@ -53,7 +53,7 @@ const Product = ({ match }) => {
 
   return (
     <div className={styles.product}>
-      {/* <ProductTop /> */}
+      <ProductTop />
       <Card product={product} />
       <ProductReviews reviews={product.reviews} />
     </div>
