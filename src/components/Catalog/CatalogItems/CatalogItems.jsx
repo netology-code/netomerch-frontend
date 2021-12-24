@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable no-param-reassign */
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
@@ -35,21 +36,53 @@ export default function CatalogItems({ catalog }) {
     </button>
   );
 
-  const hidenOrVisiblePopap = (event) => {
-    if (event.target.firstChild.style.visibility === 'visible') {
-      event.target.firstChild.style.visibility = 'hidden';
-    } else {
-      event.target.firstChild.style.visibility = 'visible';
-    }
+  const showPopapCart = (id) => {
+    setPartCatalog(partCatalog.map((cont) => {
+      if (id === cont.item_id) {
+        cont.isOpen = !cont.isOpen;
+      } else {
+        cont.isOpen = false;
+      }
+      return cont;
+    }));
   };
+
+  const arrStar = [
+    { id: 1, left: '52px', top: '9px', backgroundColor: '#49D2A4' },
+    { id: 2, left: '1105px', top: '432px', backgroundColor: '#006AFF' },
+    { id: 3, left: '1858px', top: '736px', backgroundColor: '#006AFF' },
+    { id: 4, left: '648px', top: '947px', backgroundColor: '#49D2A4' },
+    { id: 5, left: '172px', top: '1025px', backgroundColor: '#006AFF' },
+    { id: 6, left: '52px', top: '1448px', backgroundColor: '#49D2A4' },
+    { id: 7, left: '1105px', top: '1752px', backgroundColor: '#006AFF' },
+    { id: 8, left: '1858px', top: '1963px', backgroundColor: '#006AFF' },
+    { id: 9, left: '648px', top: '2041px', backgroundColor: '#49D2A4' },
+    { id: 10, left: '172px', top: '2464px', backgroundColor: '#006AFF' },
+    { id: 11, left: '52px', top: '2887px', backgroundColor: '#49D2A4' },
+    { id: 12, left: '1105px', top: '3191px', backgroundColor: '#006AFF' },
+    { id: 13, left: '1858px', top: '3402px', backgroundColor: '#006AFF' },
+    { id: 14, left: '648px', top: '3480px', backgroundColor: '#49D2A4' },
+    { id: 15, left: '172px', top: '3903px', backgroundColor: '#006AFF' },
+    { id: 16, left: '52px', top: '4207px', backgroundColor: '#49D2A4' },
+    { id: 17, left: '1105px', top: '4418px', backgroundColor: '#006AFF' },
+    { id: 18, left: '1858px', top: '4496px', backgroundColor: '#006AFF' },
+    { id: 19, left: '648px', top: '4919px', backgroundColor: '#49D2A4' },
+    { id: 20, left: '172px', top: '5223px', backgroundColor: '#006AFF' },
+  ];
 
   return (
     <div className={styles.catalogItems_wrapper}>
-      <div className={`${styles.catalogItems_star} ${styles.catalogItems_star__1}`} />
-      <div className={`${styles.catalogItems_star} ${styles.catalogItems_star__2}`} />
-      <div className={`${styles.catalogItems_star} ${styles.catalogItems_star__3}`} />
-      <div className={`${styles.catalogItems_star} ${styles.catalogItems_star__4}`} />
-      <div className={`${styles.catalogItems_star} ${styles.catalogItems_star__5}`} />
+      { arrStar.map((item) => (
+        <div
+          key={item.id}
+          className={`${styles.catalogItems_star}`}
+          style={{
+            left: item.left,
+            top: item.top,
+            backgroundColor: item.backgroundColor,
+          }}
+        />
+      ))}
 
       <div className="container">
         <div className={styles.catalogItems_content}>
@@ -65,11 +98,13 @@ export default function CatalogItems({ catalog }) {
               category={item.category}
               specialization={item.specialization}
               sizes={item.sizes}
-              onClick={hidenOrVisiblePopap}
+              isOpen={item.isOpen}
+              onClick={showPopapCart}
+              lengthPartCatalog={partCatalog.length}
             />
           ))}
         </div>
-        {(partCatalog.length !== catalog.length) ? <Button /> : null}
+        { (partCatalog.length !== catalog.length) ? <Button /> : null }
       </div>
     </div>
   );
