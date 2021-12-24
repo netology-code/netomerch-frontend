@@ -25,34 +25,6 @@
   background-color: #49D2A4;
 }
 
-.catalogItems_star__1 {
-  left: 33px;
-  top: 58px;
-}
-
-.catalogItems_star__2 {
-  left: 746px;
-  top: 356px;
-}
-
-.catalogItems_star__3 {
-  left: 1085px;
-  top: 482px;
-  background-color: #006AFF;
-}
-
-.catalogItems_star__4 {
-  left: 1839px;
-  top: 786px;
-  background-color: #006AFF;
-}
-
-.catalogItems_star__5 {
-  left: 154px;
-  top: 1074px;
-  background-color: #006AFF;
-}
-
 @media (max-width: 1650px) {
   .catalogItem_content {
     margin-left: -1.49%;
