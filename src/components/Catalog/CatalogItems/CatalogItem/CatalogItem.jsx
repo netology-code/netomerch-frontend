@@ -86,7 +86,7 @@ const CatalogItem = (props) => {
                         `}
               onClick={() => handleOnSizeClick(size)}
             >
-              <span className>{size}</span>
+              <span>{size}</span>
             </button>
           ))}
         </div>
