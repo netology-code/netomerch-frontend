@@ -6,7 +6,10 @@ import { nanoid } from 'nanoid';
 import styles from './productReviews.module.css';
 import ProductReview from './ProductReview/ProductReview';
 
+// import mockData from '../mockDataProductReviews.json'; /* удалить!!! */
+
 export default function ProductReviews({ reviews }) {
+  // const { reviews } = mockData; /* удалить!!! */
   if (!reviews) return null;
 
   // Можно управлять количеством отображаемых отзывов и количеством листания.
@@ -71,7 +74,11 @@ export default function ProductReviews({ reviews }) {
       {reviews.length !== 0 && (
         <div className="reviews__slider slider">
           <div className={styles.productReviews_reviews_block}>
-            <div className={styles.productReviews_content}>
+            <div
+              className={`
+                ${styles.productReviews_content} 
+                ${(reviews.length <= 2) ? styles.productReviews_content__reviews_lessTwo : styles.productReviews_content__reviews}`}
+            >
               {vReviews.map((review) => (
                 <ProductReview
                   key={nanoid()}
@@ -80,6 +87,7 @@ export default function ProductReviews({ reviews }) {
                   author={review.author}
                   author_image={review.author_image}
                   date={review.date}
+                  reviewsLen={reviews.length}
                 />
               ))}
             </div>
