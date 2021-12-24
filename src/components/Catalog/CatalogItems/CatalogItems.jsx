@@ -100,6 +100,7 @@ export default function CatalogItems({ catalog }) {
               sizes={item.sizes}
               isOpen={item.isOpen}
               onClick={showPopapCart}
+              lengthPartCatalog={partCatalog.length}
             />
           ))}
         </div>

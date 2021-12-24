@@ -15,7 +15,7 @@ const mockData_colors = ['#FFFFFF', '#000000', '#DDB0A2'];
 
 const CatalogItem = (props) => {
   const {
-    id, name, popular, short_description, image, price, category, specialization, sizes, isOpen, onClick,
+    id, name, popular, short_description, image, price, category, specialization, sizes, isOpen, onClick, lengthPartCatalog,
   } = props;
 
   const colors = mockData_colors; /* удалить после добавления данных с бэкенда */
@@ -120,7 +120,15 @@ const CatalogItem = (props) => {
   };
 
   return (
-    <div className={s.catalogItem_item}>
+    <div
+      className={`${s.catalogItem_item}
+                  ${(lengthPartCatalog === 1) && s.catalogItem_item__one}
+                  ${(lengthPartCatalog === 2) && s.catalogItem_item__two}
+                  ${(lengthPartCatalog === 3) && s.catalogItem_item__three}
+                  ${(lengthPartCatalog === 4) && s.catalogItem_item__four}
+                  ${(lengthPartCatalog > 4) && s.catalogItem_item__more_four}
+                `}
+    >
       <Link className={`${s.catalogItem_image} ibg`} to={`/catalog/${id}`}>
         <img src={image} alt="photo product" />
         <span className={`${s.catalogItem_item__color} ${s.square_white}`} />
