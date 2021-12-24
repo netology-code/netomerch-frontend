@@ -29,6 +29,12 @@ export default function CatalogItems({ catalog }) {
     }
   });
 
+  useEffect(() => {
+    setPartCatalog([]);
+    setCurrentCount(0);
+    setFetching(true);
+  }, [catalog]);
+
   const Button = () => (
     <button className={styles.catalogItems_button} type="button" onClick={handleClick}>
       <span>Посмотреть ещё</span>

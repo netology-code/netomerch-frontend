@@ -25,6 +25,7 @@
 }
 
 .specialization li {
+    cursor: pointer;
     padding: 0 15px;
     color: rgba(75, 73, 80, 0.6);
 }
@@ -36,6 +37,7 @@
 }
 
 .categories li {
+    cursor: pointer;
     padding: 11px 30px;
     border-radius: 5px;
     border: 1.3px solid #4B4950;
@@ -44,6 +46,7 @@
 }
 
 .categories li.dump {
+    cursor: pointer;
     width: 38px;
     height: 38px;
     padding: 0;
@@ -91,6 +94,7 @@
 }
 
 .customCheckbox {
+    cursor: pointer;
     position: absolute;
     z-index: -1;
     opacity: 0;
@@ -123,6 +127,7 @@
 }
 
 .params {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -178,9 +183,8 @@ li.pressSpec::after {
 }
 
 .dopPanel {
-    display: flex;
+    display: none;
     padding-bottom: 25px;
-
 }
 
 .dopPanel .size {
@@ -188,6 +192,7 @@ li.pressSpec::after {
 }
 
 .dopPanel .size li {
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -210,5 +215,10 @@ li.pressSpec::after {
 }
 
 .dopPanel .price li {
+    cursor: pointer;
     margin-left: 30px;
+}
+
+.dopPanel.open {
+    display: flex;
 }
