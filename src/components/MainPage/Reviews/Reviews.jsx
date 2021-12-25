@@ -10,6 +10,7 @@ import { nanoid } from 'nanoid';
 import './reviews.css';
 import { Link } from 'react-router-dom';
 import Title from '../../ui/Title';
+import ReviewsPopup from '../../Popups/ReviewsPopup';
 
 /*
 import img5 from './img/content_merch_5.png';
@@ -38,6 +39,8 @@ export default function Reviews({ reviews }) {
   const [points, setPoints] = useState([]); // Массив для отрисовки точек слайдера.
   const [isSliderControl, setIsSliderControl] = useState(false); // Если все отзывы вмещаются на экран, тогда управление листанием скрыто.
   const [activePoint, setActivePoint] = useState(0); // Активная точка в слайдере. Указывает на позицию в массиве points.
+
+  const [isPopup, setIsPopup] = useState(true);
 
   // Вычисляем массив видимых отзывов, при листании (или изменении количества видимых отзывов - пока не используется).
   useEffect(() => {
@@ -131,6 +134,8 @@ export default function Reviews({ reviews }) {
         </div>}
 
         <Link className="main-page__btn btn" to="/catalog">Убедили! В каталог</Link>
+
+        {isPopup && <ReviewsPopup reviews={reviews} />}
       </div>
     </div>
   );
