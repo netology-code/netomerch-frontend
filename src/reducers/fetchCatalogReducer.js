@@ -5,6 +5,7 @@ const initialState = {
   catalog: [],
   categories: [],
   specialization: [],
+  sizes: [],
   error: null,
   loading: false,
 };
@@ -18,9 +19,11 @@ function fetchCatalogReducer(state = initialState, action) {
       return { ...state, loading: false, error };
     case FETCH_CATALOG_SUCCESS:
       const { data } = action.payload;
-      const { catalog, categories, specialization } = data;
+      const {
+        catalog, categories, specialization, sizes,
+      } = data;
       return {
-        ...state, catalog, categories, specialization, loading: false, error: null,
+        ...state, catalog, categories, specialization, sizes, loading: false, error: null,
       };
     default:
       return state;

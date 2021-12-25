@@ -88,9 +88,13 @@ export const fetchCatalog = () => async (dispatch) => {
       throw new Error(response.statusText || 'Что-то пошло не так');
     }
 
-    const { categories, items, specialization } = await response.json();
+    const {
+      categories, items, specialization, sizes,
+    } = await response.json();
 
-    dispatch(fetchCatalogSuccess({ categories, catalog: items, specialization }));
+    dispatch(fetchCatalogSuccess({
+      categories, catalog: items, specialization, sizes,
+    }));
   } catch (error) {
     dispatch(fetchCatalogFailure(error.message));
   }
