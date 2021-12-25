@@ -1,5 +1,13 @@
+"_comment": 'POST method'
 {
-  "promocode": "string", /* это Primary_key */
+  "promocode": "string",
+  "email": "string"
+}
+
+"_comment": "Answer on POST"
+
+{
+  "promocode": "string",
   "item": {
     "item_id": "integer",
     "name": "string",
