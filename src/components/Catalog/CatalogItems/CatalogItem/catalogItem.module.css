@@ -65,27 +65,16 @@
   width: 25.24px;
   height: 25.24px;
   right: 11.76px;
-  border: 0.485437px solid rgba(75, 73, 80, 0.3);
+  border: 1px solid rgba(75, 73, 80, 0.6);
   box-sizing: border-box;
   border-radius: 4px;
   transform: matrix(0, 1, 1, 0, 0, 0);
   z-index: 10;
 }
 
-.square_white {
-  bottom: 86.76px;
-  background: #FFFFFF;
-}
-
-.square_black {
-  bottom: 49.38px;
-  background: #000000
-}
-
-.square_beige {
-  bottom: 12px;
-  background: #DDB0A2;
-}
+.square_one { bottom: 12px; }
+.square_two { bottom: 49.38px; }
+.square_three { bottom: 86.76px; }
 
 /* ---------- start popap_cart ---------- */
 .catalogItem_popap {

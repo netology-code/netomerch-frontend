@@ -6,19 +6,19 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
+import { nanoid } from 'nanoid';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { addProductInCart } from '../../../../actions/actionCreators';
 import s from './catalogItem.module.css';
 
 const mockData_addProductCart = [];
-const mockData_colors = ['#FFFFFF', '#000000', '#DDB0A2'];
 
 const CatalogItem = (props) => {
   const {
-    id, name, popular, short_description, image, price, category, specialization, sizes, isOpen, onClick, lengthPartCatalog,
+    id, name, popular, short_description, price, category, specialization, sizes, image, colors, isOpen, onClick, lengthPartCatalog,
   } = props;
-
-  const colors = mockData_colors; /* удалить после добавления данных с бэкенда */
 
   const [currCartFull, setCurrCartFull] = useState(false);
   const [isChoseComplete, setIsChoseComplete] = useState(null);
@@ -30,6 +30,7 @@ const CatalogItem = (props) => {
     const [isChoseCompleteColor, setIsChoseCompleteColor] = useState(true);
 
     const [isAddProduct, setIsAddProduct] = useState(true);
+    const dispatch = useDispatch();
 
     const handleOnSizeClick = (size) => {
       if (size === currSize) {
@@ -61,12 +62,24 @@ const CatalogItem = (props) => {
         setTimeout(() => setIsChoseComplete(false), 3000);
         setCurrCartFull(true);
 
-        mockData_addProductCart.push({
-          id,
-          count: 1,
+        // mockData_addProductCart.push({
+        //   id,
+        //   count: 1,
+        //   size: currSize,
+        //   color: currColor,
+        // });
+        const orderedProduct = {
+          id: nanoid(),
+          item_id: id,
+          image,
+          name,
           size: currSize,
           color: currColor,
-        });
+          price,
+          count: 1,
+        };
+
+        dispatch(addProductInCart(orderedProduct));
       } else {
         setIsAddProduct(false);
       }
@@ -131,9 +144,16 @@ const CatalogItem = (props) => {
     >
       <Link className={`${s.catalogItem_image} ibg`} to={`/catalog/${id}`}>
         <img src={image} alt="photo product" />
-        <span className={`${s.catalogItem_item__color} ${s.square_white}`} />
-        <span className={`${s.catalogItem_item__color} ${s.square_black}`} />
-        <span className={`${s.catalogItem_item__color} ${s.square_beige}`} />
+        {colors.map((color) => (
+          <span
+            key={color}
+            className={`${s.catalogItem_item__color} 
+                        ${colors[0] === color && s.square_one}
+                        ${colors[1] === color && s.square_two}
+                        ${colors[2] === color && s.square_three}`}
+            style={{ backgroundColor: color }}
+          />
+        ))}
       </Link>
       { isOpen && <PopapCart /> }
 

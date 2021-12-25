@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './catalogItems.module.css';
 import CatalogItem from './CatalogItem/CatalogItem';
+import Title from '../../ui/Title';
 
 export default function CatalogItems({ catalog }) {
   const [partCatalog, setPartCatalog] = useState([]);
@@ -99,11 +100,12 @@ export default function CatalogItems({ catalog }) {
               name={item.name}
               popular={item.popular}
               short_description={item.short_description}
-              image={item.image}
               price={item.price}
               category={item.category}
               specialization={item.specialization}
-              sizes={item.sizes}
+              sizes={item.size}
+              image={item.image}
+              colors={item.colors}
               isOpen={item.isOpen}
               onClick={showPopapCart}
               lengthPartCatalog={partCatalog.length}
@@ -111,6 +113,7 @@ export default function CatalogItems({ catalog }) {
           ))}
         </div>
         { (partCatalog.length !== catalog.length) ? <Button /> : null }
+        { (catalog.length === 0) && <Title cn={styles.catalogItems_header} text="по данному фильтру товаров не найдено" sqColor="pink" /> }
       </div>
     </div>
   );

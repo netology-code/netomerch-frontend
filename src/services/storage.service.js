@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const storageService = {
   get: (key) => (localStorage.getItem(key)
     ? JSON.parse(localStorage.getItem(key))
@@ -7,13 +8,17 @@ const storageService = {
   },
   add: (key, data) => {
     const cart = storageService.get(key);
-
-    if (cart.length === 0) {
-      storageService.set(key, data);
-    } else {
-      cart.push(data);
-      storageService.set(key, cart);
-    }
+    cart.push(data);
+    storageService.set(key, cart);
+  },
+  changeQuantity: (key, id, quantity) => {
+    const cart = storageService.get(key);
+    cart.forEach((prod) => {
+      if (prod.id === id) {
+        prod.count = quantity;
+      }
+    });
+    storageService.set(key, cart);
   },
   delete: (key, id) => {
     let cart = storageService.get(key);
