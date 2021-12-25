@@ -6,8 +6,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 /* eslint-disable camelcase */
+import { nanoid } from 'nanoid';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { addProductInCart } from '../../../../actions/actionCreators';
 import s from './catalogItem.module.css';
 
 const mockData_addProductCart = [];
@@ -30,6 +33,7 @@ const CatalogItem = (props) => {
     const [isChoseCompleteColor, setIsChoseCompleteColor] = useState(true);
 
     const [isAddProduct, setIsAddProduct] = useState(true);
+    const dispatch = useDispatch();
 
     const handleOnSizeClick = (size) => {
       if (size === currSize) {
@@ -61,12 +65,24 @@ const CatalogItem = (props) => {
         setTimeout(() => setIsChoseComplete(false), 3000);
         setCurrCartFull(true);
 
-        mockData_addProductCart.push({
-          id,
-          count: 1,
+        // mockData_addProductCart.push({
+        //   id,
+        //   count: 1,
+        //   size: currSize,
+        //   color: currColor,
+        // });
+        const orderedProduct = {
+          id: nanoid(),
+          item_id: id,
+          image,
+          name,
           size: currSize,
           color: currColor,
-        });
+          price,
+          count: 1,
+        };
+
+        dispatch(addProductInCart(orderedProduct));
       } else {
         setIsAddProduct(false);
       }

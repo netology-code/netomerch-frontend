@@ -1,18 +1,23 @@
+/* eslint-disable camelcase */
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { nanoid } from 'nanoid';
+import { addProductInCart } from '../../../actions/actionCreators';
 import Title from '../../ui/Title';
 import './card.css';
 
 const regCount = /^\d{0,3}$/;
 
 export default function Card({ product }) {
-  const { name, description, price, colors, sizes } = product;
+  const { name, description, price, colors, sizes, item_id } = product;
   const [currColor, setCurrColor] = useState(colors.find((item) => item.is_main));
   const [currImg, setCurrImg] = useState('');
   const [currSize, setCurrSize] = useState(null);
   const [currCount, setCurrCount] = useState(0);
   const [msgAdd, setMsgAdd] = useState({ type: '', err: { size: false, count: false } });
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setCurrImg(currColor.images.find((image) => image.is_main).images);
@@ -77,6 +82,20 @@ export default function Card({ product }) {
 
     setMsgAdd({ type, err: { size, count } });
     setTimeout(() => setMsgAdd({ type: '', err: { size: false, count: false } }), 2600);
+    if (!currSize || (currCount === 0)) return;
+
+    const orderedProduct = {
+      id: nanoid(),
+      item_id,
+      image: currImg,
+      name,
+      size: currSize,
+      color: currColor.color_code,
+      price,
+      count: currCount,
+    };
+
+    dispatch(addProductInCart(orderedProduct));
   };
 
   return (

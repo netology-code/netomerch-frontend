@@ -97,7 +97,7 @@ export default function CatalogItems({ catalog }) {
               price={item.price}
               category={item.category}
               specialization={item.specialization}
-              sizes={item.sizes}
+              sizes={item.size}
               isOpen={item.isOpen}
               onClick={showPopapCart}
               lengthPartCatalog={partCatalog.length}
