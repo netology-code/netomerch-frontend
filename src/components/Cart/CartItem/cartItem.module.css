@@ -1,3 +1,189 @@
 .item_header {
   margin-top: 70px;
 }
+
+.cart {
+  width: 84%;
+}
+
+.cartContent {
+  display: flex;
+  margin-top: 50px;
+}
+
+.cartContentData {
+  margin-left: 3.75%;
+  min-width: 62.5%;
+}
+
+.line {
+  margin-top: 45px;
+  min-width: 62.5%;
+}
+
+
+.label {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.contentLine {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.cartImage {
+  object-fit: cover;
+  width: 285px;
+  height: 344px;
+  border-radius: 20px;
+}
+
+.cartSize {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 50px;
+  width: 205px;
+  height: 100px;
+}
+
+.cartColor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 50px;
+  width: 205px;
+  height: 100px;
+}
+
+.cartNumber {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 205px;
+  height: 100px;
+}
+
+.cartPrice {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 205px;
+  height: 100px;
+}
+
+.cartSum {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 50px;
+  width: 205px;
+  height: 100px;
+}
+
+.cartDiscount {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 50px;
+  width: 205px;
+  height: 100px;
+  margin-left: 0%;
+}
+
+.cartDiscountSum {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 205px;
+  height: 100px;
+  margin-left: 0%;
+}
+
+.bucket {
+  position: relative;
+  cursor: pointer;
+  left: 97%;
+  bottom: 38px;
+  width: 27px;
+  height: 34px;
+  background-image: url(../../../assets/svg/bucket.svg);
+}
+
+.sizeRectangle {
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(75, 73, 80, 0.3);
+  border-radius: 4px;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.priceText {
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 43px;
+}
+
+.colorRectangle {
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(75, 73, 80, 0.3);
+  border-radius: 4px;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.sumText {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 43px;
+}
+
+.discountSumText {
+  color: #E51A5E;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 43px;
+}
+
+.numberControls {
+  display: flex;
+}
+
+.numberMinus {
+  cursor: pointer;
+  color: #4B4950;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(75, 73, 80, 0.3);
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.numberPlus {
+  cursor: pointer;
+  color: #4B4950;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(75, 73, 80, 0.3);
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.numberQuantity {
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(75, 73, 80, 0.3);
+  border-left: none;
+  border-right: none;
+  text-align: center;
+  padding-top: 15px;
+}
