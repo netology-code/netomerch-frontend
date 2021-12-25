@@ -1,6 +1,6 @@
 .catalogItems_wrapper {
   position: relative;
-  display: flex;
+  /* display: flex; */
   overflow: hidden;
   margin-bottom: 80px;
 }
@@ -15,6 +15,11 @@
   font-weight: normal;
   text-align: left;
   background-color: #FFFFFF;
+}
+
+.catalogItems_header {
+  margin-top: 70px;
+  margin-bottom: 193px;
 }
 
 .catalogItems_star {
