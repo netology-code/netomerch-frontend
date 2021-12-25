@@ -3,7 +3,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect, useState } from 'react';
 import './main-top.css';
-import '../Slider/slider.css';
 
 import img1 from '../../../assets/img/main-top-slider/slider-1.jpg';
 import img2 from '../../../assets/img/main-top-slider/slider-2.jpg';

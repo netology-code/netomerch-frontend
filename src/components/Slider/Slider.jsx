@@ -5,34 +5,39 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { nanoid } from 'nanoid';
+import './slider.css';
 
-export default function Slider({ reviews }) {
-  const [pos, setPos] = useState(0); // Начальная позиция в массиве отзывов, с которой отображаются видимые отзывы.
-  const [vCount, setVCount] = useState(4); // Количество отображаемых отзывов (1 - 4).
-  const [lCount, setLCount] = useState(4); // На сколько отзывов листается (1 - 4).
-  const [vReviews, setVReviews] = useState([]); // Видимые отзывы.
+export default function Slider({
+  items, // Массив элементов.
+  startPos = 0, // С какой позиции показывать элементы.
+  isPoints = true, // Показывать или скрывать точки.
+  isRound = false, // Листается слайдер по кругу или нет.
+  autoScroll = 0, // Автоматическое листание. 0 - отключено, для включения нужно указать задержку в ms, например, 5000.
+  children,
+}) {
+  const [pos, setPos] = useState(startPos); // Начальная позиция в массиве элементов, с которой отображаются видимые элементы.
+  const [vCount, setVCount] = useState(4); // Количество отображаемых элементов (1 - 4).
+  const [lCount, setLCount] = useState(1); // На сколько элементов листается (1 - 4).
+  const [vItems, setVItems] = useState([]); // Видимые элементы.
   const [points, setPoints] = useState([]); // Массив для отрисовки точек слайдера.
-  const [isSliderControl, setIsSliderControl] = useState(false); // Если все отзывы вмещаются на экран, тогда управление листанием скрыто.
+  const [isSliderControl, setIsSliderControl] = useState(false); // Если все элементы вмещаются на экран, тогда управление листанием скрыто.
   const [activePoint, setActivePoint] = useState(0); // Активная точка в слайдере. Указывает на позицию в массиве points.
-  const [pointsOn, setPointsOn] = useState(true); // Убрать/показать точки слайдера.
+  const [pointsOn, setPointsOn] = useState(isPoints); // Убрать/показать точки слайдера.
 
-  const [isPopup, setIsPopup] = useState(false);
-
-  // Вычисляем массив видимых отзывов, при листании (или изменении количества видимых отзывов - пока не используется).
+  // Вычисляем массив видимых элементов, при листании (или изменении количества видимых элементов - пока не используется).
   useEffect(() => {
     const arr = [];
-    const endPos = pos + vCount < reviews.length ? pos + vCount : reviews.length;
+    const endPos = pos + vCount < items.length ? pos + vCount : items.length;
     for (let i = pos; i < endPos; i += 1) {
-      arr.push(reviews[i]);
+      arr.push(items[i]);
     }
-    setVReviews(arr);
+    setVItems(arr);
   }, [pos, vCount]);
 
   // Вычисляем массив для отрисовки точек.
   useEffect(() => {
-    let pCount = Math.ceil((reviews.length - (vCount - lCount)) / lCount);
+    let pCount = Math.ceil((items.length - (vCount - lCount)) / lCount);
     if (pCount < 0) pCount = 1;
     const arr = [];
     for (let i = 0; i < pCount; i += 1) {
@@ -44,7 +49,7 @@ export default function Slider({ reviews }) {
   // Устанавливаем нужно ли показывать управление листанием слайдера.
   useEffect(() => {
     let isVisible = null;
-    if (reviews.length <= vCount) isVisible = false;
+    if (items.length <= vCount) isVisible = false;
     else isVisible = true;
 
     if (isSliderControl !== isVisible) setIsSliderControl(isVisible);
@@ -57,7 +62,12 @@ export default function Slider({ reviews }) {
 
   const handleOnRightClick = () => {
     let nextPos = pos + lCount;
-    if ((nextPos > reviews.length) || (nextPos > reviews.length - vCount)) nextPos = reviews.length - vCount;
+
+    if (isRound) {
+      if (nextPos + vCount - lCount >= items.length) nextPos = 0;
+      else if (nextPos > items.length - vCount) nextPos = items.length - vCount;
+    } else if ((nextPos > items.length) || (nextPos > items.length - vCount)) nextPos = items.length - vCount;
+
     if (nextPos < 0) nextPos = 0;
     if (pos !== nextPos) setPos(nextPos);
   };
@@ -68,32 +78,16 @@ export default function Slider({ reviews }) {
     if (pos !== nextPos) setPos(nextPos);
   };
 
-  const showPopup = () => {
-    setIsPopup(true);
-  };
-
-  const hidePopup = () => {
-    setIsPopup(false);
-  };
-
-  if (reviews.length === 0) return null;
+  if (items.length === 0) return null;
 
   return (
-    <div className="reviews__slider slider slider-rewiews">
-      <div className="slider-rewiews__container">
-        {vReviews.map((vReview) =>
-          <div className="slider-rewiew" key={nanoid()}>
-            <button className="slider-rewiew__img ibg" type="button" onClick={showPopup}>
-              {/* <Link to={`/catalog/${vReview.item_id}`}><img src={vReview.image} alt="image rewiew" /></Link> */}
-              <img src={vReview.image} alt="product" />
-            </button>
-            {/* <a className="slider-rewiew__link" href="/#">{vReview.item.name}</a> */}
-            <Link className="slider-rewiew__link" to={`/catalog/${vReview.item_id}`}>{vReview.text}</Link>
-          </div>)}
+    <div className="slider">
+      <div className="slider__container">
+        {children(vItems)}
       </div>
 
       {isSliderControl &&
-      <div className="slider__control slider__control_gray slider-rewiews__control">
+      <div className="slider__control slider__control_gray">
         <button className="slider__arrow" type="button" onClick={handleOnLeftClick}>
           <span className="visually-hidden">Назад</span>
         </button>
