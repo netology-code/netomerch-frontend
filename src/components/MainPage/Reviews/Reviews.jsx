@@ -39,6 +39,7 @@ export default function Reviews({ reviews }) {
   const [points, setPoints] = useState([]); // Массив для отрисовки точек слайдера.
   const [isSliderControl, setIsSliderControl] = useState(false); // Если все отзывы вмещаются на экран, тогда управление листанием скрыто.
   const [activePoint, setActivePoint] = useState(0); // Активная точка в слайдере. Указывает на позицию в массиве points.
+  const [pointsOn, setPointsOn] = useState(true); // Убрать/показать точки слайдера.
 
   const [isPopup, setIsPopup] = useState(false);
 
@@ -126,12 +127,13 @@ export default function Reviews({ reviews }) {
               <span className="visually-hidden">Назад</span>
             </button>
 
+            {pointsOn &&
             <ul className="slider__points">
               {points.map((point, index) =>
                 <li className={`slider__point${index === activePoint ? ' slider__point_active' : ''} `} key={nanoid()}>
                   <span className="visually-hidden">Точка слайдера</span>
                 </li>)}
-            </ul>
+            </ul>}
 
             <button className="slider__arrow slider__arrow_right" type="button" onClick={handleOnRightClick}>
               <span className="visually-hidden">Вперед</span>
