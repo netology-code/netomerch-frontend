@@ -112,3 +112,11 @@ export const fetchMainPage = () => async (dispatch) => {
     dispatch(fetchMainPageFailure(error.message));
   }
 };
+
+export const addProductInCart = (product) => async (dispatch) => {
+
+};
+
+export const deleteProductInCart = (id) => async (dispatch) => {
+
+};
