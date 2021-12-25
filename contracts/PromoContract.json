@@ -1,13 +1,13 @@
 "_comment": 'POST method'
 {
-  "promocode": "string",
+  "code": "string",
   "email": "string"
 }
 
 "_comment": "Answer on POST"
 
 {
-  "promocode": "string",
+  "code": "string",
   "item": {
     "item_id": "integer",
     "name": "string",
