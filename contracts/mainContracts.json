@@ -23,23 +23,19 @@
       "author?": "string",
       "item": {
         "id": "number",
-        "nam": "string",
+        "name": "string",
         "image": "string"
       }
     },
     {
       "id": "number",
-      "image": "string",
       "text": "string",
       "author?": "string",
-      "item_id?": "number"
-    },
-    {
-      "id": "number",
-      "image": "string",
-      "text": "string",
-      "author?": "string",
-      "item_id?": "number"
+      "item": {
+        "id": "number",
+        "name": "string",
+        "image": "string"
+      }
     }
   ]
 }
