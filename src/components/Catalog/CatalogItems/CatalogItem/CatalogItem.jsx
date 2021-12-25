@@ -11,14 +11,11 @@ import { Link } from 'react-router-dom';
 import s from './catalogItem.module.css';
 
 const mockData_addProductCart = [];
-const mockData_colors = ['#FFFFFF', '#000000', '#DDB0A2'];
 
 const CatalogItem = (props) => {
   const {
-    id, name, popular, short_description, image, price, category, specialization, sizes, isOpen, onClick, lengthPartCatalog,
+    id, name, popular, short_description, price, category, specialization, sizes, image, colors, isOpen, onClick, lengthPartCatalog,
   } = props;
-
-  const colors = mockData_colors; /* удалить после добавления данных с бэкенда */
 
   const [currCartFull, setCurrCartFull] = useState(false);
   const [isChoseComplete, setIsChoseComplete] = useState(null);
@@ -131,9 +128,16 @@ const CatalogItem = (props) => {
     >
       <Link className={`${s.catalogItem_image} ibg`} to={`/catalog/${id}`}>
         <img src={image} alt="photo product" />
-        <span className={`${s.catalogItem_item__color} ${s.square_white}`} />
-        <span className={`${s.catalogItem_item__color} ${s.square_black}`} />
-        <span className={`${s.catalogItem_item__color} ${s.square_beige}`} />
+        {colors.map((color) => (
+          <span
+            key={color}
+            className={`${s.catalogItem_item__color} 
+                        ${colors[0] === color && s.square_one}
+                        ${colors[1] === color && s.square_two}
+                        ${colors[2] === color && s.square_three}`}
+            style={{ backgroundColor: color }}
+          />
+        ))}
       </Link>
       { isOpen && <PopapCart /> }
 

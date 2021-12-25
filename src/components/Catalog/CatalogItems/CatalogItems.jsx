@@ -99,11 +99,12 @@ export default function CatalogItems({ catalog }) {
               name={item.name}
               popular={item.popular}
               short_description={item.short_description}
-              image={item.image}
               price={item.price}
               category={item.category}
               specialization={item.specialization}
-              sizes={item.sizes}
+              sizes={item.size}
+              image={item.image}
+              colors={item.colors}
               isOpen={item.isOpen}
               onClick={showPopapCart}
               lengthPartCatalog={partCatalog.length}
