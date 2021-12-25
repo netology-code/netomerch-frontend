@@ -1,4 +1,5 @@
 import httpService from '../services/http.service';
+import storageService from '../services/storage.service';
 import {
   FETCH_CATALOG_FAILURE,
   FETCH_CATALOG_START,
@@ -115,4 +116,19 @@ export const fetchMainPage = () => async (dispatch) => {
   } catch (error) {
     dispatch(fetchMainPageFailure(error.message));
   }
+};
+
+export const addProductInCart = (product) => async (dispatch) => {
+  storageService.add('cart', product);
+  dispatch(updateCart());
+};
+
+export const deleteProductInCart = (id) => async (dispatch) => {
+  storageService.delete('cart', id);
+  dispatch(updateCart());
+};
+
+export const changeQuantityInCart = (id, quantity) => async (dispatch) => {
+  storageService.changeQuantity('cart', id, quantity);
+  dispatch(updateCart());
 };
