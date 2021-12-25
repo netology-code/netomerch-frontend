@@ -116,7 +116,7 @@ const Cart = ({ cartItem }) => {
           <button className="count-card__item count-card__btn" type="button" onClick={handleOnCountIncClick}>+</button>
         </div>
       </div>
-<hr className={styles.line} />
+      <hr className={styles.line} />
     </div>
   );
 };
