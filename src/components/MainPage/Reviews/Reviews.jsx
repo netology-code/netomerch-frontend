@@ -40,7 +40,7 @@ export default function Reviews({ reviews }) {
   const [isSliderControl, setIsSliderControl] = useState(false); // Если все отзывы вмещаются на экран, тогда управление листанием скрыто.
   const [activePoint, setActivePoint] = useState(0); // Активная точка в слайдере. Указывает на позицию в массиве points.
 
-  const [isPopup, setIsPopup] = useState(true);
+  const [isPopup, setIsPopup] = useState(false);
 
   // Вычисляем массив видимых отзывов, при листании (или изменении количества видимых отзывов - пока не используется).
   useEffect(() => {
@@ -90,6 +90,14 @@ export default function Reviews({ reviews }) {
     if (pos !== nextPos) setPos(nextPos);
   };
 
+  const showPopup = () => {
+    setIsPopup(true);
+  };
+
+  const hidePopup = () => {
+    setIsPopup(false);
+  };
+
   return (
     <div className="reviews">
       <div className="container">
@@ -103,12 +111,10 @@ export default function Reviews({ reviews }) {
           <div className="slider-rewiews__container">
             {vReviews.map((vReview) =>
               <div className="slider-rewiew" key={nanoid()}>
-                <div className="slider-rewiew__img ibg">
-                  <Link to={`/catalog/${vReview.item_id}`}>
-                    {/* <img src={vReview.item.image[0].image} alt={vReview.item.name} /> */}
-                    <img src={vReview.image} alt="image rewiew" />
-                  </Link>
-                </div>
+                <button className="slider-rewiew__img ibg" type="button" onClick={showPopup}>
+                  {/* <Link to={`/catalog/${vReview.item_id}`}><img src={vReview.image} alt="image rewiew" /></Link> */}
+                  <img src={vReview.image} alt="image rewiew" />
+                </button>
                 {/* <a className="slider-rewiew__link" href="/#">{vReview.item.name}</a> */}
                 <Link className="slider-rewiew__link" to={`/catalog/${vReview.item_id}`}>{vReview.text}</Link>
               </div>)}
@@ -135,7 +141,7 @@ export default function Reviews({ reviews }) {
 
         <Link className="main-page__btn btn" to="/catalog">Убедили! В каталог</Link>
 
-        {isPopup && <ReviewsPopup reviews={reviews} />}
+        {isPopup && <ReviewsPopup reviews={reviews} pos={pos} hidePopup={hidePopup} />}
       </div>
     </div>
   );

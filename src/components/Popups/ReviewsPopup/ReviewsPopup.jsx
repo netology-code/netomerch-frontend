@@ -1,14 +1,23 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Title from '../../ui/Title';
 import './reviews-popup.css';
 
-export default function ReviewsPopup({ reviews }) {
+export default function ReviewsPopup({ hidePopup }) {
+  // console.log('popup', reviews);
+
+  // Закрыть попап, при клике на темном фоне.
+  const handleOnPopupClick = (event) => {
+    if (event.target.classList.contains('reviews-popup')) hidePopup();
+  };
+
   return (
-    <div className="reviews-popup">
+    <div className="reviews-popup" onClick={handleOnPopupClick}>
       <div className="reviews-popup__body">
-        <button className="reviews-popup__btn-close" type="button">
+        <button className="reviews-popup__btn-close" type="button" onClick={hidePopup}>
           <span className="visually-hidden">Закрыть</span>
         </button>
         <div className="reviews-popup__slider slider slider-reviews-popup">
@@ -16,7 +25,7 @@ export default function ReviewsPopup({ reviews }) {
             <header className="review-popup__header header-review-popup">
               <div className="header-review-popup__column-1">
                 <div className="review-popup__product-img ibg">
-                  <img src={reviews[0].image} alt="" />
+                  <img src="" alt="" />
                 </div>
               </div>
 
