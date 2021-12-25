@@ -10,17 +10,19 @@ const Cart = () => {
       itemName: 'название',
       itemPrice: 1000,
       itemColor: 'red',
+      itemDiscount: 10,
       itemSize: 'M',
       itemNumber: 5,
-      itemImage: 'https://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D0%BC%D0%BF%D1%81%D0%BE%D0%BD%D1%8B#/media/%D0%A4%D0%B0%D0%B9%D0%BB:Simpsons.png',
+      itemImage: 'https://upload.wikimedia.org/wikipedia/ru/1/1b/Simpsons.png',
     },
     {
       itemName: 'название',
       itemPrice: 1000,
       itemColor: 'red',
       itemSize: 'M',
+      itemDiscount: 10,
       itemNumber: 5,
-      itemImage: 'https://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D0%BC%D0%BF%D1%81%D0%BE%D0%BD%D1%8B#/media/%D0%A4%D0%B0%D0%B9%D0%BB:Simpsons.png',
+      itemImage: 'https://upload.wikimedia.org/wikipedia/ru/1/1b/Simpsons.png',
     },
   ];
   return (
