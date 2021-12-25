@@ -8,6 +8,7 @@
 .catalogItems_content {
   display: flex;
   justify-content: flex-start;
+  margin-bottom: 130px;
   flex-wrap: wrap;
   font-family: 'Golos Text', sans-serif;
   font-style: normal;
@@ -23,6 +24,29 @@
   mask-image: url(../../../assets/svg/atr_star.svg);
   background-size: contain;
   background-color: #49D2A4;
+}
+
+.catalogItems_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 16px 10px;
+  width: 320px;
+  background-color: #4B4950;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1.2;
+  text-align: center;
+  color: #FFFFFF;
+  border-radius: 4px;
+  transition-property: background-color;
+  transition-duration: 400ms;
+}
+
+.catalogItems_button:hover {
+  background-color: #006AFF;
 }
 
 @media (max-width: 1650px) {
@@ -44,28 +68,4 @@
     margin-left: -1%;
     margin-right: -1%;
   }
-}
-
-.catalogItems_button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 62px;
-  padding: 16px 10px;
-  width: 320px;
-  background-color: #4B4950;
-  font-weight: bold;
-  font-size: 15px;
-  line-height: 1.2;
-  text-align: center;
-  color: #FFFFFF;
-  border-radius: 4px;
-  transition-property: background-color;
-  transition-duration: 400ms;
-}
-
-.catalogItems_button:hover {
-  background-color: #006AFF;
 }
