@@ -6,7 +6,7 @@
     "final_sum": "decimal",
     "address": "String",
     "comment": "String",
-    "promocode": "string",
+    "code": "string",
     "items": [
         {
             "item_id": "integer",
