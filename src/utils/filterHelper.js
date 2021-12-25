@@ -23,7 +23,7 @@ export function sortByPrice(status, list) {
 }
 
 export function filterByPrice(from, to, list) {
-  return list.filter((item) => item.price >= from && item.price <= to);
+  return list.filter((item) => Number(item.price) >= from && Number(item.price) <= to);
 }
 
 export function filterByCategory(categoriesArray, list) {
@@ -35,5 +35,5 @@ export function filterBySpecialization(specializationsArray, list) {
 }
 
 export function filterBySize(sizesArray, list) {
-  return list.filter((item) => item.sizes.filter((size) => sizesArray.includes(size)));
+  return list.filter((item) => item.size.some((size) => sizesArray.includes(size)));
 }

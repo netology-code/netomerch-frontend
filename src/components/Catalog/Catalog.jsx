@@ -44,7 +44,7 @@ const Catalog = () => {
   };
 
   if (Object.keys(filterParams).length !== 0) {
-    if (filterParams.filterCategories.length === 0 && filterParams.filterSpecialization.length === 0 && filterParams.filterSizes.length === 0) {
+    if (filterParams.filterCategories.length === 0 && filterParams.filterSpecialization.length === 0) {
       filteredCatalog = [...catalog];
     }
 
