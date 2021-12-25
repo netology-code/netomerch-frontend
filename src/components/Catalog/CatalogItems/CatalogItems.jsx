@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './catalogItems.module.css';
 import CatalogItem from './CatalogItem/CatalogItem';
+import Title from '../../ui/Title';
 
 export default function CatalogItems({ catalog }) {
   const [partCatalog, setPartCatalog] = useState([]);
@@ -111,6 +112,7 @@ export default function CatalogItems({ catalog }) {
           ))}
         </div>
         { (partCatalog.length !== catalog.length) ? <Button /> : null }
+        { (catalog.length === 0) && <Title cn={styles.catalogItems_header} text="по данному фильтру товаров не найдено" sqColor="pink" /> }
       </div>
     </div>
   );
