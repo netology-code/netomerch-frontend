@@ -7,9 +7,15 @@ import {
   FETCH_MAINPAGE_FAILURE,
   FETCH_MAINPAGE_START,
   FETCH_MAINPAGE_SUCCESS,
+  FETCH_ORDER_FAILURE,
+  FETCH_ORDER_START,
+  FETCH_ORDER_SUCCESS,
   FETCH_PRODUCT_FAILURE,
   FETCH_PRODUCT_START,
   FETCH_PRODUCT_SUCCESS,
+  FETCH_PROMO_FAILURE,
+  FETCH_PROMO_START,
+  FETCH_PROMO_SUCCESS,
   UPDATE_CART,
 } from './actionTypes';
 
@@ -59,6 +65,67 @@ export const fetchProductSuccess = (data) => ({
   type: FETCH_PRODUCT_SUCCESS,
   payload: { data },
 });
+
+export const fetchOrderStart = () => ({
+  type: FETCH_ORDER_START,
+});
+
+export const fetchOrderFailure = (error) => ({
+  type: FETCH_ORDER_FAILURE,
+  payload: { error },
+});
+
+export const fetchOrderSuccess = (data) => ({
+  type: FETCH_ORDER_SUCCESS,
+  payload: data,
+});
+
+export const fetchPromoStart = () => ({
+  type: FETCH_PROMO_START,
+});
+
+export const fetchPromoFailure = (error) => ({
+  type: FETCH_PROMO_FAILURE,
+  payload: { error },
+});
+
+export const fetchPromoSuccess = (data) => ({
+  type: FETCH_PROMO_SUCCESS,
+  payload: { data },
+});
+
+export const fetchPromo = (promo, email) => async (dispatch) => {
+  dispatch(fetchPromoStart());
+
+  try {
+    const response = await httpService.post('promo/', { code: promo, email });
+
+    if (!response.ok) {
+      throw new Error(response.statusText || 'Что-то пошло не так');
+    }
+    const json = response.json();
+    console.log('promo', json);
+  } catch (error) {
+    dispatch(fetchPromoFailure(error.message));
+  }
+};
+
+export const fetchOrder = (data) => async (dispatch) => {
+  dispatch(fetchOrderStart());
+
+  try {
+    const response = await httpService.post('orders/', data);
+
+    if (!response.ok) {
+      throw new Error(response.statusText || 'Что-то пошло не так');
+    }
+
+    const json = response.json();
+    console.log(json);
+  } catch (error) {
+    dispatch(fetchOrderFailure(error.message));
+  }
+};
 
 export const fetchProduct = (id) => async (dispatch) => {
   dispatch(fetchProductStart());
