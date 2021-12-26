@@ -31,20 +31,20 @@ const Cart = ({ cartItem }) => {
 
   return (
     <div className={styles.cart}>
-      <Title cn={styles.item_header} text={cartItem.itemName} sqColor="blue" />
-      <div className={styles.bucket} />
+      <Title cn={styles.item_header} text={cartItem.name} sqColor="blue" />
+      <button className={styles.bucket} type="button" onClick={() => dispatch(deleteProductInCart(cartItem.id))}> </button>
       <div className={styles.cartContent}>
-        <img src={cartItem.itemImage} alt={cartItem.itemName} className={styles.cartImage} />
+        <img src={cartItem.image} alt={cartItem.name} className={styles.cartImage} />
         <div className={styles.cartContentData}>
           <div className={styles.contentLine}>
             <div className={styles.cartSize}>
               <p className={styles.label}>Размер</p>
-              <div className={styles.sizeRectangle}>{cartItem.itemSize}</div>
+              <div className={styles.sizeRectangle}>{cartItem.size}</div>
             </div>
             <div className={styles.cartPrice}>
               <p className={styles.label}>Стоимость</p>
               <div className={styles.priceText}>
-                {cartItem.itemPrice}
+                {cartItem.price}
                 {' '}
                 ₽
               </div>
@@ -53,16 +53,20 @@ const Cart = ({ cartItem }) => {
           <div className={styles.contentLine}>
             <div className={styles.cartColor}>
               <p className={styles.label}>Цвет</p>
-              <div className={styles.colorRectangle}>{cartItem.itemColor}</div>
+              <div
+                className={styles.colorRectangle}
+                style={{ backgroundColor: cartItem.color }}
+              />
             </div>
             <div className={styles.cartSum}>
               <p className={styles.label}>Итоговая стоимость</p>
               <div className={styles.sumText}>
-                {cartItem.itemPrice * cartItem.itemNumber}
+                {cartItem.price * cartItem.count}
                 {' '}
                 ₽
               </div>
             </div>
+            {/* Здесь отрисовка скидок */}
             {cartItem.itemDiscount
               ? (
                 <>
@@ -90,33 +94,19 @@ const Cart = ({ cartItem }) => {
             <div className={styles.cartNumber}>
               <p className={styles.label}>Количество</p>
               <div className={styles.numberControls}>
-                <div className={styles.numberMinus}>-</div>
-                <div className={styles.numberQuantity}>{cartItem.itemNumber}</div>
-                <div className={styles.numberPlus}>+</div>
+                <button className={styles.numberMinus} type="button" onClick={handleOnCountDecClick}>-</button>
+                <input
+                  className={styles.numberQuantity}
+                  value={currCount}
+                  onChange={handleOnCountChange}
+                />
+                <button className={styles.numberPlus} type="button" onClick={handleOnCountIncClick}>+</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div>
-        <p>Цвет</p>
-        <div>{cartItem.itemColor}</div>
-      </div>
-      <div>Количество</div>
-
-      <div className="actions-card__row-2">
-        <button className="card__btn-add btn-add-card btn" type="button" onClick={() => dispatch(deleteProductInCart(cartItem.id))}>Удалить</button>
-        <div className="card__count count-card">
-          <button className="count-card__item count-card__btn" type="button" onClick={handleOnCountDecClick}>-</button>
-          <input
-            className="count-card__item count-card__input"
-            value={currCount}
-            onChange={handleOnCountChange}
-          />
-          <button className="count-card__item count-card__btn" type="button" onClick={handleOnCountIncClick}>+</button>
-        </div>
-      </div>
-<hr className={styles.line} />
+      <hr className={styles.line} />
     </div>
   );
 };
