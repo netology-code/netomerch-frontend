@@ -103,8 +103,8 @@ export const fetchPromo = (promo, email) => async (dispatch) => {
     if (!response.ok) {
       throw new Error(response.statusText || 'Что-то пошло не так');
     }
-    const json = response.json();
-    console.log('promo', json);
+    const json = await response.json();
+    dispatch(fetchPromoSuccess(json));
   } catch (error) {
     dispatch(fetchPromoFailure(error.message));
   }
@@ -120,8 +120,8 @@ export const fetchOrder = (data) => async (dispatch) => {
       throw new Error(response.statusText || 'Что-то пошло не так');
     }
 
-    const json = response.json();
-    console.log(json);
+    const json = await response.json();
+    console.log('json', json);
   } catch (error) {
     dispatch(fetchOrderFailure(error.message));
   }
