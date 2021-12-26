@@ -14,13 +14,13 @@
 }
 
 .headerLogo {
-  flex: 0 0 183px;
-  height: 20px;
+  flex: 0 0 110px;
+  height: 48px;
 }
 
 .headerMenu {
   padding: 0 20px;
-  margin-left: -150px;
+  margin-left: -400px;
 }
 
 .headerMenuList {
@@ -49,8 +49,9 @@
 }
 
 .headerIcons div {
-  width: 24px;
+  width: 30px;
   height: 24px;
+  background-repeat: no-repeat;
 }
 
 .headerSearch {
@@ -58,7 +59,7 @@
 }
 
 .headerHelp {
-  background-image: url(../../assets/svg/menu_help_btn.svg);
+  background-image: url(../../assets/svg/help_center_form_btn.svg);
 }
 
 .headerCart {
@@ -100,11 +101,6 @@
 @media(max-width: 768px) {
   .headerBody {
     min-height: 50px;
-  }
-
-  .headerLogo {
-    flex: 0 0 120px;
-    height: 14px;
   }
   
   .headerMenuList li:not(:last-child) {

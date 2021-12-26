@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './header.module.css';
-import logo from '../../assets/svg/logo_netology_full.svg';
+import logo from '../../assets/svg/logo_nemerch_main.svg';
 
 const Header = () => {
   const location = useLocation();
@@ -23,16 +23,13 @@ const Header = () => {
                 <Link to="/catalog">Каталог</Link>
               </li>
               <li>
-                <Link to="/">О Нетологии</Link>
-              </li>
-              <li>
                 <Link to="/support">Центр поддержки</Link>
               </li>
             </ul>
           </nav>
           <div className={styles.headerIcons}>
             {/* <div className={styles.headerSearch} /> */}
-            <Link to="/">
+            <Link to="/support">
               <div className={styles.headerHelp} />
             </Link>
             <Link to="/cart">
