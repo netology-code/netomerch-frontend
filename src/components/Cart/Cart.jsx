@@ -11,7 +11,7 @@ const Cart = () => {
   const { products } = useSelector((state) => state.productInCart);
   return (
     <>
-      { products[0] !== undefined ? (
+      { products[0] ? (
         <div className={styles.cart}>
           <Title cn={styles.cart_header} text="ваша корзина" sqColor="pink" />
           {products.map((item) => <CartItem key={item.id} cartItem={item} />)}
