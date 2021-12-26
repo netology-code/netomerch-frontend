@@ -107,7 +107,7 @@ export default function Reviews({ reviews }) {
                   </Link>
                 </div>
                 {/* <a className="slider-rewiew__link" href="/#">{vReview.item.name}</a> */}
-                <Link className="slider-rewiew__link" to={`/catalog/${vReview.item_id}`}>{vReview.text}</Link>
+                <Link className="slider-rewiew__link" to={`/catalog/${vReview.item_id}`}>{vReview.name}</Link>
               </div>)}
           </div>
 
