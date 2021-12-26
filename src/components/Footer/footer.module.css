@@ -63,9 +63,9 @@
 .footerCart {
   margin-left: 3%;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
-  background-image: url(../../assets/svg/add_shopping_cart_btn.svg);
+  width: 30px;
+  height: 18px;
+  background-image: url(../../assets/svg/menu_add_shopping_cart_btn.svg);
 }
 
 .footerInline .footerMenuLabel {
@@ -76,11 +76,6 @@
  display: flex; 
  flex-direction: column;
  max-width: 315px;
-}
-
-.footerLinksMerch {
-  flex: 1 0 auto;
-  margin-bottom: 25px;
 }
 
 .footerProducts {
@@ -97,46 +92,36 @@
 
 .footerSocial {
   display: flex;
+  margin-top: 80px;
+  align-items: center;
 }
 
 .footerFacebook {
   cursor: pointer;
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   margin-right: 3%;
-  background-image: url(../../assets/svg/social_btn.svg);
-}
-
-.footerTelegram {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  margin-right: 3%;
-  background-image: url(../../assets/svg/social_btn-1.svg);
+  background-image: url(../../assets/svg/social_fb_btn.svg);
+  background-repeat: no-repeat;
+  padding-bottom: 7px;
 }
 
 .footerYoutube {
   cursor: pointer;
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 28px;
   margin-right: 3%;
-  background-image: url(../../assets/svg/social_btn-2.svg);
-}
-
-.footerInstagram {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  margin-right: 3%;
-  background-image: url(../../assets/svg/social_btn-3.svg);
+  background-image: url(../../assets/svg/social_inst_btn.svg);
+  background-repeat: no-repeat;
 }
 
 .footerVkontakte {
   cursor: pointer;
-  width: 24px;
+  width: 30px;
   height: 24px;
   margin-right: 3%;
-  background-image: url(../../assets/svg/social_btn-4.svg);
+  background-image: url(../../assets/svg/social_vc_btn.svg);
+  background-repeat: no-repeat;
 }
 
 @media(max-width: 992px) {
