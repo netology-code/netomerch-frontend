@@ -9,8 +9,6 @@ import styles from './aboutMerch.module.css';
 import Title from '../../ui/Title';
 
 export default function AboutMerch({ popular }) {
-  console.log('popular', popular);
-
   const partPopular = popular.slice(0, 3);
 
   return (
