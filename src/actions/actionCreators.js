@@ -121,7 +121,7 @@ export const fetchOrder = (data) => async (dispatch) => {
     }
 
     const json = await response.json();
-    console.log('json', json);
+    dispatch(fetchOrderSuccess(json));
   } catch (error) {
     dispatch(fetchOrderFailure(error.message));
   }

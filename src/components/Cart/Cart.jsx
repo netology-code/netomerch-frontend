@@ -10,9 +10,9 @@ import { fetchOrder, fetchPromo } from '../../actions/actionCreators';
 const Cart = () => {
   const { products } = useSelector((state) => state.productInCart);
   const {
-    // productWithPromo,
-    // loadingPromo,
-    // errorPromo,
+    productWithPromo,
+    loadingPromo,
+    errorPromo,
     errorOrder,
     loadingOrder,
   } = useSelector((state) => state.fetchOrder);
@@ -46,7 +46,9 @@ const Cart = () => {
     dispatch(fetchOrder(template));
   };
 
-  console.log(errorOrder, loadingOrder);
+  console.log(productWithPromo,
+    loadingPromo,
+    errorPromo, errorOrder, loadingOrder);
 
   return (
     <div className={styles.cart}>

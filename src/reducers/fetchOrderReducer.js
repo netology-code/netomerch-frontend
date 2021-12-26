@@ -34,7 +34,7 @@ function fetchOrderReducer(state = initialState, action) {
       const { error: errorOrder } = action.payload;
       return { ...state, loadingOrder: false, errorOrder };
     case FETCH_ORDER_SUCCESS:
-      return { ...state, loadingOrder: false, errorOrder: null };
+      return { ...initialState };
     default:
       return state;
   }
