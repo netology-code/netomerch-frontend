@@ -45,60 +45,87 @@
 
 .madeByPhoto:nth-child(9) {
   margin-left: 78px;
-  background-image: url(../../../assets/img/crew1.png);
+  background-image: url(../../../assets/img/crew/IMG_0709.PNG);
 }
 
 .madeByPhoto:nth-child(2) {
-  background-image: url(../../../assets/img/crew2.png);
+  background-image: url(../../../assets/img/crew/IMG_20211224_120336.jpg);
 }
 
 .madeByPhoto:nth-child(3) {
-  background-image: url(../../../assets/img/crew3.png);
+  background-image: url(../../../assets/img/crew/А.Исаева.jpg);
 }
 
 .madeByPhoto:nth-child(4) {
-  background-image: url(../../../assets/img/crew4.png);
+  background-image: url(../../../assets/img/crew/Баландина\ Наташа.jpg);
 }
 
 .madeByPhoto:nth-child(5) {
-  background-image: url(../../../assets/img/crew5.png);
+  background-image: url(../../../assets/img/crew/Вита\ Гусятникова.jpeg);
 }
 
 .madeByPhoto:nth-child(6) {
-  background-image: url(../../../assets/img/crew6.png);
+  background-image: url(../../../assets/img/crew/Волкова\ Настя.jpg);
 }
 
 .madeByPhoto:nth-child(7) {
-  background-image: url(../../../assets/img/crew7.png);
+  background-image: url(../../../assets/img/crew/Екатерина\ Козионова.jpg);
 }
 
 .madeByPhoto:nth-child(8) {
-  background-image: url(../../../assets/img/crew8.png);
+  background-image: url(../../../assets/img/crew/Захарова\ Алёна.jpeg);
 }
 
 .madeByPhoto:nth-child(10) {
-  background-image: url(../../../assets/img/crew9.png);
+  background-image: url(../../../assets/img/crew/Золоторева\ Елена.JPG);
 }
 
 .madeByPhoto:nth-child(11) {
-  background-image: url(../../../assets/img/crew10.png);
+  background-image: url(../../../assets/img/crew/Казиев\ Максим\ Жарлкаганович.jpg);
 }
 
 .madeByPhoto:nth-child(12) {
-  background-image: url(../../../assets/img/crew11.png);
+  background-image: url(../../../assets/img/crew/Ковтун\ Максим.JPG);
 }
 
 .madeByPhoto:nth-child(13) {
-  background-image: url(../../../assets/img/crew12.png);
+  background-image: url(../../../assets/img/crew/Кристина\ Бахмудова\ Kristina\ Bakhmudova.jpg);
 }
 
 .madeByPhoto:nth-child(14) {
-  background-image: url(../../../assets/img/crew13.png);
+  background-image: url(../../../assets/img/crew/Мария\ Муратова.jpg);
 }
 
 .madeByPhoto:nth-child(15) {
-  background-image: url(../../../assets/img/crew14.png);
-  
+  background-image: url(../../../assets/img/crew/Нарайкина\ Анна.jpg);
+}
+
+.madeByPhoto:nth-child(16) {
+  background-image: url(../../../assets/img/crew/Наталья\ Прядкина.jpg);
+}
+
+.madeByPhoto:nth-child(17) {
+  background-image: url(../../../assets/img/crew/Прозоров\ Михаил.jpg);
+}
+
+.madeByPhoto:nth-child(18) {
+  background-image: url(../../../assets/img/crew/Проничев\ Николай.jpeg);
+}
+
+.madeByPhoto:nth-child(19) {
+  background-image: url(../../../assets/img/crew/Рунова\ Ольга.jpg);
+}
+
+.madeByPhoto:nth-child(20) {
+  background-image: url(../../../assets/img/crew/Сиверс\ Юлия.jpg);
+}
+
+.madeByPhoto:nth-child(21) {
+  background-image: url(../../../assets/img/crew/Юзефович\ Ольга.png);
+}
+
+.madeByPhoto:nth-child(22) {
+  background-image: url(../../../assets/img/crew/Яна\ Сошникова.png);
 }
 
 .madeByPhoto:first-child {

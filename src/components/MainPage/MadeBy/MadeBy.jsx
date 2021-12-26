@@ -27,6 +27,13 @@ const MadeBy = () => (
           <div className={styles.madeByPhoto} />
           <div className={styles.madeByPhoto} />
           <div className={styles.madeByPhoto} />
+          <div className={styles.madeByPhoto} />
+          <div className={styles.madeByPhoto} />
+          <div className={styles.madeByPhoto} />
+          <div className={styles.madeByPhoto} />
+          <div className={styles.madeByPhoto} />
+          <div className={styles.madeByPhoto} />
+          <div className={styles.madeByPhoto} />
         </div>
         <div className={styles.madeByDescription}>
           {/* <h3 className={styles.madeByMinorLabel}>О создателях сайта</h3> */}
