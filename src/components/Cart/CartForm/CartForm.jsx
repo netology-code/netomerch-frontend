@@ -51,7 +51,7 @@ const CartForm = () => (
             <span>Согласен (согласна) получать информационные рассылки от Нетологии</span>
           </label>
         </div>
-        <button type="submit" className={`${styles.form__button} btn`} btn>Оформить заказ</button>
+        <button type="submit" className={`${styles.form__button} btn`}>Оформить заказ</button>
       </div>
     </form>
   </div>
