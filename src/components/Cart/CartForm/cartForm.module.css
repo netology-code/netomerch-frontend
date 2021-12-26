@@ -1,6 +1,124 @@
 .form {
-  font-size: 60px;
-  background-color: hotpink;
-  width: 30%;
-  margin-top: 70px;
+  margin-top: 70px; /* удалить после блока создания промокода */
+  margin-bottom: 100px;
+  color: #4B4950;
+}
+
+.form_body {
+  max-width: 1450px;
+  margin-right: 25px;
+}
+
+.form__title { margin-bottom: 60px; }
+
+.form_wrapper {
+  display: flex;
+  margin-bottom: 9px;
+}
+
+.form_wrapper__col { flex-basis: 50%; }
+
+.form__item {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.form__label {
+  position: absolute;
+  bottom: 6px;
+  left: 8px;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+  color: rgba(75, 73, 80, 0.3);
+}
+
+.form__input {
+  max-width: 675px;
+  width: 100%;
+  height: 65px;
+  border: 1.3px solid #4B4950;
+  border-radius: 4px;
+  
+  padding-top: 8px; /* заменить на стили от дизайнеров */
+  padding-left: 8px; /* заменить на стили от дизайнеров */
+  font-family: inherit; /* заменить на стили от дизайнеров */
+  font-style: normal; /* заменить на стили от дизайнеров */
+  font-weight: 600; /* заменить на стили от дизайнеров */
+  font-size: 24px; /* заменить на стили от дизайнеров */
+  line-height: 19px; /* заменить на стили от дизайнеров */
+  letter-spacing: 1.2; /* заменить на стили от дизайнеров */
+  color: #4B4950; /* заменить на стили от дизайнеров */
+}
+
+.form__input:focus {
+  color: rgb(75, 73, 80);
+  outline: 0;
+  border: 1.3px solid #4B4950;
+}
+
+textarea.form__input { min-height: 180px; }
+
+.checkbox { margin-bottom: 17px; } 
+
+.checkbox__input { display: none; }
+
+.checkbox__input:checked + .checkbox__label::after {
+  transform: scale(1);
+}
+
+.checkbox__label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #4B4950;
+}
+
+.checkbox__label::before {
+  content: '';
+  align-self: flex-start;
+  width: 18px;
+  height: 18px;
+  border: 1.3px solid #4B4950;
+  border-radius: 5px;
+  margin-right: 8px;
+}
+
+.checkbox__label::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: #006AFF;
+  border-radius: 5px;
+  border: 1.3px solid #006AFF;
+  transform: scale(0);
+  transition: transform 0.5s ease 0s; /* заменить на анимацию от дизайнеров */
+}
+
+.checkbox__label a { color: #006AFF; }
+
+.form__button {
+  width: 506px;
+  margin-top: 57px;
+}
+
+@media (max-width: 1600px) {
+  .form_wrapper__col:first-child { margin-right: 25px; }
+}
+
+@media (max-width: 1000px) {
+  .form_wrapper { flex-direction: column; }
+  .form_wrapper__col:first-child { margin-right: 0; }
+  .form__button {
+    max-width: 506px;
+    width: 100%;
+    margin-top: 57px;
+  }
 }
