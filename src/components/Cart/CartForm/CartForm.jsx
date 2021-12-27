@@ -20,9 +20,12 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-shadow */
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import styles from './cartForm.module.css';
 import Title from '../../ui/Title';
+import storageService from '../../../services/storage.service';
+import { deletePromo, fetchPromo, fetchOrder } from '../../../actions/actionCreators';
 
 const useValidation = (value, validations) => {
   const [isEmpty, setIsEmpty] = useState(true);
@@ -95,13 +98,14 @@ const useInput = (initialValue, validations) => {
     onChange,
     onBlur,
     isDirty,
+    setValue,
     ...valid,
   };
 };
 
 const mockObj_orderContract = []; // объект собирает данные из формы
 
-const CartForm = ({ onSubmitForm, errorOrder, loadingOrder, orderIsSent }) => {
+const CartForm = () => {
   const firstOrLastName = useInput('', { isEmpty: true, minLength: 2, maxLength: 100, isfirstOrLastName: true });
   const address = useInput('', { isEmpty: true });
   const phone = useInput('', { isEmpty: true, maxLength: 10, isPhone: true });
@@ -119,6 +123,18 @@ const CartForm = ({ onSubmitForm, errorOrder, loadingOrder, orderIsSent }) => {
 
   const [btnPromoError, setBtnPromoError] = useState(true);
 
+  const { errorPromo, loadingPromo, productWithPromo, orderIsSent } = useSelector((state) => state.fetchOrder);
+  const { products } = useSelector((state) => state.productInCart);
+  const dispatch = useDispatch();
+  console.log('productWithPromo', productWithPromo);
+
+  if (orderIsSent && statusOrder) {
+    setStatusOrder(false);
+    console.log('send order');
+    storageService.clear('cart');
+    setTimeout(() => history.push('/catalog'), 3000);
+  }
+
   const handleClick = (e) => {
     e.preventDefault();
 
@@ -129,20 +145,34 @@ const CartForm = ({ onSubmitForm, errorOrder, loadingOrder, orderIsSent }) => {
       console.log('ololo');
       setBtnError(true);
 
-      const formParams = {
+      if (products.length === 0) return;
+
+      const order = {
         name: firstOrLastName.value,
         email: email.value,
-        phone: phone.value,
+        phone: `+7${phone.value}`,
         address: address.value,
         comment: comment.value,
+        total_sum: products.reduce((acc, curr) => acc + (Number(curr.count) * Number(curr.price)), 0),
+        final_sum: products.reduce((acc, curr) => acc + (Number(curr.count) * Number(curr.price)), 0),
+        items: products.map((prod) => {
+          const {
+            count, color, size, price, item_id,
+          } = prod;
+          return {
+            item_id, count, size, color, price: Number(price),
+          };
+        }),
       };
 
-      onSubmitForm(formParams);
-
-      if (orderIsSent) {
-        setStatusOrder(true);
-        setTimeout(() => history.push('/catalog'), 3000);
+      if (promocod.value !== '') {
+        order.code = promocod.value;
       }
+
+      setStatusOrder(true);
+      dispatch(fetchOrder(order));
+
+      // onSubmitForm(formParams);
 
       // mockObj_orderContract.push({ // объект собирает данные из формы
       //   name: firstOrLastName.value,
@@ -187,11 +217,19 @@ const CartForm = ({ onSubmitForm, errorOrder, loadingOrder, orderIsSent }) => {
   const handleClickPromo = (e) => {
     e.preventDefault();
 
-    if (btnPromoError) {
+    if (Object.keys(productWithPromo).length !== 0) {
+      promocod.setValue('');
+      promocodEmail.setValue('');
+      dispatch(deletePromo());
+      return;
+    }
+
+    if (!promocod.inputValid || !promocodEmail.inputValid) {
       setBtnPromoError(false);
       setTimeout(() => setBtnPromoError(true), 3000);
     } else {
       setBtnPromoError(true);
+      dispatch(fetchPromo(promocod.value, promocodEmail.value));
     }
   };
 
@@ -217,7 +255,7 @@ const CartForm = ({ onSubmitForm, errorOrder, loadingOrder, orderIsSent }) => {
               />
             </div>
             <div className={styles.form__item}>
-              <label htmlFor="forEmailPromo" className={`${styles.form__label_promo} ${styles.promo_email}`}>E-mail промокода</label>
+              <label htmlFor="forEmailPromo" className={`${styles.form__label_promo} ${styles.promo_email}`}>E-mail</label>
               <input
                 onChange={(e) => promocodEmail.onChange(e)}
                 value={promocodEmail.value}
@@ -232,32 +270,36 @@ const CartForm = ({ onSubmitForm, errorOrder, loadingOrder, orderIsSent }) => {
                           `}
               />
             </div>
-            <button onClick={handleClickPromo} type="button" className={`${styles.form__button_promo} btn`}>Применить</button>
+            <button onClick={handleClickPromo} type="button" className={`${styles.form__button_promo} btn`}>{Object.keys(productWithPromo).length !== 0 ? 'Отменить' : 'Применить'}</button>
             {(!btnPromoError && promocodEmail.isEmpty) && <div className={`${styles.form__promo_popap} ${styles.popap_error}`}>Введите E-mail</div>}
+            {Object.keys(productWithPromo).length !== 0 && <div className={`${styles.form__promo_popap} ${styles.popap_success}`}>Промокод применен</div>}
+            {errorPromo && <div className={`${styles.form__promo_popap} ${styles.popap_error}`}>Промокод не найден</div>}
           </div>
         </div>
 
-        <Title cn={styles.form__title} text="ещё совсем чуть-чуть и мерч твой" sqColor="green" />
-        <div className={styles.form_wrapper}>
-          <div className={styles.form_wrapper__col}>
-            <div className={styles.form__item}>
-              <label
-                htmlFor="forName"
-                className={`
+        {products.length !== 0 && (
+        <>
+          <Title cn={styles.form__title} text="ещё совсем чуть-чуть и мерч твой" sqColor="green" />
+          <div className={styles.form_wrapper}>
+            <div className={styles.form_wrapper__col}>
+              <div className={styles.form__item}>
+                <label
+                  htmlFor="forName"
+                  className={`
                   ${styles.form__label}
                   ${(!btnError && firstOrLastName.isEmpty) && styles.form__label_error_message}
                 `}
-              >
-                Имя и фамилия *
-              </label>
-              <input
-                onChange={(e) => firstOrLastName.onChange(e)}
-                onBlur={(e) => firstOrLastName.onBlur(e)}
-                value={firstOrLastName.value}
-                id="forName"
-                type="name"
-                name="firstOrLastName"
-                className={`
+                >
+                  Имя и фамилия *
+                </label>
+                <input
+                  onChange={(e) => firstOrLastName.onChange(e)}
+                  onBlur={(e) => firstOrLastName.onBlur(e)}
+                  value={firstOrLastName.value}
+                  id="forName"
+                  type="name"
+                  name="firstOrLastName"
+                  className={`
                   ${styles.form__input}
                   ${(firstOrLastName.isDirty && firstOrLastName.isEmpty) && styles.form__input_error}
                   ${(firstOrLastName.isDirty && firstOrLastName.minLengthError) && styles.form__input_error}
@@ -265,140 +307,142 @@ const CartForm = ({ onSubmitForm, errorOrder, loadingOrder, orderIsSent }) => {
                   ${(firstOrLastName.isDirty && firstOrLastName.firseNameError) && styles.form__input_error}
                   ${(!btnError && firstOrLastName.isEmpty) && styles.form__input_error}
                 `}
-              />
-            </div>
-            <div className={styles.form__item}>
-              <label
-                htmlFor="forAddress"
-                className={`
+                />
+              </div>
+              <div className={styles.form__item}>
+                <label
+                  htmlFor="forAddress"
+                  className={`
                   ${styles.form__label}
                   ${(!btnError && address.isEmpty) && styles.form__label_error_message}
                 `}
-              >
-                Адрес доставки *
-              </label>
-              <input
-                onChange={(e) => address.onChange(e)}
-                onBlur={(e) => address.onBlur(e)}
-                value={address.value}
-                id="forAddress"
-                type="text"
-                name="address"
-                className={`
+                >
+                  Адрес доставки *
+                </label>
+                <input
+                  onChange={(e) => address.onChange(e)}
+                  onBlur={(e) => address.onBlur(e)}
+                  value={address.value}
+                  id="forAddress"
+                  type="text"
+                  name="address"
+                  className={`
                   ${styles.form__input}
                   ${(address.isDirty && address.isEmpty) && styles.form__input_error}
                   ${(!btnError && address.isEmpty) && styles.form__input_error}
                 `}
-              />
-            </div>
-            <div className={styles.form__item}>
-              <label
-                htmlFor="forPhone"
-                className={`
+                />
+              </div>
+              <div className={styles.form__item}>
+                <label
+                  htmlFor="forPhone"
+                  className={`
                   ${styles.form__label}
                   ${(!btnError && phone.isEmpty) && styles.form__label_error_message}
                 `}
-              >
-                Телефон (10 цифр без 8)*
-              </label>
-              <input
-                onChange={(e) => phone.onChange(e)}
-                onBlur={(e) => phone.onBlur(e)}
-                value={phone.value}
-                id="forPhone"
-                type="tel"
-                name="phone"
-                className={`
+                >
+                  Телефон (10 цифр без 8)*
+                </label>
+                <input
+                  onChange={(e) => phone.onChange(e)}
+                  onBlur={(e) => phone.onBlur(e)}
+                  value={phone.value}
+                  id="forPhone"
+                  type="tel"
+                  name="phone"
+                  className={`
                   ${styles.form__input}
                   ${(phone.isDirty && phone.isEmpty) && styles.form__input_error}
                   ${(phone.isDirty && phone.phoneError) && styles.form__input_error}
                   ${(!btnError && phone.isEmpty) && styles.form__input_error}
                 `}
-              />
+                />
+              </div>
             </div>
-          </div>
-          <div className={styles.form_wrapper__col}>
-            <div className={styles.form__item}>
-              <label
-                htmlFor="forEmail"
-                className={`
+            <div className={styles.form_wrapper__col}>
+              <div className={styles.form__item}>
+                <label
+                  htmlFor="forEmail"
+                  className={`
                   ${styles.form__label} 
                   ${(!btnError && email.isEmpty) && styles.form__label_error_message}
                 `}
-              >
-                E-mail *
-              </label>
-              <input
-                onChange={(e) => email.onChange(e)}
-                onBlur={(e) => email.onBlur(e)}
-                value={email.value}
-                id="forEmail"
-                type="email"
-                name="email"
-                className={`
+                >
+                  E-mail *
+                </label>
+                <input
+                  onChange={(e) => email.onChange(e)}
+                  onBlur={(e) => email.onBlur(e)}
+                  value={email.value}
+                  id="forEmail"
+                  type="email"
+                  name="email"
+                  className={`
                   ${styles.form__input}
                   ${(email.isDirty && email.isEmpty) && styles.form__input_error}
                   ${(email.isDirty && email.minLengthError) && styles.form__input_error}
                   ${(email.isDirty && email.emailError) && styles.form__input_error}
                   ${(!btnError && email.isEmpty) && styles.form__input_error}
                 `}
-              />
-            </div>
-            <div className={styles.form__item}>
-              <label htmlFor="forComment" className={styles.form__label}>Комментарий к заказу</label>
-              <textarea onChange={(e) => comment.onChange(e)} value={comment.value} name="comment" id="forComment" className={styles.form__input} />
+                />
+              </div>
+              <div className={styles.form__item}>
+                <label htmlFor="forComment" className={styles.form__label}>Комментарий к заказу</label>
+                <textarea onChange={(e) => comment.onChange(e)} value={comment.value} name="comment" id="forComment" className={styles.form__input} />
+              </div>
             </div>
           </div>
-        </div>
-        <div className={`${styles.form__item} ${styles.statusOrder_block}`}>
-          <div className={styles.checkbox}>
-            <input
-              id="formAgreement"
-              type="checkbox"
-              name="agreement"
-              className={`${styles.checkbox__input}`}
-              onClick={handleClickCheckbox}
-            />
-            <label
-              htmlFor="formAgreement"
-              className={`
+          <div className={`${styles.form__item} ${styles.statusOrder_block}`}>
+            <div className={styles.checkbox}>
+              <input
+                id="formAgreement"
+                type="checkbox"
+                name="agreement"
+                className={`${styles.checkbox__input}`}
+                onClick={handleClickCheckbox}
+              />
+              <label
+                htmlFor="formAgreement"
+                className={`
                 ${styles.checkbox__label}
                 ${(!clickCheckbox && !btnError) && styles.checkbox__label_false}
               `}
+              >
+                <span>
+                  Согласен (согласна) с условиями
+                  {' '}
+                  <a href="#">пользовательского соглашения</a>
+                </span>
+              </label>
+            </div>
+            {/* <div className={styles.checkbox}>
+      <input id="formSubscribe" type="checkbox" name="subscribe" className={styles.checkbox__input} />
+      <label htmlFor="formSubscribe" className={styles.checkbox__label}>
+        <span>Согласен (согласна) получать информационные рассылки от Нетологии</span>
+      </label>
+    </div> */}
+            <button
+              onClick={handleClick}
+              type="button"
+              className={`${styles.form__button} btn`}
             >
-              <span>
-                Согласен (согласна) с условиями
-                {' '}
-                <a href="#">пользовательского соглашения</a>
-              </span>
-            </label>
-          </div>
-          {/* <div className={styles.checkbox}>
-            <input id="formSubscribe" type="checkbox" name="subscribe" className={styles.checkbox__input} />
-            <label htmlFor="formSubscribe" className={styles.checkbox__label}>
-              <span>Согласен (согласна) получать информационные рассылки от Нетологии</span>
-            </label>
-          </div> */}
-          <button
-            onClick={handleClick}
-            type="button"
-            className={`${styles.form__button} btn`}
-          >
-            Оформить заказ
-          </button>
-          {statusOrder && (
+              Оформить заказ
+            </button>
+            {(orderIsSent && setStatusOrder) && (
             <div className={styles.statusOrder}>
               <p>Ваш заказ оформлен :)</p>
               <p>
                 Письмо с подтверждением придёт на почту :
                 <span>
                   {' '}
-                  { email.value}
+                  {email.value}
                 </span>
               </p>
             </div>
-          )}
-        </div>
+            )}
+          </div>
+        </>
+)}
       </form>
     </div>
   );

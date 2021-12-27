@@ -1,6 +1,7 @@
 import httpService from '../services/http.service';
 import storageService from '../services/storage.service';
 import {
+  DELETE_PROMO,
   FETCH_CATALOG_FAILURE,
   FETCH_CATALOG_START,
   FETCH_CATALOG_SUCCESS,
@@ -94,6 +95,10 @@ export const fetchPromoSuccess = (data) => ({
   payload: { data },
 });
 
+export const deletePromo = () => ({
+  type: DELETE_PROMO,
+});
+
 export const fetchPromo = (promo, email) => async (dispatch) => {
   dispatch(fetchPromoStart());
 
@@ -122,6 +127,7 @@ export const fetchOrder = (data) => async (dispatch) => {
 
     const json = await response.json();
     dispatch(fetchOrderSuccess(json));
+    dispatch(updateCart());
   } catch (error) {
     dispatch(fetchOrderFailure(error.message));
   }

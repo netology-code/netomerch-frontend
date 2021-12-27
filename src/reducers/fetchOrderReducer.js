@@ -1,5 +1,6 @@
 /* eslint-disable no-case-declarations */
 import {
+  DELETE_PROMO,
   FETCH_ORDER_FAILURE,
   FETCH_ORDER_START,
   FETCH_ORDER_SUCCESS,
@@ -24,6 +25,10 @@ function fetchOrderReducer(state = initialState, action) {
     case FETCH_PROMO_FAILURE:
       const { error: errorPromo } = action.payload;
       return { ...state, loadingPromo: false, errorPromo };
+    case DELETE_PROMO:
+      return {
+        ...state, productWithPromo: {}, loadingPromo: false, errorPromo: null,
+      };
     case FETCH_PROMO_SUCCESS:
       const { data } = action.payload;
       return {
@@ -39,7 +44,7 @@ function fetchOrderReducer(state = initialState, action) {
     case FETCH_ORDER_SUCCESS:
       return { ...initialState, orderIsSent: true };
     default:
-      return state;
+      return { ...initialState };
   }
 }
 
