@@ -31,7 +31,7 @@ const Footer = () => {
                     <Link to="/">Конфиденциальность</Link>
                   </li>
                   <li>
-                    <Link to="/">FAQ</Link>
+                    <Link to="/">Центр поддержки</Link>
                   </li>
                 </ul>
                 <div className={styles.footerSocial}>
