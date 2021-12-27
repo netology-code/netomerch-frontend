@@ -44,6 +44,7 @@
   
   padding-top: 8px; /* заменить на стили от дизайнеров */
   padding-left: 8px; /* заменить на стили от дизайнеров */
+  padding-bottom: 14px; /* заменить на стили от дизайнеров */
   font-family: inherit; /* заменить на стили от дизайнеров */
   font-style: normal; /* заменить на стили от дизайнеров */
   font-weight: 600; /* заменить на стили от дизайнеров */
@@ -58,6 +59,15 @@
   outline: 0;
   border: 1.3px solid #4B4950;
 }
+
+.form__input_error { 
+  border: 1.3px solid #E61A5E;
+}
+
+/* .form__label_error_message::after {
+  content: ' Поле обязательно для заполнения';
+  color: #E61A5E;
+} */
 
 textarea.form__input { min-height: 180px; }
 
@@ -109,8 +119,42 @@ textarea.form__input { min-height: 180px; }
   margin-top: 57px;
 }
 
+.statusOrder_block {
+  position: relative;
+  max-width: 1400px;
+}
+
+.statusOrder {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 675px;
+  padding-top: 10px;
+  padding-left: 8px;
+  border: 1.3px solid #49D2A4;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #4B4950;
+}
+
+.statusOrder p:first-child { margin-bottom: 21px; }
+.statusOrder p:last-child { margin-bottom: 13px; }
+
+.statusOrder p span { 
+  color: #49D2A4;
+  font-weight: 900;
+}
+
 @media (max-width: 1600px) {
   .form_wrapper__col:first-child { margin-right: 25px; }
+}
+
+@media (max-width: 1350px) {
+  .statusOrder { width: 42%; }
 }
 
 @media (max-width: 1000px) {
@@ -120,5 +164,10 @@ textarea.form__input { min-height: 180px; }
     max-width: 506px;
     width: 100%;
     margin-top: 57px;
+  }
+  .statusOrder {
+    position: relative;
+    width: 90%;
+    margin-top: 20px;
   }
 }
