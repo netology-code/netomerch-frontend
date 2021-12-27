@@ -9,8 +9,15 @@ const MadeBy = () => (
     <div className="container">
       <div className={styles.madeByBody}>
         <div className={styles.madeByStar} />
-        <Title cn={styles.madeByHeading} text='Команда "НеМерч"' sqColor="green" />
+        <Title cn={styles.madeByHeading} text="НеМерч: от студентов студентам" sqColor="green" />
         <div className={styles.madeByPhotos}>
+          <div className={styles.madeByPhoto} />
+          <div className={styles.madeByPhoto} />
+          <div className={styles.madeByPhoto} />
+          <div className={styles.madeByPhoto} />
+          <div className={styles.madeByPhoto} />
+          <div className={styles.madeByPhoto} />
+          <div className={styles.madeByPhoto} />
           <div className={styles.madeByPhoto} />
           <div className={styles.madeByPhoto} />
           <div className={styles.madeByPhoto} />
@@ -31,8 +38,11 @@ const MadeBy = () => (
         <div className={styles.madeByDescription}>
           {/* <h3 className={styles.madeByMinorLabel}>О создателях сайта</h3> */}
           <p className={styles.madeByText}>
-            Этот интернет-магазин создали девять профессиональных команд — студенты и выпускники Нетологии. Мы и опытные менторы проекта Netology Grow сделали его с нуля: от деталей дизайна каждой вещи до финального запуска.
-            Так мы хотим поддержать и вдохновить всех, кто ещё учится, начал карьеру в новой сфере или уже достиг успеха. Ребята, мы с вами! Действуйте, и всё получится!
+            Мы — команда студентов и выпускников Нетологии разных направлений от бэкенда до копирайтеров.
+            <br />
+            <br />
+            Делимся тем, что нам дорого, — созданным с нуля интернет-магазином НеМерч.
+            Мы работали над ним несколько месяцев: прожили каждый этап его разработки, продумали дизайн каждой вещи и запустили сайт. Так мы хотим поддержать и вдохновить всех, кто продолжает учится, начал карьеру в новой сфере или уже достиг успеха. Ребята, у вас всё получится!
           </p>
           {/* <a href="/" className={styles.madeByLink}>О создателях сайта</a> */}
         </div>

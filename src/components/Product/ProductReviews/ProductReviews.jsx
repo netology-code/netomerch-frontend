@@ -31,44 +31,6 @@ export default function ProductReviews({ reviews: r }) {
           {(items) => items.map((item) => <ProductReview key={item.id} review={item} />)}
         </Slider>
       </div>
-
-      {/* {reviews.length !== 0 && (
-        <div className="reviews__slider slider">
-          <div className={styles.productReviews_reviews_block}>
-            <div className={styles.productReviews_content}>
-              {vReviews.map((review) => (
-                <ProductReview
-                  key={nanoid()}
-                  id={review.id}
-                  text={review.text}
-                  author={review.author}
-                  author_image={review.author_image}
-                  date={review.date}
-                />
-              ))}
-            </div>
-
-            {isSliderControl && (
-            <div className="slider__control slider__control_gray slider-rewiews__control">
-              <button className="slider__arrow" type="button" onClick={handleOnLeftClick}>
-                <span className="visually-hidden">Назад</span>
-              </button>
-
-              <ul className="slider__points">
-                {points.map((point, index) => (
-                  <li className={`slider__point${index === activePoint ? ' slider__point_active' : ''} `} key={nanoid()}>
-                    <span className="visually-hidden">Точка слайдера</span>
-                  </li>
-                ))}
-              </ul>
-              <button className="slider__arrow slider__arrow_right" type="button" onClick={handleOnRightClick}>
-                <span className="visually-hidden">Вперед</span>
-              </button>
-            </div>
-            )}
-          </div>
-        </div>
-      )} */}
     </div>
   );
 }

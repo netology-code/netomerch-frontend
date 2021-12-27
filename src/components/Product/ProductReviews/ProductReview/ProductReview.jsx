@@ -6,14 +6,16 @@ import styles from './productReview.module.css';
 
 const ProductReview = ({ review }) => {
   const {
-    id, text, author, author_image, date,
+    id, text, author, author_image, date, reviewsLen,
   } = review;
 
   return (
-    <div className={styles.productReview_review}>
+    <div className={`${styles.productReview_review} ${(reviewsLen <= 2) ? styles.productReview_review__lessTwo : ''}`}>
       <div className={styles.productReview_item}>
         <div className={styles.productReview_person}>
-          <img className={styles.productReview_img} src={author_image} alt="avatar" />
+          <div className={`${styles.productReview_img} ibg`}>
+            <img src={author_image} alt="avatar" />
+          </div>
           <h4 className={styles.productReview_title}>{author}</h4>
         </div>
 

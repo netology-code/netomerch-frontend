@@ -1,25 +1,23 @@
+/* eslint-disable camelcase */
 /* eslint-disable object-curly-newline */
-/* eslint-disable no-shadow */
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { nanoid } from 'nanoid';
+import { addProductInCart } from '../../../actions/actionCreators';
 import Title from '../../ui/Title';
 import './card.css';
 
 const regCount = /^\d{0,3}$/;
 
 export default function Card({ product }) {
-  // fetch('https://dev.netomerch.tk/api/v1/card/1')
-  //   .then((response) => response.json())
-  //   .then((data) => console.log('data', data));
-
-  const { name, description, price, colors, sizes } = product;
+  const { name, description, price, colors, sizes, item_id } = product;
   const [currColor, setCurrColor] = useState(colors.find((item) => item.is_main));
   const [currImg, setCurrImg] = useState('');
   const [currSize, setCurrSize] = useState(null);
   const [currCount, setCurrCount] = useState(0);
-  const [isMsgAdd, setIsMsgAdd] = useState(false);
+  const [msgAdd, setMsgAdd] = useState({ type: '', err: { size: false, count: false } });
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setCurrImg(currColor.images.find((image) => image.is_main).images);
@@ -36,21 +34,25 @@ export default function Card({ product }) {
   };
 
   const handleOnSizeClick = (size) => {
+    if (msgAdd.type !== '') return;
     if (size === currSize) setCurrSize(null);
     else setCurrSize(size);
   };
 
   const handleOnCountIncClick = () => {
+    if (msgAdd.type !== '') return;
     if (currCount > 998) return;
     setCurrCount(parseInt(currCount, 10) + 1);
   };
 
   const handleOnCountDecClick = () => {
+    if (msgAdd.type !== '') return;
     if (currCount < 1) return;
     setCurrCount(parseInt(currCount, 10) - 1);
   };
 
   const handleOnCountChange = (event) => {
+    if (msgAdd.type !== '') return;
     const { value } = event.target;
 
     if (!regCount.test(value)) return;
@@ -64,23 +66,36 @@ export default function Card({ product }) {
 
   const handleOnAddToCartClick = (event) => {
     event.preventDefault();
-    if (isMsgAdd) return;
-    if (!currSize) {
-      console.log('Размер не выбран!');
-      return;
+    if (msgAdd.type !== '') return;
+
+    let type = 'ok';
+    const size = !currSize;
+    const count = (currCount === 0);
+
+    if (!currSize || (currCount === 0)) type = 'error';
+
+    if (type === 'ok') {
+      setCurrCount(0);
+      setCurrSize(null);
+      setCurrColor(colors.find((item) => item.is_main));
     }
 
-    if (currCount === 0) {
-      console.log('Количество - 0!');
-      return;
-    }
+    setMsgAdd({ type, err: { size, count } });
+    setTimeout(() => setMsgAdd({ type: '', err: { size: false, count: false } }), 2600);
+    if (!currSize || (currCount === 0)) return;
 
-    console.log('Add to cart');
-    setCurrCount(0);
-    setCurrSize(null);
-    setCurrColor(colors.find((item) => item.is_main));
-    setIsMsgAdd(true);
-    setTimeout(() => setIsMsgAdd(false), 3000);
+    const orderedProduct = {
+      id: nanoid(),
+      item_id,
+      image: currImg,
+      name,
+      size: currSize,
+      color: currColor.color_code,
+      price,
+      count: currCount,
+    };
+
+    dispatch(addProductInCart(orderedProduct));
   };
 
   return (
@@ -92,10 +107,12 @@ export default function Card({ product }) {
             <div className="card__img-main ibg">
               <img src={currImg} alt={`Главная картинка. ${name}`} />
             </div>
+          </div>
 
+          <div className="card__column-2">
             <div className="card__imgs">
               {currColor.images.map((image) => (
-                <div className="card__img-wrapp img-wrapp-card">
+                <div key={image.images} className="card__img-wrapp img-wrapp-card">
                   <button
                     className={`img-wrapp-card__btn${image.images === currImg ? ' img-wrapp-card__btn_selected' : ''}`}
                     onClick={() => handleOnImgClick(image.images)}
@@ -108,9 +125,7 @@ export default function Card({ product }) {
                 </div>
               ))}
             </div>
-          </div>
 
-          <div className="card__column-2">
             <div className="card__description">{description}</div>
 
             <div className="card__actions actions-card">
@@ -118,7 +133,12 @@ export default function Card({ product }) {
                 <div className="actions-card__item card-sizes">
                   {sizes.map((size) => (
                     <button
-                      className={`actions-card__btn card-sizes__btn${size === currSize ? ' card-sizes__btn_selected' : ''}`}
+                      key={size}
+                      className={
+                        `actions-card__btn card-sizes__btn
+                        ${size === currSize ? ' card-sizes__btn_selected' : ''}
+                        ${msgAdd.err.size ? ' card-sizes__btn_error' : ''}`
+                      }
                       type="button"
                       onClick={() => handleOnSizeClick(size)}
                     >
@@ -130,6 +150,7 @@ export default function Card({ product }) {
                 <div className="actions-card__item card-colors">
                   {colors.map((color) => (
                     <button
+                      key={color.color_code}
                       className={`actions-card__btn card-colors__btn${color.color_code === currColor.color_code ? ' card-colors__btn_selected' : ''}`}
                       style={{ backgroundColor: color.color_code }}
                       onClick={() => handleOnColorClick(color)}
@@ -142,20 +163,30 @@ export default function Card({ product }) {
               </div>
 
               <div className="actions-card__row-2">
-                <a className="card__btn-add btn" href="/#" onClick={handleOnAddToCartClick}>Добавить в корзину</a>
-                <div className={`card__message${isMsgAdd ? ' card__message_active' : ''}`}>Товар добавлен в корзину</div>
-                <div className="card__count count-card">
+                <a className="card__btn-add btn-add-card btn" href="/#" onClick={handleOnAddToCartClick}>
+                  Добавить в корзину
+                  {msgAdd.type === 'ok' && (
+                    <span className="btn-add-card__msg btn-add-card__msg_active btn-add-card__msg-ok btn">Товар добавлен в корзину</span>
+                  )}
+                  {msgAdd.type === 'error' && (
+                    <span className="btn-add-card__msg btn-add-card__msg_active btn-add-card__msg-error btn">Добавить в корзину</span>
+                  )}
+                </a>
+                <div className={`card__count count-card${msgAdd.err.count ? ' count-card_error' : ''}`}>
                   <button className="count-card__item count-card__btn" type="button" onClick={handleOnCountDecClick}>-</button>
-                  <input className="count-card__item count-card__input" value={currCount} onChange={handleOnCountChange} onBlur={handleOnCountBlur} />
+                  <input
+                    className={`count-card__item count-card__input${msgAdd.err.count ? ' count-card__input_error' : ''}`}
+                    value={currCount}
+                    onChange={handleOnCountChange}
+                    onBlur={handleOnCountBlur}
+                  />
                   <button className="count-card__item count-card__btn" type="button" onClick={handleOnCountIncClick}>+</button>
                 </div>
+                <div className="card__price">{`${price} ₽`}</div>
               </div>
             </div>
           </div>
         </div>
-        <footer className="card__footer">
-          <div className="card__price">{`${price} ₽`}</div>
-        </footer>
       </div>
     </div>
   );

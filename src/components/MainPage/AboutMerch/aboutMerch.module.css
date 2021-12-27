@@ -39,8 +39,9 @@
 .aboutMerch_image {
   position: relative;
   border-radius: 8px 8px 16px 16px;
-  margin-bottom: 30px;
-  padding-bottom: 91.9%;
+  margin-bottom: 22px;
+  /* padding-bottom: 91.9%; */
+  padding-bottom: 104%;
   text-indent: -9999px; 
   overflow: hidden;
 }
@@ -70,7 +71,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  padding-bottom: 104%;
   background-color: #D3D8DC;
   background-image: url('../../../assets/img/no_img.png');
   background-repeat: none;
@@ -81,12 +82,12 @@
 
 .aboutMerch_star {
   position: absolute;
-  width: 54px;
-  height: 54px;
+  width: 48px;
+  height: 48px;
   background-image: url(../../../assets/svg/atr_star_about-merch.svg);
   background-size: contain;
-  left: -90px;
-  bottom: -10px;
+  left: -93px;
+  bottom: 13px;
 }
 
 .aboutMerch_link {
@@ -97,6 +98,7 @@
   line-height: 1.2;
   text-transform: uppercase;
   color: #4B4950;
+  text-align: center;
   padding-bottom: 9px;
   border-bottom: 2px solid #4B4950;
 
@@ -159,7 +161,6 @@
   }
 
 }
-
 
 @media (max-width: 768px) {
   .aboutMerch_text {

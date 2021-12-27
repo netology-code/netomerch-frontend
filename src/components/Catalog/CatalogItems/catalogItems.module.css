@@ -1,6 +1,6 @@
 .catalogItems_wrapper {
   position: relative;
-  display: flex;
+  /* display: flex; */
   overflow: hidden;
   margin-bottom: 80px;
 }
@@ -8,12 +8,18 @@
 .catalogItems_content {
   display: flex;
   justify-content: flex-start;
+  margin-bottom: 130px;
   flex-wrap: wrap;
   font-family: 'Golos Text', sans-serif;
   font-style: normal;
   font-weight: normal;
   text-align: left;
   background-color: #FFFFFF;
+}
+
+.catalogItems_header {
+  margin-top: 70px;
+  margin-bottom: 193px;
 }
 
 .catalogItems_star {
@@ -25,31 +31,26 @@
   background-color: #49D2A4;
 }
 
-.catalogItems_star__1 {
-  left: 33px;
-  top: 58px;
+.catalogItems_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 16px 10px;
+  width: 320px;
+  background-color: #4B4950;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1.2;
+  text-align: center;
+  color: #FFFFFF;
+  border-radius: 4px;
+  transition-property: background-color;
+  transition-duration: 400ms;
 }
 
-.catalogItems_star__2 {
-  left: 746px;
-  top: 356px;
-}
-
-.catalogItems_star__3 {
-  left: 1085px;
-  top: 482px;
-  background-color: #006AFF;
-}
-
-.catalogItems_star__4 {
-  left: 1839px;
-  top: 786px;
-  background-color: #006AFF;
-}
-
-.catalogItems_star__5 {
-  left: 154px;
-  top: 1074px;
+.catalogItems_button:hover {
   background-color: #006AFF;
 }
 
@@ -72,28 +73,4 @@
     margin-left: -1%;
     margin-right: -1%;
   }
-}
-
-.catalogItems_button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 62px;
-  padding: 16px 10px;
-  width: 320px;
-  background-color: #4B4950;
-  font-weight: bold;
-  font-size: 15px;
-  line-height: 1.2;
-  text-align: center;
-  color: #FFFFFF;
-  border-radius: 4px;
-  transition-property: background-color;
-  transition-duration: 400ms;
-}
-
-.catalogItems_button:hover {
-  background-color: #006AFF;
 }
