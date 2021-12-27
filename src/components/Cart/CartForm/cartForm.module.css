@@ -75,10 +75,6 @@ textarea.form__input { min-height: 180px; }
 
 .checkbox__input { display: none; }
 
-.checkbox__input:checked + .checkbox__label::after {
-  transform: scale(1);
-}
-
 .checkbox__label {
   position: relative;
   display: inline-flex;
@@ -100,6 +96,10 @@ textarea.form__input { min-height: 180px; }
   margin-right: 8px;
 }
 
+.checkbox__input:checked + .checkbox__label::after {
+  transform: scale(1);
+}
+
 .checkbox__label::after {
   content: '';
   position: absolute;
@@ -109,6 +109,22 @@ textarea.form__input { min-height: 180px; }
   border-radius: 5px;
   border: 1.3px solid #006AFF;
   transform: scale(0);
+  transition: transform 0.5s ease 0s; /* заменить на анимацию от дизайнеров */
+}
+
+/* .checkbox__input_false:checked + .checkbox__label_false::after {
+  transform: scale(1);
+} */
+
+.checkbox__label_false::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color:#E61A5E;
+  border-radius: 5px;
+  border: 1.3px solid #E61A5E;
+  transform: scale(1);
   transition: transform 0.5s ease 0s; /* заменить на анимацию от дизайнеров */
 }
 
