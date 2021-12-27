@@ -52,12 +52,16 @@ const Catalog = () => {
       filteredCatalog.push(...filterBySpecialization(filterParams.filterSpecialization, catalog));
     }
 
-    if (filterParams.filterCategories.length !== 0) {
+    if (filterParams.filterCategories.length !== 0 && filterParams.filterSpecialization.length === 0) {
       filteredCatalog.push(...filterByCategory(filterParams.filterCategories, catalog));
     }
 
+    if (filterParams.filterCategories.length !== 0 && filterParams.filterSpecialization.length !== 0) {
+      filteredCatalog = filterByCategory(filterParams.filterCategories, filteredCatalog);
+    }
+
     if (filterParams.filterSizes.length !== 0) {
-      filteredCatalog.push(...filterBySize(filterParams.filterSizes, filteredCatalog));
+      filteredCatalog = filterBySize(filterParams.filterSizes, filteredCatalog);
     }
 
     if (Number(filterParams.priceRange.from) < Number(filterParams.priceRange.to)) {
@@ -65,15 +69,21 @@ const Catalog = () => {
     }
 
     if (filterParams.isPopular) {
-      filteredCatalog = sortByPopularity(filteredCatalog);
-    }
+      if (filterParams.priceSort.up) {
+        filteredCatalog = sortByPopularity(filteredCatalog, 'up');
+      } else if (filterParams.priceSort.down) {
+        filteredCatalog = sortByPopularity(filteredCatalog, 'down');
+      } else {
+        filteredCatalog = sortByPopularity(filteredCatalog);
+      }
+    } else {
+      if (filterParams.priceSort.up) {
+        filteredCatalog = sortByPrice('up', filteredCatalog);
+      }
 
-    if (filterParams.priceSort.up) {
-      filteredCatalog = sortByPrice('up', filteredCatalog);
-    }
-
-    if (filterParams.priceSort.down) {
-      filteredCatalog = sortByPrice('down', filteredCatalog);
+      if (filterParams.priceSort.down) {
+        filteredCatalog = sortByPrice('down', filteredCatalog);
+      }
     }
   }
 

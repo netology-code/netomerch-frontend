@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import MainTop from './MainTop';
-import Reviews from './Reviews';
+import MainReviews from './MainReviews';
 import Answers from '../Answers/Answers';
 import MadeBy from './MadeBy/MadeBy';
 import AboutMerch from './AboutMerch/AboutMerch';
@@ -36,7 +36,7 @@ const MainPage = () => {
     <div className={styles.mainPage}>
       <MainTop />
       <AboutMerch popular={popular} />
-      <Reviews reviews={reviews} />
+      <MainReviews reviews={reviews} />
       <MadeBy />
       <Answers />
     </div>

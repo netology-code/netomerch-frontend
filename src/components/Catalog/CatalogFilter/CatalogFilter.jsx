@@ -22,6 +22,7 @@ const CatalogFilter = ({
   const [priceRange, setPriceRange] = useState({ from: '', to: '' });
   const [priceSort, setPriceSort] = useState({ up: false, down: false });
   const [isOpenDopPanel, setOpenDopPanel] = useState({ price: false, size: false });
+  const [errorPrice, setErrorPrice] = useState(false);
 
   useEffect(() => {
     passParams({
@@ -75,6 +76,14 @@ const CatalogFilter = ({
 
   const handleChangePrice = (e) => {
     const { name, value } = e.target;
+    const regCount = /^\d{0,9}$/;
+    if (!regCount.test(value)) return;
+    if (Number(priceRange.from) > Number(priceRange.to)) {
+      setErrorPrice(true);
+    } else {
+      setErrorPrice(false);
+    }
+
     setPriceRange((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -173,19 +182,19 @@ const CatalogFilter = ({
             По цене
             <label htmlFor="from">от</label>
             <input
-              type="number"
               id="from"
               name="from"
               value={priceRange.from}
               onChange={handleChangePrice}
+              style={errorPrice ? { border: '2px solid red' } : {}}
             />
             <label htmlFor="to">до</label>
             <input
-              type="number"
               id="to"
               name="to"
               value={priceRange.to}
               onChange={handleChangePrice}
+              style={errorPrice ? { border: '2px solid red' } : {}}
             />
           </div>
         </div>

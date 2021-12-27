@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Title from '../ui/Title';
 import CartItem from './CartItem/CartItem';
 import styles from './cart.module.css';
@@ -51,13 +52,25 @@ const Cart = () => {
     errorPromo, errorOrder, loadingOrder);
 
   return (
-    <div className={styles.cart}>
-      <button style={{ padding: '10px', border: '1px solid red' }} type="button" onClick={checkPromo}>Тест промо</button>
-      <button style={{ padding: '10px', border: '1px solid red' }} type="button" onClick={checkOrder}>Тест отправки заказа</button>
-      <Title cn={styles.cart_header} text="ваша корзина" sqColor="pink" />
-      {products.map((item) => <CartItem key={item.id} cartItem={item} />)}
-      <CartForm />
-    </div>
+    <>
+      <div className={styles.cart}>
+        <button style={{ padding: '10px', border: '1px solid red' }} type="button" onClick={checkPromo}>Тест промо</button>
+        <button style={{ padding: '10px', border: '1px solid red' }} type="button" onClick={checkOrder}>Тест отправки заказа</button>
+      </div>
+      { products[0] ? (
+        <div className={styles.cart}>
+          <Title cn={styles.cart_header} text="ваша корзина" sqColor="pink" />
+          {products.map((item) => <CartItem key={item.id} cartItem={item} />)}
+          <CartForm />
+        </div>
+      )
+        : (
+          <div className={styles.cart}>
+            <Title cn={styles.cart_header} text="ваша корзина пуста" sqColor="pink" />
+            <Link className={styles.btn} to="/catalog">В каталог</Link>
+          </div>
+        )}
+    </>
   );
 };
 
