@@ -55,7 +55,7 @@ const Product = ({ match }) => {
     <div className={styles.product}>
       <ProductTop />
       <Card product={product} />
-      <ProductReviews reviews={product.reviews} />
+      <ProductReviews reviews={product.reviews} product={product} />
     </div>
   );
 };

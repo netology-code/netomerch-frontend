@@ -1,18 +1,3 @@
 .productReviews_reviews_block {
   margin-bottom: 88px;
 }
-
-.productReviews_content {
-  display: flex;
-  color: #4B4950;
-  margin-bottom: 39px;
-}
-
-.productReviews_content__reviews { justify-content: space-between; }
-.productReviews_content__reviews_lessTwo { justify-content: center; }
-
-@media (max-width: 1000px) {
-  .productReviews_content {
-    flex-direction: column;
-  }
-}

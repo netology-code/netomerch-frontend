@@ -1,0 +1,48 @@
+/* slider.css */
+
+/* Общие стили для слайдера. ----------------------------------------------------------- */
+
+.slider__control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-slider__arrow-left,
+.icon-slider__arrow-right {
+  font-size: 32px;
+  color: #4B4950;
+}
+
+.slider__points {
+  display: flex;
+  align-items: center;
+  margin: 0 64px;
+}
+
+.slider__point {
+  position: relative;
+  min-width: 8px; /* Размер точки. При попытке задать размер через свойство flex flex-контейнер теряет ширину. */
+}
+
+.slider__point:not(:last-child) {
+  margin-right: 32px;
+}
+
+.slider__point::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  padding-bottom: 100%;
+
+  border-radius: 50%;
+  background-color: rgba(165, 164, 167, 0.5);
+
+  transform: translate(-50%, -50%);
+}
+
+.slider__point_active::after {
+  background-color: #4B4950;
+}

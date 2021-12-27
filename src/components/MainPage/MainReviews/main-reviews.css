@@ -1,11 +1,11 @@
 /* reviews.css */
 
-.reviews {
+.main-reviews {
   margin-bottom: 120px;
   overflow: hidden; /* Срезать padding'и у отзывов при уменьшеном экране. */
 }
 
-.reviews__text {
+.main-reviews__text {
   margin-bottom: 55px;
 
   font-size: 20px;
@@ -15,23 +15,23 @@
   opacity: 0.7;
 }
 
-.reviews__title {
+.main-reviews__title {
   margin-bottom: 20px;
 }
 
 /* Стили для слайдера в блоке с отзывами. ---------------------------------------------- */
 
-.reviews__slider {
+.main-reviews__slider {
   margin-bottom: 50px;
 }
 
-.slider-rewiews__container {
+.slider-main-rewiews .slider__container {
   display: flex;
   justify-content: center;
   margin: 0 -30px 46px -30px;
 }
 
-.slider-rewiew {
+.slider-main-rewiew {
   flex: 0 1 25%;
   padding: 0 30px;
 
@@ -40,15 +40,16 @@
   justify-content: space-between;
 }
 
-.slider-rewiew__img {
+.slider-main-rewiew__img {
   padding-bottom: 120.777%;
   margin-bottom: 28px;
 
   border-radius: 8px 8px 16px 16px;
+  background-color: #E5E5E5;
   overflow: hidden;
 }
 
-.slider-rewiew__img::after {
+.slider-main-rewiew__img::after {
   content: '';
   position: absolute;
   top: 0;
@@ -58,7 +59,7 @@
   background-color: #4B4950;
 }
 
-.slider-rewiew__link {
+.slider-main-rewiew__link {
   display: block;
   padding-bottom: 8px;
 
@@ -79,72 +80,52 @@
 
 @media(max-width: 1200px) {
 
-  .slider-rewiews__container {
+  .slider-main-rewiews .slider__container {
     margin: 0 -20px 46px -20px;
   }
 
-  .slider-rewiew {
+  .slider-main-rewiew {
+    flex: 0 1 33.33%;
     padding: 0 20px;
   }
 
-  .slider-rewiew__link {
+  .slider-main-rewiew__link {
     font-size: 22px;
   }
 }
 
 @media(max-width: 992px) {
-  .slider-rewiews {
-    position: relative;
-  }
-
-  .slider-rewiews::after {
-    content: 'Отзывы пока без адаптива';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid gray;
-
-    font-size: 50px;
-    font-weight: 600;
-    color: #006AFF;
-  }
-
-  /*
-  .slider-rewiews__container {
+  .slider-main-rewiews .slider__container {
     margin: 0 -15px 46px -15px;
   }
 
-  .slider-rewiew {
-    flex: 0 1 25%;
+  .slider-main-rewiew {
     padding: 0 15px;
   }
 
-  .slider-rewiew__link {
+  .slider-main-rewiew__link {
     font-size: 20px;
-  }*/
+  }
 }
-/*
+
 @media(max-width: 768px) {
-
-  .slider-rewiews__container {
+  .slider-main-rewiews .slider__container {
     margin: 0 -15px 46px -15px;
   }
 
-  .slider-rewiew {
-    flex: 0 0 50%;
-    flex-wrap: wrap;
+  .slider-main-rewiew {
+    flex: 0 1 50%;
     padding: 0 15px;
   }
 
-  .slider-rewiew__link {
+  .slider-main-rewiew__link {
     font-size: 20px;
   }
 }
-*/
-.reviews__btn {
-  margin: 0 auto;
+
+@media(max-width: 468px) {
+  .slider-main-rewiew {
+    flex: 0 1 100%;
+    padding: 0 15px;
+  }
 }

@@ -79,6 +79,12 @@
   overflow: hidden;
 }
 
+.card__column-2 {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
 .card__description {
   flex: 1 1 auto;
   display: flex;
