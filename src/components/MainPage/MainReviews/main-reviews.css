@@ -85,6 +85,7 @@
   }
 
   .slider-main-rewiew {
+    flex: 0 1 33.33%;
     padding: 0 20px;
   }
 
@@ -94,55 +95,37 @@
 }
 
 @media(max-width: 992px) {
-  .slider-main-rewiews {
-    position: relative;
-  }
-
-  .slider-main-rewiews::after {
-    content: 'Отзывы пока без адаптива';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid gray;
-
-    font-size: 50px;
-    font-weight: 600;
-    color: #006AFF;
-  }
-
-  /*
-  .slider-rewiews__container {
+  .slider-main-rewiews .slider__container {
     margin: 0 -15px 46px -15px;
   }
 
-  .slider-rewiew {
-    flex: 0 1 25%;
+  .slider-main-rewiew {
     padding: 0 15px;
   }
 
-  .slider-rewiew__link {
+  .slider-main-rewiew__link {
     font-size: 20px;
-  }*/
+  }
 }
-/*
+
 @media(max-width: 768px) {
-
-  .slider-rewiews__container {
+  .slider-main-rewiews .slider__container {
     margin: 0 -15px 46px -15px;
   }
 
-  .slider-rewiew {
-    flex: 0 0 50%;
-    flex-wrap: wrap;
+  .slider-main-rewiew {
+    flex: 0 1 50%;
     padding: 0 15px;
   }
 
-  .slider-rewiew__link {
+  .slider-main-rewiew__link {
     font-size: 20px;
   }
 }
-*/
+
+@media(max-width: 468px) {
+  .slider-main-rewiew {
+    flex: 0 1 100%;
+    padding: 0 15px;
+  }
+}

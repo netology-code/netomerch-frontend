@@ -76,10 +76,6 @@
   align-items: center;
 }
 
-@media (max-width: 1650px) {
-
-}
-
 @media (max-width: 1200px) {
   .productReview_review {
     flex: 0 1 50%;

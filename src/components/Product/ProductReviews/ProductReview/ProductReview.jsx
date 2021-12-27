@@ -6,7 +6,7 @@ import styles from './productReview.module.css';
 
 const ProductReview = ({ review, onReviewClick }) => {
   const {
-    id, text, author, author_image, date, reviewsLen,
+    id, text, author, author_image, date,
   } = review;
 
   return (

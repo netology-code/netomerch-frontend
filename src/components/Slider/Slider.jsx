@@ -11,21 +11,31 @@ import './slider.css';
 export default function Slider({
   items, // Массив элементов.
   startPos = 0, // С какой позиции показывать элементы.
-  visibleCount = 1, // Количество отображаемых элементов.
-  scrollStep = 1, // На сколько элементов листается.
+  visibleCount: vCount = 1, // Количество отображаемых элементов.
+  scrollStep: lCount = 1, // На сколько элементов листается.
   isPoints = true, // Показывать или скрывать точки.
   isRound = false, // Листается слайдер по кругу или нет.
   autoScroll = 0, // Автоматическое листание. 0 - отключено, для включения нужно указать задержку в ms, например, 5000.
   children,
 }) {
+  if (!vCount) return null;
+
   const [pos, setPos] = useState(startPos); // Начальная позиция в массиве элементов, с которой отображаются видимые элементы.
-  const [vCount, setVCount] = useState(visibleCount); // Количество отображаемых элементов (1 - 4).
-  const [lCount, setLCount] = useState(scrollStep); // На сколько элементов листается (1 - 4).
+  // const [vCount, setVCount] = useState(visibleCount); // Количество отображаемых элементов (1 - 4).
+  // const [lCount, setLCount] = useState(scrollStep); // На сколько элементов листается (1 - 4).
   const [vItems, setVItems] = useState([]); // Видимые элементы.
   const [points, setPoints] = useState([]); // Массив для отрисовки точек слайдера.
   const [isSliderControl, setIsSliderControl] = useState(false); // Если все элементы вмещаются на экран, тогда управление листанием скрыто.
   const [activePoint, setActivePoint] = useState(0); // Активная точка в слайдере. Указывает на позицию в массиве points.
   const [pointsOn, setPointsOn] = useState(isPoints); // Убрать/показать точки слайдера.
+
+  // console.log('slider visibleCount', visibleCount);
+  // console.log('slider vCount', vCount);
+
+  // useEffect(() => {
+  //   console.log('setVCount');
+  //   setVCount(visibleCount);
+  // }, [visibleCount]);
 
   // Вычисляем массив видимых элементов, при листании (или изменении количества видимых элементов - пока не используется).
   useEffect(() => {
@@ -46,7 +56,7 @@ export default function Slider({
       arr.push('');
     }
     setPoints(arr);
-  }, [vCount]);
+  }, [vCount, lCount]);
 
   // Устанавливаем нужно ли показывать управление листанием слайдера.
   useEffect(() => {

@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 /* eslint-disable max-len */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Title from '../../ui/Title';
 import ReviewsPopup from '../../Popups/ReviewsPopup';
@@ -23,14 +24,36 @@ export default function MainReviews({ reviews }) {
   // console.log('reviews', reviews);
   // --------------------------------------------------------------------------------------------
 
-  const sliderProps = {
-    items: reviews,
-    visibleCount: 4,
-    scrollStep: 4,
-  };
-
   const [isPopup, setIsPopup] = useState(false);
   const [selectedReviewID, setSelectedReviewID] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(null);
+  const [scrollStep, setScrollStep] = useState(null);
+
+  // Проверяем какое количество отзывов отобразить при текущей ширине экрана.
+  useEffect(() => {
+    const handleRezise = (event) => {
+      let width = 0;
+      if (!event) width = window.outerWidth;
+      else width = event.target.outerWidth;
+
+      let vCount = 4;
+      let sCount = 4;
+
+      if (width <= 1200) vCount = 3;
+      if (width <= 768) vCount = 2;
+      if (width <= 468) vCount = 1;
+
+      if (sCount > vCount) sCount = vCount;
+
+      if (visibleCount !== vCount) setVisibleCount(vCount);
+      if (scrollStep !== sCount) setScrollStep(sCount);
+    };
+
+    handleRezise();
+    window.addEventListener('resize', handleRezise);
+
+    return () => window.removeEventListener('resize', handleRezise);
+  }, []);
 
   const showPopup = (reviewID) => {
     setIsPopup(true);
@@ -50,7 +73,7 @@ export default function MainReviews({ reviews }) {
         </div>
 
         <div className="main-reviews__slider slider-main-rewiews">
-          <Slider {...sliderProps}>
+          <Slider items={reviews} visibleCount={visibleCount} scrollStep={scrollStep}>
             {(items) => items.map((item) => <MainReview key={item.id} review={item} onImgClick={showPopup} />)}
           </Slider>
         </div>
