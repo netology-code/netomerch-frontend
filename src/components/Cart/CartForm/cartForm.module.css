@@ -33,6 +33,7 @@
 }
 
 .form_promo_block {
+  position: relative;
   padding-top: 30px;
   display: flex;
 }
@@ -42,6 +43,10 @@
   border-radius: 4px 0px 0px 4px;
   width: 250px;
   height: 52px;
+}
+
+.form__input_promo:focus {
+  outline: 0;
 }
 
 .form__button_promo {
@@ -55,6 +60,10 @@
   line-height: 24px;
   align-items: center;
   text-align: center;
+}
+
+.form__button_promo:hover {
+  border: 1.3px solid #006AFF;;
 }
 
 .form__label_promo {
@@ -76,6 +85,38 @@
   left: 37px;
   border-radius: 0px 0px 0px 0px;
 }
+
+.form__promo_popap {
+  position: absolute;
+  width: 500px;
+  height: 52px;
+  left: 0px;
+  bottom: 50px;
+  box-sizing: border-box;
+  border-radius: 4px 0px 0px 4px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #F2F2F2;
+}
+
+.popap_error_input { border: 1.3px solid #E61A5E; }
+
+.popap_error {
+  background: #E61A5E;
+  border: 1.3px solid #E61A5E;
+}
+
+.popap_success {
+  background: #49D2A4;
+  border: 1.3px solid #49D2A4;
+}
+
 
 /* ---------- end-промокод ---------- */
 
