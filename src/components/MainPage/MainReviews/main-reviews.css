@@ -12,7 +12,7 @@
   line-height: calc(24 / 20 * 100%);
   font-weight: 500;
 
-  opacity: 0.7;
+  /* opacity: 0.7; */
 }
 
 .main-reviews__title {
