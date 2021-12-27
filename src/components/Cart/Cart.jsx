@@ -15,7 +15,17 @@ const Cart = () => {
         <div className={styles.cart}>
           <Title cn={styles.cart_header} text="ваша корзина" sqColor="pink" />
           {products.map((item) => <CartItem key={item.id} cartItem={item} />)}
-          <CartForm />
+          <div className={styles.lowerLine}>
+            <CartForm />
+            <div className={styles.cartSum}>
+              <p className={styles.label}>Итого</p>
+              <div className={styles.sumText}>
+                {products.reduce((item1, item2) => item1 + (item2.price * item2.count), 0)}
+                {' '}
+                ₽
+              </div>
+            </div>
+          </div>
         </div>
       )
         : (
