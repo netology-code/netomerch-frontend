@@ -11,6 +11,7 @@ import {
 const initialState = {
   loadingOrder: false,
   errorOrder: null,
+  orderIsSent: false,
   productWithPromo: {},
   loadingPromo: false,
   errorPromo: null,
@@ -29,12 +30,14 @@ function fetchOrderReducer(state = initialState, action) {
         ...state, loadingPromo: false, errorPromo: null, productWithPromo: data,
       };
     case FETCH_ORDER_START:
-      return { ...state, loadingOrder: true };
+      return { ...state, loadingOrder: true, orderIsSent: false };
     case FETCH_ORDER_FAILURE:
       const { error: errorOrder } = action.payload;
-      return { ...state, loadingOrder: false, errorOrder };
+      return {
+        ...state, loadingOrder: false, errorOrder, orderIsSent: false,
+      };
     case FETCH_ORDER_SUCCESS:
-      return { ...initialState };
+      return { ...initialState, orderIsSent: true };
     default:
       return state;
   }

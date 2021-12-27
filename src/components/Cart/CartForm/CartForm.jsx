@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-debugger */
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
@@ -18,6 +19,7 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-shadow */
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import styles from './cartForm.module.css';
 import Title from '../../ui/Title';
 
@@ -98,12 +100,13 @@ const useInput = (initialValue, validations) => {
 
 const mockObj_orderContract = []; // объект собирает данные из формы
 
-const CartForm = () => {
+const CartForm = ({ onSubmitForm, errorOrder, loadingOrder, orderIsSent }) => {
   const firstOrLastName = useInput('', { isEmpty: true, minLength: 2, maxLength: 100, isfirstOrLastName: true });
   const address = useInput('', { isEmpty: true });
   const phone = useInput('', { isEmpty: true, maxLength: 10, isPhone: true });
   const email = useInput('', { isEmpty: true, minLength: 3, maxLength: 100, isEmail: true });
   const comment = useInput('', { maxLength: 10000 });
+  const history = useHistory();
 
   const [btnError, setBtnError] = useState(true);
   const [statusOrder, setStatusOrder] = useState(false);
@@ -115,29 +118,45 @@ const CartForm = () => {
 
     if (!firstOrLastName.inputValid || !address.inputValid || !phone.inputValid || !email.inputValid || !clickCheckbox) {
       setBtnError(false);
+      console.log('blabla');
     } else {
+      console.log('ololo');
       setBtnError(true);
-      setStatusOrder(true);
 
-      mockObj_orderContract.push({ // объект собирает данные из формы
+      const formParams = {
         name: firstOrLastName.value,
         email: email.value,
         phone: phone.value,
-        total_sum: 'decimal',
-        final_sum: 'decimal',
         address: address.value,
         comment: comment.value,
-        code: 'string',
-        items: [
-          {
-            item_id: 'integer',
-            count: 'integer',
-            size: 'string',
-            color: 'string',
-            price: 'integer',
-          },
-        ],
-      });
+      };
+
+      onSubmitForm(formParams);
+
+      if (orderIsSent) {
+        setStatusOrder(true);
+        setTimeout(() => history.push('/catalog'), 3000);
+      }
+
+      // mockObj_orderContract.push({ // объект собирает данные из формы
+      //   name: firstOrLastName.value,
+      //   email: email.value,
+      //   phone: phone.value,
+      //   total_sum: 'decimal',
+      //   final_sum: 'decimal',
+      //   address: address.value,
+      //   comment: comment.value,
+      //   code: 'string',
+      //   items: [
+      //     {
+      //       item_id: 'integer',
+      //       count: 'integer',
+      //       size: 'string',
+      //       color: 'string',
+      //       price: 'integer',
+      //     },
+      //   ],
+      // });
     }
   };
 
@@ -216,7 +235,7 @@ const CartForm = () => {
                   ${(!btnError && phone.isEmpty) && styles.form__label_error_message}
                 `}
               >
-                Телефон *
+                Телефон (10 цифр без 8)*
               </label>
               <input
                 onChange={(e) => phone.onChange(e)}

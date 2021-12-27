@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable max-len */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -16,6 +18,7 @@ const Cart = () => {
     errorPromo,
     errorOrder,
     loadingOrder,
+    orderIsSent,
   } = useSelector((state) => state.fetchOrder);
   const dispatch = useDispatch();
 
@@ -47,6 +50,28 @@ const Cart = () => {
     dispatch(fetchOrder(template));
   };
 
+  const handleSubmitForm = (params) => {
+    if (products.length === 0) return;
+    console.log('params', params);
+    const order = {
+      ...params,
+      phone: `+7${params.phone}`,
+      total_sum: products.reduce((acc, curr) => acc + (Number(curr.count) * Number(curr.price)), 0),
+      final_sum: products.reduce((acc, curr) => acc + (Number(curr.count) * Number(curr.price)), 0),
+      code: '',
+      items: products.map((prod) => {
+        const {
+          count, color, size, price, item_id,
+        } = prod;
+        return {
+          item_id, count, size, color, price: Number(price),
+        };
+      }),
+    };
+
+    console.log(order);
+  };
+
   console.log(productWithPromo,
     loadingPromo,
     errorPromo, errorOrder, loadingOrder);
@@ -61,7 +86,7 @@ const Cart = () => {
         <div className={styles.cart}>
           <Title cn={styles.cart_header} text="ваша корзина" sqColor="pink" />
           {products.map((item) => <CartItem key={item.id} cartItem={item} />)}
-          <CartForm />
+          <CartForm onSubmitForm={handleSubmitForm} errorOrder={errorOrder} loadingOrder={loadingOrder} orderIsSent={orderIsSent} />
         </div>
       )
         : (
