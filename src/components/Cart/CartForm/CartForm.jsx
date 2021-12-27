@@ -108,10 +108,12 @@ const CartForm = () => {
   const [btnError, setBtnError] = useState(true);
   const [statusOrder, setStatusOrder] = useState(false);
 
+  const [clickCheckbox, setClickCheckbox] = useState(false);
+
   const handleClick = (e) => {
     e.preventDefault();
 
-    if (!firstOrLastName.inputValid || !address.inputValid || !phone.inputValid || !email.inputValid) {
+    if (!firstOrLastName.inputValid || !address.inputValid || !phone.inputValid || !email.inputValid || !clickCheckbox) {
       setBtnError(false);
     } else {
       setBtnError(true);
@@ -139,7 +141,15 @@ const CartForm = () => {
     }
   };
 
-  console.log(mockObj_orderContract);
+  // console.log(mockObj_orderContract);
+
+  const handleClickCheckbox = () => {
+    if (clickCheckbox) {
+      setClickCheckbox(false);
+    } else {
+      setClickCheckbox(true);
+    }
+  };
 
   return (
     <div className={styles.form}>
@@ -258,16 +268,28 @@ const CartForm = () => {
           </div>
         </div>
         <div className={`${styles.form__item} ${styles.statusOrder_block}`}>
-          {/* <div className={styles.checkbox}>
-            <input id="formAgreement" type="checkbox" name="agreement" className={styles.checkbox__input} />
-            <label htmlFor="formAgreement" className={`${styles.checkbox__label}`}>
+          <div className={styles.checkbox}>
+            <input
+              id="formAgreement"
+              type="checkbox"
+              name="agreement"
+              className={`${styles.checkbox__input}`}
+              onClick={handleClickCheckbox}
+            />
+            <label
+              htmlFor="formAgreement"
+              className={`
+                ${styles.checkbox__label}
+                ${(!clickCheckbox && !btnError) && styles.checkbox__label_false}
+              `}
+            >
               <span>
                 Согласен (согласна) с условиями
                 {' '}
                 <a href="#">пользовательского соглашения</a>
               </span>
             </label>
-          </div> */}
+          </div>
           {/* <div className={styles.checkbox}>
             <input id="formSubscribe" type="checkbox" name="subscribe" className={styles.checkbox__input} />
             <label htmlFor="formSubscribe" className={styles.checkbox__label}>
