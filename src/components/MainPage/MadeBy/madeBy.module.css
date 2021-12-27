@@ -155,6 +155,7 @@
   margin-top: 24px;
   margin-bottom: 24px;
   font-size: 20px;
+  line-height: calc(30 / 20 * 100%);
   font-weight: 500;
 }
 
