@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-max-props-per-line */
 /* eslint-disable no-debugger */
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
@@ -173,6 +174,22 @@ const CartForm = ({ onSubmitForm, errorOrder, loadingOrder, orderIsSent }) => {
   return (
     <div className={styles.form}>
       <form action="#" id="form" className={styles.form_body}>
+        <div className={styles.form_promo_body}>
+          <p>Есть промокод?</p>
+          <p>Самое время его применить!</p>
+          <div className={styles.form_promo_block}>
+            <div className={styles.form__item}>
+              <label htmlFor="forPromo" className={`${styles.form__label_promo}`}>Промокод</label>
+              <input onChange={(e) => firstOrLastName.onChange(e)} onBlur={(e) => firstOrLastName.onBlur(e)} value={firstOrLastName.value} id="forPromo" type="text" name="promo" className={`${styles.form__input_promo}`} />
+            </div>
+            <div className={styles.form__item}>
+              <label htmlFor="forEmailPromo" className={`${styles.form__label_promo} ${styles.promo_email}`}>E-mail промокода</label>
+              <input onChange={(e) => firstOrLastName.onChange(e)} onBlur={(e) => firstOrLastName.onBlur(e)} value={firstOrLastName.value} id="forEmailPromo" type="emailPromo" name="emailPromo" className={`${styles.form__input_promo}`} />
+            </div>
+            <button onClick={handleClick} type="button" className={`${styles.form__button_promo} btn`}>Применить</button>
+          </div>
+        </div>
+
         <Title cn={styles.form__title} text="ещё совсем чуть-чуть и мерч твой" sqColor="green" />
         <div className={styles.form_wrapper}>
           <div className={styles.form_wrapper__col}>
