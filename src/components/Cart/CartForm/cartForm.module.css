@@ -1,5 +1,5 @@
 .form {
-  margin-top: 70px; /* удалить после блока создания промокода */
+  margin-top: 100px; /* удалить после блока создания промокода */
   margin-bottom: 100px;
   color: #4B4950;
 }
@@ -17,6 +17,67 @@
 }
 
 .form_wrapper__col { flex-basis: 50%; }
+
+/* ---------- start-промокод ---------- */
+
+.form_promo_body {
+  margin-bottom: 80px;
+}
+
+.form_promo_body p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #4B4950;
+}
+
+.form_promo_block {
+  padding-top: 30px;
+  display: flex;
+}
+
+.form__input_promo {
+  border: 1.3px solid #4B4950;
+  border-radius: 4px 0px 0px 4px;
+  width: 250px;
+  height: 52px;
+}
+
+.form__button_promo {
+  border: 1.3px solid #4B4950;
+  border-radius: 0px 4px 4px 0px;
+  width: 250px;
+  height: 52px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  align-items: center;
+  text-align: center;
+}
+
+.form__label_promo {
+  position: absolute;
+  content: '';
+  top: 25%;
+  left: 74px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  align-items: center;
+  text-align: center;
+  color: rgba(75, 73, 80, 0.3);
+  border-radius: 4px 0px 0px 4px;
+}
+
+.promo_email {
+  left: 37px;
+  border-radius: 0px 0px 0px 0px;
+}
+
+/* ---------- end-промокод ---------- */
 
 .form__item {
   position: relative;
