@@ -1,15 +1,13 @@
 .productReview_review {
-  display: flex;
-  justify-content: center;
-}
-
-.productReview_review__lessTwo {
-  margin-left: 1.49%;
-  margin-right: 1.49%;
+  flex: 0 1 33.33%;
+  padding: 0 20px;
+  text-align: left;
 }
 
 .productReview_item {
-  width: 515px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   padding-top: 31px;
   padding-right: 40px;
   padding-bottom: 15px;
@@ -58,7 +56,7 @@
 }
 
 .productReview_content {
-  display: flex;
+  flex: 1 0 auto;
   min-height: 67px;
   margin-left: -2px;
   margin-bottom: 43px;
@@ -66,7 +64,6 @@
   font-size: 14px;
   line-height: 1.2;
   font-weight: normal;
-  align-items: center;
 }
 
 .productReview_date {
@@ -80,18 +77,21 @@
 }
 
 @media (max-width: 1650px) {
-  .productReview_item {
-    margin-left: 1.49%;
-    margin-right: 1.49%;
+
+}
+
+@media (max-width: 1200px) {
+  .productReview_review {
+    flex: 0 1 50%;
   }
+
   .productReview_item {
-    max-width: 515px;
-    width: 99%;
+    margin-bottom: 15px;
   }
 }
 
-@media (max-width: 1000px) {
-  .productReview_item {
-    margin-bottom: 15px;
+@media (max-width: 768px) {
+  .productReview_review {
+    flex: 0 1 100%;
   }
 }

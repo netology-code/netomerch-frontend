@@ -8,10 +8,7 @@ import ReviewPopup from './ReviewPopup';
 import './reviews-popup.css';
 
 export default function ReviewsPopup({ reviews, reviewID, hidePopup }) {
-  console.log('reviewID', reviewID);
-
   const startPos = reviews.findIndex((review) => review.id === reviewID);
-  console.log('startPos', startPos);
 
   // Закрыть попап, при клике на темном фоне.
   const handleOnPopupClick = (event) => {

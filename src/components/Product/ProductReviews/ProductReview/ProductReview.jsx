@@ -4,13 +4,13 @@
 import React from 'react';
 import styles from './productReview.module.css';
 
-const ProductReview = ({ review }) => {
+const ProductReview = ({ review, onReviewClick }) => {
   const {
     id, text, author, author_image, date, reviewsLen,
   } = review;
 
   return (
-    <div className={`${styles.productReview_review} ${(reviewsLen <= 2) ? styles.productReview_review__lessTwo : ''}`}>
+    <button className={styles.productReview_review} type="button" onClick={() => onReviewClick(id)}>
       <div className={styles.productReview_item}>
         <div className={styles.productReview_person}>
           <div className={`${styles.productReview_img} ibg`}>
@@ -22,7 +22,7 @@ const ProductReview = ({ review }) => {
         <p className={styles.productReview_content}>{text}</p>
         <time className={styles.productReview_date}>{date}</time>
       </div>
-    </div>
+    </button>
   );
 };
 
