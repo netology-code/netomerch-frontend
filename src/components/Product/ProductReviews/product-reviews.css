@@ -1,0 +1,13 @@
+/* product-reviews.css */
+
+.slider-product-reviews .slider__container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 39px;
+}
+
+@media (max-width: 1000px) {
+  .slider-product-reviews .slider__container {
+    flex-direction: column;
+  }
+}

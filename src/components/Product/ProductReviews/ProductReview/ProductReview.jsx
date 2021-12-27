@@ -4,10 +4,10 @@
 import React from 'react';
 import styles from './productReview.module.css';
 
-const ProductReview = (props) => {
+const ProductReview = ({ review }) => {
   const {
     id, text, author, author_image, date,
-  } = props;
+  } = review;
 
   return (
     <div className={styles.productReview_review}>

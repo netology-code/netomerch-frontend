@@ -11,14 +11,16 @@ import './slider.css';
 export default function Slider({
   items, // Массив элементов.
   startPos = 0, // С какой позиции показывать элементы.
+  visibleCount = 1, // Количество отображаемых элементов.
+  scrollStep = 1, // На сколько элементов листается.
   isPoints = true, // Показывать или скрывать точки.
   isRound = false, // Листается слайдер по кругу или нет.
   autoScroll = 0, // Автоматическое листание. 0 - отключено, для включения нужно указать задержку в ms, например, 5000.
   children,
 }) {
   const [pos, setPos] = useState(startPos); // Начальная позиция в массиве элементов, с которой отображаются видимые элементы.
-  const [vCount, setVCount] = useState(4); // Количество отображаемых элементов (1 - 4).
-  const [lCount, setLCount] = useState(1); // На сколько элементов листается (1 - 4).
+  const [vCount, setVCount] = useState(visibleCount); // Количество отображаемых элементов (1 - 4).
+  const [lCount, setLCount] = useState(scrollStep); // На сколько элементов листается (1 - 4).
   const [vItems, setVItems] = useState([]); // Видимые элементы.
   const [points, setPoints] = useState([]); // Массив для отрисовки точек слайдера.
   const [isSliderControl, setIsSliderControl] = useState(false); // Если все элементы вмещаются на экран, тогда управление листанием скрыто.
@@ -74,9 +76,22 @@ export default function Slider({
 
   const handleOnLeftClick = () => {
     let nextPos = pos - lCount;
+
+    if (isRound && (nextPos < 0)) {
+      if (pos > 0) nextPos = 0;
+      else nextPos = items.length - vCount;
+    }
+
     if (nextPos < 0) nextPos = 0;
     if (pos !== nextPos) setPos(nextPos);
   };
+
+  useEffect(() => {
+    if (!autoScroll) return null;
+
+    const timeout = setTimeout(() => handleOnRightClick(), autoScroll);
+    return () => clearTimeout(timeout);
+  });
 
   if (items.length === 0) return null;
 
@@ -87,8 +102,8 @@ export default function Slider({
       </div>
 
       {isSliderControl &&
-      <div className="slider__control slider__control_gray">
-        <button className="slider__arrow" type="button" onClick={handleOnLeftClick}>
+      <div className="slider__control">
+        <button className="icon-slider__arrow-left" type="button" onClick={handleOnLeftClick}>
           <span className="visually-hidden">Назад</span>
         </button>
 
@@ -100,7 +115,7 @@ export default function Slider({
             </li>)}
         </ul>}
 
-        <button className="slider__arrow slider__arrow_right" type="button" onClick={handleOnRightClick}>
+        <button className="icon-slider__arrow-right" type="button" onClick={handleOnRightClick}>
           <span className="visually-hidden">Вперед</span>
         </button>
       </div>}

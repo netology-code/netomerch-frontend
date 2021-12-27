@@ -21,7 +21,7 @@
 .reviews-popup__body {
   position: relative;
   max-width: 515px;
-  padding-top: 11px;
+  padding: 11px 0 20px 0;
 
   border-radius: 20px;
   background-color: #ffffff;
@@ -126,7 +126,6 @@
 
 .review-popup__content {
   padding: 0 40px;
-  margin-bottom: 40px;
 }
 
 .review-popup__text {
@@ -164,4 +163,8 @@
   font-weight: 500;
   font-size: 14px;
   line-height: calc(17 / 14 * 100%);
+}
+
+.slider-reviews-popup .slider__container {
+  margin-bottom: 50px;
 }

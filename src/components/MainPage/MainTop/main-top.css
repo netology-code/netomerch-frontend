@@ -12,7 +12,7 @@
 
 /* Стили для слайдера верхнего блока. -------------------------------------------------- */
 
-.slider-main {
+.slider-main .slider {
   position: relative;
 }
 
@@ -24,7 +24,7 @@
   overflow: hidden;
 }
 
-.slider-main__control {
+.slider-main .slider__control {
   position: absolute;
   left: 0;
   bottom: -23px;
@@ -33,12 +33,26 @@
   transform: translateY(100%);
 }
 
+.slider-main .icon-slider__arrow-left,
+.slider-main .icon-slider__arrow-right {
+  color: #ffffff;
+}
+
+.slider-main .slider__point::after {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.slider-main .slider__point_active::after {
+  background-color: #ffffff;
+}
+
+
 @media(max-width: 1200px) {
   .main-top {
     padding: 60px 0 60px 0;
   }
 
-  .slider-main__control {
+  .slider-main .slider__control {
     bottom: -14px;
   }
 }
@@ -54,7 +68,7 @@
     padding: 40px 0 40px 0;
   }
 
-  .slider-main__control {
+  .slider-main .slider__control {
     bottom: -5px;
   }
 }

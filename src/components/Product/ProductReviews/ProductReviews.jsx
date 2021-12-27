@@ -2,73 +2,37 @@
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import { nanoid } from 'nanoid';
 import styles from './productReviews.module.css';
 import ProductReview from './ProductReview/ProductReview';
+import Slider from '../../Slider';
+import './product-reviews.css';
 
-export default function ProductReviews({ reviews }) {
-  if (!reviews) return null;
+export default function ProductReviews({ reviews: r }) {
+  const reviews = [];
+  const reviewsCount = 10; // Количество отзывов.
+  for (let i = 1; i <= reviewsCount; i += 1) {
+    reviews.push({
+      id: i,
+      author: `${i}`,
+      // image: 'https://dev.netomerch.tk/media/item/cup_uSeRI4R.jpeg',
+      image: '',
+      text: i,
+    });
+  }
+  console.log('reviews', reviews);
+  console.log('r', r);
 
-  // Можно управлять количеством отображаемых отзывов и количеством листания.
-  const [pos, setPos] = useState(0); // Начальная позиция в массиве отзывов, с которой отображаются видимые отзывы.
-  const [vCount, setVCount] = useState(3); // Количество отображаемых отзывов (1 - 3).
-  const [lCount, setLCount] = useState(1); // На сколько отзывов листается (1 - 3).
-  const [vReviews, setVReviews] = useState([]); // Видимые отзывы.
-  const [points, setPoints] = useState([]); // Массив для отрисовки точек слайдера.
-  const [isSliderControl, setIsSliderControl] = useState(false); // Если все отзывы вмещаются на экран, тогда управление листанием скрыто.
-  const [activePoint, setActivePoint] = useState(0); // Активная точка в слайдере. Указывает на позицию в массиве points.
-
-  // Вычисляем массив видимых отзывов, при листании (или изменении количества видимых отзывов - пока не используется).
-  useEffect(() => {
-    const arr = [];
-    const endPos = pos + vCount < reviews.length ? pos + vCount : reviews.length;
-    for (let i = pos; i < endPos; i += 1) {
-      arr.push(reviews[i]);
-    }
-    setVReviews(arr);
-  }, [pos, vCount]);
-
-  // Вычисляем массив для отрисовки точек.
-  useEffect(() => {
-    let pCount = Math.ceil((reviews.length - (vCount - lCount)) / lCount);
-    if (pCount < 0) pCount = 1;
-    const arr = [];
-    for (let i = 0; i < pCount; i += 1) {
-      arr.push('');
-    }
-    setPoints(arr);
-  }, [vCount]);
-
-  // Устанавливаем нужно ли показывать управление листанием слайдера.
-  useEffect(() => {
-    let isVisible = null;
-    if (reviews.length <= vCount) isVisible = false;
-    else isVisible = true;
-
-    if (isSliderControl !== isVisible) setIsSliderControl(isVisible);
-  }, [vCount]);
-
-  // Вычисляем позицию активной точки для массива points.
-  useEffect(() => {
-    setActivePoint(Math.ceil(pos / lCount));
-  }, [pos]);
-
-  const handleOnRightClick = () => {
-    let nextPos = pos + lCount;
-    if ((nextPos > reviews.length) || (nextPos > reviews.length - vCount)) nextPos = reviews.length - vCount;
-    if (nextPos < 0) nextPos = 0;
-    if (pos !== nextPos) setPos(nextPos);
-  };
-
-  const handleOnLeftClick = () => {
-    let nextPos = pos - lCount;
-    if (nextPos < 0) nextPos = 0;
-    if (pos !== nextPos) setPos(nextPos);
-  };
+  if (!reviews || reviews.length === 0) return null;
 
   return (
     <div className="container">
-      {reviews.length !== 0 && (
+      <div className={`${styles.productReviews_reviews_block} slider-product-reviews`}>
+        <Slider items={reviews} visibleCount={3} scrollStep={1}>
+          {(items) => items.map((item) => <ProductReview key={item.id} review={item} />)}
+        </Slider>
+      </div>
+
+      {/* {reviews.length !== 0 && (
         <div className="reviews__slider slider">
           <div className={styles.productReviews_reviews_block}>
             <div className={styles.productReviews_content}>
@@ -104,7 +68,7 @@ export default function ProductReviews({ reviews }) {
             )}
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
