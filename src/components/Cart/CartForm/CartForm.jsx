@@ -103,6 +103,7 @@ const CartForm = () => {
   const address = useInput('', { isEmpty: true });
   const phone = useInput('', { isEmpty: true, maxLength: 10, isPhone: true });
   const email = useInput('', { isEmpty: true, minLength: 3, maxLength: 100, isEmail: true });
+  const comment = useInput('', { maxLength: 10000 });
 
   const [btnError, setBtnError] = useState(true);
   const [statusOrder, setStatusOrder] = useState(false);
@@ -123,7 +124,7 @@ const CartForm = () => {
         total_sum: 'decimal',
         final_sum: 'decimal',
         address: address.value,
-        comment: 'String',
+        comment: comment.value,
         code: 'string',
         items: [
           {
@@ -138,7 +139,7 @@ const CartForm = () => {
     }
   };
 
-  // console.log(mockObj_orderContract);
+  console.log(mockObj_orderContract);
 
   return (
     <div className={styles.form}>
@@ -251,8 +252,8 @@ const CartForm = () => {
               />
             </div>
             <div className={styles.form__item}>
-              <label htmlFor="forMessage" className={styles.form__label}>Комментарий к заказу</label>
-              <textarea name="message" id="forMessage" className={styles.form__input} />
+              <label htmlFor="forComment" className={styles.form__label}>Комментарий к заказу</label>
+              <textarea onChange={(e) => comment.onChange(e)} value={comment.value} name="comment" id="forComment" className={styles.form__input} />
             </div>
           </div>
         </div>
