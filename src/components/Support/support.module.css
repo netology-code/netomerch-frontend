@@ -8,6 +8,9 @@
 .supportContent {
   margin-top: 48px;
   display: flex;
+  min-width: 84%;
+  padding-right: auto;
+  margin-top: 60px;
 }
 
 .supportSidebar {
@@ -32,19 +35,25 @@
   overflow: hidden;
 }
 
-.supportQuestions:first-child {
+.supportQuestionsOpen {
   color: #000000;
   background-color: #FFFFFF;
   font-weight: bold;
   font-size: 16px;
   line-height: 19px;
+  padding-left: 40px;
+  padding-right: 40px;
+  height: 164px;
+  border: 1px solid #FFFFFF;
 }
 
-.supportQuestions:nth-child(5){
+.supportQuestions:last-child{
   border-width: 1px 0 1px 0;
 }
 
 .supportAnswerContent {
+  position: absolute;
+  left: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,9 +66,8 @@
   font-size: 16px;
   line-height: 19px;
   background-color: #F2F2F2;
-  overflow: hidden;
-  height: 200px;
   padding: 29px 54px 29px 54px;
+  width: 100%;
 }
 
 .supportBackground {
