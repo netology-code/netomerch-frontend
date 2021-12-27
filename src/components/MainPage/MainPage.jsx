@@ -37,8 +37,8 @@ const MainPage = () => {
       <MainTop />
       <AboutMerch popular={popular} />
       <MainReviews reviews={reviews} />
-      <MadeBy />
       <Answers />
+      <MadeBy />
     </div>
   );
 };

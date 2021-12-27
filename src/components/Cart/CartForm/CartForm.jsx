@@ -34,7 +34,7 @@ const useValidation = (value, validations) => {
 
   const [inputValid, setInputValid] = useState(false);
 
-  useEffect(() => {
+  useEffect(() => { // хук для проверок
     for (const validation in validations) {
       switch (validation) {
         case 'isEmpty':
@@ -109,10 +109,15 @@ const CartForm = ({ onSubmitForm, errorOrder, loadingOrder, orderIsSent }) => {
   const comment = useInput('', { maxLength: 10000 });
   const history = useHistory();
 
+  const promocod = useInput('', { isEmpty: true });
+  const promocodEmail = useInput('', { isEmpty: true, minLength: 3, maxLength: 100, isEmail: true });
+
   const [btnError, setBtnError] = useState(true);
   const [statusOrder, setStatusOrder] = useState(false);
 
   const [clickCheckbox, setClickCheckbox] = useState(false);
+
+  const [btnPromoError, setBtnPromoError] = useState(true);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -161,13 +166,32 @@ const CartForm = ({ onSubmitForm, errorOrder, loadingOrder, orderIsSent }) => {
     }
   };
 
-  // console.log(mockObj_orderContract);
+  // есть проверка если поле промокод пустое и нажата кнопка применить = border розовый
+  // есть проверка если поле промокод заполенено и поле email в промокоде пустое и нажата кнопка применить = попап розовый
+  // есть проверка на валидный емайл
+  // есть проверка на минимальную длину емайл
+
+  // стили для попапа успех (зеленая кнопка) styles.popap_success
+  // стили для попапа провал (розовая кнопка) styles.popap_error
+  // div для вставки попапа проверки
+  // {(!btnPromoError && promocodEmail.isEmpty) && <div className={`${styles.form__promo_popap} ${styles.popap_error}`}>Введите E-mail</div>}
 
   const handleClickCheckbox = () => {
     if (clickCheckbox) {
       setClickCheckbox(false);
     } else {
       setClickCheckbox(true);
+    }
+  };
+
+  const handleClickPromo = (e) => {
+    e.preventDefault();
+
+    if (btnPromoError) {
+      setBtnPromoError(false);
+      setTimeout(() => setBtnPromoError(true), 3000);
+    } else {
+      setBtnPromoError(true);
     }
   };
 
@@ -180,13 +204,36 @@ const CartForm = ({ onSubmitForm, errorOrder, loadingOrder, orderIsSent }) => {
           <div className={styles.form_promo_block}>
             <div className={styles.form__item}>
               <label htmlFor="forPromo" className={`${styles.form__label_promo}`}>Промокод</label>
-              <input onChange={(e) => firstOrLastName.onChange(e)} onBlur={(e) => firstOrLastName.onBlur(e)} value={firstOrLastName.value} id="forPromo" type="text" name="promo" className={`${styles.form__input_promo}`} />
+              <input
+                onChange={(e) => promocod.onChange(e)}
+                value={promocod.value}
+                id="forPromo"
+                type="text"
+                name="promo"
+                className={`
+                            ${styles.form__input_promo}
+                            ${(!btnPromoError && promocod.isEmpty) && styles.popap_error_input} 
+                          `}
+              />
             </div>
             <div className={styles.form__item}>
               <label htmlFor="forEmailPromo" className={`${styles.form__label_promo} ${styles.promo_email}`}>E-mail промокода</label>
-              <input onChange={(e) => firstOrLastName.onChange(e)} onBlur={(e) => firstOrLastName.onBlur(e)} value={firstOrLastName.value} id="forEmailPromo" type="emailPromo" name="emailPromo" className={`${styles.form__input_promo}`} />
+              <input
+                onChange={(e) => promocodEmail.onChange(e)}
+                value={promocodEmail.value}
+                id="forEmailPromo"
+                type="email"
+                name="emailPromo"
+                className={`
+                            ${styles.form__input_promo}
+                            ${(!btnPromoError && promocodEmail.isEmpty) && styles.popap_error_input}
+                            ${(!btnPromoError && promocodEmail.minLengthError) && styles.popap_error_input}
+                            ${(!btnPromoError && promocodEmail.emailError) && styles.popap_error_input}
+                          `}
+              />
             </div>
-            <button onClick={handleClick} type="button" className={`${styles.form__button_promo} btn`}>Применить</button>
+            <button onClick={handleClickPromo} type="button" className={`${styles.form__button_promo} btn`}>Применить</button>
+            {(!btnPromoError && promocodEmail.isEmpty) && <div className={`${styles.form__promo_popap} ${styles.popap_error}`}>Введите E-mail</div>}
           </div>
         </div>
 

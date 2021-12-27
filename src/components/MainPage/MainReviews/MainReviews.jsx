@@ -69,7 +69,7 @@ export default function MainReviews({ reviews }) {
       <div className="container">
         <Title cn="main-reviews__title" text="Отзывы, которые мы заслужили" />
         <div className="main-reviews__text">
-          Здесь мы собрали отзывы наших клиентов о самых популярных товарах. Они рассказывают, почему выбрали наш мерч, как его используют и за что ценят.
+          Здесь мы собрали отзывы наших клиентов о самых популярных товарах. Они рассказывают, почему выбрали НеМерч, как используют любимые вещи и за что их ценят.
         </div>
 
         <div className="main-reviews__slider slider-main-rewiews">

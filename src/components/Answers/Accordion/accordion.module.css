@@ -95,7 +95,8 @@
 }
 
 .content p {
-  line-height: 1.2;
+  line-height: calc(30 / 20 * 100%);
+  font-weight: 500;
 }
 
 .content .line {
