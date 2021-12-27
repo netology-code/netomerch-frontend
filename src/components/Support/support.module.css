@@ -6,6 +6,7 @@
 }
 
 .supportContent {
+  position: relative;
   margin-top: 48px;
   display: flex;
   min-width: 84%;
@@ -53,12 +54,16 @@
 
 .supportAnswerContent {
   position: absolute;
-  left: 30%;
+  top: 0;
+  left: 24%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  height: 100%;
   width: 57%;
   margin-left: 4%;
+  padding-bottom: 100px;
 }
 
 .supportAnswer {
