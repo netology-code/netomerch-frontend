@@ -1,6 +1,8 @@
-import React from 'react';
+/* eslint-disable no-param-reassign */
+import React, { useState } from 'react';
 import styles from './support.module.css';
 import Title from '../ui/Title';
+import SupportContent from './SupportContent';
 
 const Support = () => {
   // Моковые данные
@@ -37,15 +39,16 @@ const Support = () => {
     },
   ];
 
-  // Поиск нужного ответа по id
-  const switchQuestion = (id) => questions.find((item) => item.id === id);
-
-  // Пример хендлера на JS
-  const changeContent = (e) => {
-    const { id } = e.target;
-    const answerBlock = document.getElementById('answer');
-    answerBlock.textContent = switchQuestion(id).answer;
-    // Тут еще со стилями надо по идее поработать
+  const [content, setContent] = useState(questions);
+  const handleClick = (id) => {
+    setContent(content.map((cont) => {
+      if (id !== cont.id) {
+        cont.isOpen = false;
+      } else {
+        cont.isOpen = true;
+      }
+      return cont;
+    }));
   };
 
   return (
@@ -53,22 +56,16 @@ const Support = () => {
       <Title cn={styles.cart_header} text="центр поддержки" sqColor="pink" />
       <div className={styles.supportContent}>
         <div className={styles.supportSidebar}>
-          {questions.map((item) => (
-            <button
-              className={styles.supportQuestions}
+          { content.map((item) => (
+            <SupportContent
+              key={item.id}
               id={item.id}
-              type="button"
-              onClick={changeContent}
-            >
-              {item.question}
-            </button>
+              question={item.question}
+              answer={item.answer}
+              isOpen={item.isOpen}
+              onClick={handleClick}
+            />
           ))}
-        </div>
-        <div className={styles.supportAnswerContent}>
-          <div className={styles.supportAnswer} id="answer">
-            {questions[0].answer}
-          </div>
-          <div className={styles.supportBackground} />
         </div>
       </div>
     </div>
