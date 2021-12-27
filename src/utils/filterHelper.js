@@ -1,11 +1,22 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable import/prefer-default-export */
-export function sortByPopularity(list) {
-  const popularList = [];
-  const otherList = [];
+export function sortByPopularity(list, status = null) {
+  let popularList = [];
+  let otherList = [];
   list.forEach((item) => {
     item.popular ? popularList.push(item) : otherList.push(item);
   });
+
+  if (status === 'up') {
+    popularList = sortByPrice('up', popularList);
+    otherList = sortByPrice('up', otherList);
+  }
+
+  if (status === 'down') {
+    popularList = sortByPrice('down', popularList);
+    otherList = sortByPrice('down', otherList);
+  }
 
   return [...popularList, ...otherList];
 }
