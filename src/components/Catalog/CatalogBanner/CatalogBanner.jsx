@@ -4,10 +4,14 @@ import styles from './catalogBanner.module.css';
 
 const CatalogBanner = () => (
   <div className={styles.banner}>
-    <div className={styles.bannerTextContainer}>
-      <p className={styles.bannerText}>У нас появились новые стартовые наборы</p>
+    <div className="container">
+      <div className={styles.bannerBody}>
+        <div className={styles.bannerText}>
+          У нас появились новые стартовые наборы
+        </div>
+        <div className={styles.bannerImage} />
+      </div>
     </div>
-    <div className={styles.bannerImage} />
   </div>
 );
 
