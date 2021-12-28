@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import cartReducer from '../reducers/cartReducer';
 import fetchCatalogReducer from '../reducers/fetchCatalogReducer';
 import fetchMainPageReducer from '../reducers/fetchMainPageReducer';
+import fetchOrderReducer from '../reducers/fetchOrderReducer';
 import fetchProductReducer from '../reducers/fetchProductReducer';
 
 const reducer = combineReducers({
@@ -10,6 +11,7 @@ const reducer = combineReducers({
   fetchMainPage: fetchMainPageReducer,
   fetchCatalog: fetchCatalogReducer,
   fetchProduct: fetchProductReducer,
+  fetchOrder: fetchOrderReducer,
 });
 
 const store = createStore(

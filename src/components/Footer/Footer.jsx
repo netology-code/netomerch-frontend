@@ -31,7 +31,7 @@ const Footer = () => {
                     <Link to="/">Конфиденциальность</Link>
                   </li>
                   <li>
-                    <Link to="/">Центр поддержки</Link>
+                    <Link to="/support">Центр поддержки</Link>
                   </li>
                 </ul>
                 <div className={styles.footerSocial}>
@@ -44,16 +44,16 @@ const Footer = () => {
                 <div className={styles.footerMenuLabel}>Каталог по товарам</div>
                 <ul className={`${styles.footerLinks} ${styles.footerLinksProducts}`}>
                   <li>
-                    <Link to="/">Толстовки</Link>
+                    <Link to="/catalog?category=Толстовки">Толстовки</Link>
                   </li>
                   <li>
-                    <Link to="/">Худи</Link>
+                    <Link to="/catalog?category=Худи">Худи</Link>
                   </li>
                   <li>
-                    <Link to="/">Футболки</Link>
+                    <Link to="/catalog?category=Футболки">Футболки</Link>
                   </li>
                   <li>
-                    <Link to="/">Наборы</Link>
+                    <Link to="/catalog?category=Наборы">Наборы</Link>
                   </li>
                 </ul>
               </div>
@@ -61,19 +61,19 @@ const Footer = () => {
                 <div className={styles.footerMenuLabel}>Каталог по направлениям</div>
                 <ul className={`${styles.footerLinks} ${styles.footerLinksCategories}`}>
                   <li>
-                    <Link to="/">Программирование</Link>
+                    <Link to="/catalog?specialization=Программирование">Программирование</Link>
                   </li>
                   <li>
-                    <Link to="/">Дизайн</Link>
+                    <Link to="/catalog?specialization=Дизайн">Дизайн</Link>
                   </li>
                   <li>
-                    <Link to="/">Маркетинг</Link>
+                    <Link to="/catalog?specialization=Маркетинг">Маркетинг</Link>
                   </li>
                   <li>
-                    <Link to="/">Бизнес и управление</Link>
+                    <Link to="/catalog?specialization=Бизнес">Бизнес и управление</Link>
                   </li>
                   <li>
-                    <Link to="/">Аналитика</Link>
+                    <Link to="/catalog?specialization=Аналитика">Аналитика</Link>
                   </li>
                 </ul>
               </div>

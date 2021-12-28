@@ -1,6 +1,8 @@
+/* eslint-disable camelcase */
+/* eslint-disable max-len */
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Title from '../ui/Title';
 import CartItem from './CartItem/CartItem';
 import styles from './cart.module.css';
@@ -9,6 +11,7 @@ import '../Product/Card/card.css';
 
 const Cart = () => {
   const { products } = useSelector((state) => state.productInCart);
+
   return (
     <>
       { products[0] ? (
@@ -31,7 +34,8 @@ const Cart = () => {
         : (
           <div className={styles.cart}>
             <Title cn={styles.cart_header} text="ваша корзина пуста" sqColor="pink" />
-            <Link className={styles.btn} to="/catalog">В каталог</Link>
+            <Link className={styles.btn} to="/catalog">Вернуться в каталог</Link>
+            <CartForm />
           </div>
         )}
     </>

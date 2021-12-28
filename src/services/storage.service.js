@@ -26,8 +26,8 @@ const storageService = {
     cart = cart.filter((prod) => prod.id !== id);
     storageService.set(key, cart);
   },
-  clear: () => {
-    localStorage.clear();
+  clear: (key) => {
+    localStorage.removeItem(key);
   },
 };
 
