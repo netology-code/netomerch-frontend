@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-max-props-per-line */
 /* eslint-disable no-debugger */
@@ -24,7 +26,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import styles from './cartForm.module.css';
 import Title from '../../ui/Title';
-import { deletePromo, fetchPromo, fetchOrder, clearCart } from '../../../actions/actionCreators';
+import { deletePromo, fetchPromo, fetchOrder, clearCart, addProductInCart } from '../../../actions/actionCreators';
 
 const useValidation = (value, validations) => {
   const [isEmpty, setIsEmpty] = useState(true);
@@ -210,11 +212,145 @@ const CartForm = () => {
       dispatch(fetchPromo(promocod.value, promocodEmail.value));
     }
   };
+  //-----------------------------------------
+  const PopapCart = ({ item }) => {
+    console.log(item);
+    const { sizes, colors, item_id, name, price } = item.item;
+    const [currSize, setCurrSize] = useState(null);
+    const [currColor, setCurrColor] = useState(null);
+    const [isChoseCompleteSize, setIsChoseCompleteSize] = useState(true);
+    const [isChoseCompleteColor, setIsChoseCompleteColor] = useState(true);
+    const [isChoseComplete, setIsChoseComplete] = useState(false);
+
+    const [isAddProduct, setIsAddProduct] = useState(true);
+
+    const dispatch = useDispatch();
+
+    const handleOnSizeClick = (size) => {
+      if (size === currSize) {
+        setCurrSize(null);
+      } else {
+        setCurrSize(size);
+        setIsChoseCompleteSize(true);
+        setIsAddProduct(true);
+      }
+    };
+
+    const handleOnColorClick = (color) => {
+      if (color === currColor) {
+        setCurrColor(null);
+      } else {
+        setCurrColor(color);
+        setIsChoseCompleteColor(true);
+        setIsAddProduct(true);
+      }
+    };
+
+    const handleAddToCart = () => {
+      if (!currSize) { setIsChoseCompleteSize(false); }
+      if (!currColor) { setIsChoseCompleteColor(false); }
+      if (currSize && currColor) {
+        setIsChoseComplete(true);
+        setTimeout(() => setIsChoseComplete(false), 3000);
+
+        // mockData_addProductCart.push({
+        //   id,
+        //   count: 1,
+        //   size: currSize,
+        //   color: currColor,
+        // });
+/*
+{code: 'BB8', item: {…}}
+code: "BB8"
+
+item:
+colors: [{…}]
+description: "Унисекс футболка для аналитика.\r\n\r\nМодель кроя oversize c заниженной плечевой линией и универсальным круглым вырезом. Рукава удлинённые.\r\n\r\nФутболка сшита из 100% хлопка. Ткань приятна на ощупь, хорошо пропускает воздух и не деформируется даже после многократных стирок. Благодаря этому футболка согреет вас зимой и спасёт от жары летом. \r\n\r\nПринт нанесён методом сублимации, поэтому держится до победного, как диджитал-специалист в ночь перед дедлайном. Выдержит и прямые солнечные лучи, и многочисленные стирки. \r\n\r\nВсе материалы экологичны и безопасны даже для обладателей чувствительной кожи.\r\n\r\nЧёрная футболка с неброской оригинальной цитатой хорошо сочетается с большинством вещей повседневного стиля. Если захочется чего-нибудь необычного, то можно носить даже с брюками и деловым костюмом."
+item_id: 154
+name: "Футболка «Было непросто, но оно того стоит»"
+price: "1999.00"
+sizes: Array(3)
+0: "S"
+1: "M"
+2: "L"
+*/
+        const orderedProduct = {
+          id: item_id,
+          name,
+          image: colors.find((item) => item.color_code === currColor).images[0].images,
+          size: currSize,
+          color: currColor,
+          price,
+          count: 1,
+          itemDiscount: 99,
+        };
+
+        dispatch(addProductInCart(orderedProduct));
+        dispatch(deletePromo());
+      } else {
+        setIsAddProduct(false);
+      }
+    };
+
+    return (
+      <div className={styles.catalogItem_popap}>
+        <p className={styles.popuptext}>
+          Сделайте выбор цвета
+          <br />
+          {' '}
+          и размера мерча?
+        </p>
+        <div className={styles.catalogItem_popap_sizes}>
+          {sizes.map((size) => (
+            <button
+              key={size}
+              type="button"
+              className={`${styles.catalogItem_popap_btn}
+                          ${styles.catalogItem_popap_btn_size}
+                          ${size === currSize ? styles.catalogItem_popap_btn_size__active : ''}
+                          ${!isChoseCompleteSize && styles.catalogItem_popap_btn_size__no_active}
+                        `}
+              onClick={() => handleOnSizeClick(size)}
+            >
+              <span>{size}</span>
+            </button>
+          ))}
+        </div>
+        <div className={styles.catalogItem_popap_colors}>
+          {colors.map((color) => (
+            <button
+              key={color}
+              type="button"
+              className={`${styles.catalogItem_popap_btn}
+                          ${styles.catalogItem_popap_btn_color}
+                          ${color === currColor ? styles.catalogItem_popap_btn_color__active : ''}
+                          ${!isChoseCompleteColor && styles.catalogItem_popap_btn_color__no_active}
+                        `}
+              style={{ backgroundColor: color.color_code }}
+              onClick={() => handleOnColorClick(color.color_code)}
+            />
+          ))}
+        </div>
+        <button
+          className={`${styles.catalogItem_popap_btn_cart}
+                      ${!isAddProduct && styles.catalogItem_popap_btn_cart__no_active}
+                      ${isChoseComplete && styles.catalogItem_popap_btn_cart__active}
+                    `}
+          onClick={() => handleAddToCart()}
+          type="button"
+        >
+          <span>{isChoseComplete ? 'Товар добавлен в корзину' : 'Добавить в корзину'}</span>
+        </button>
+      </div>
+    );
+  };
+  //-----------------------------------------
 
   // console.log('orderIsSent', orderIsSent);
 
   return (
     <div className={styles.form}>
+      { productWithPromo.code ? <PopapCart item={productWithPromo} /> : false}
       <form action="#" id="form" className={styles.form_body}>
         <div className={styles.form_promo_body}>
           <p>Есть промокод?</p>
