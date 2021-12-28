@@ -30,14 +30,15 @@
 } */
 
 .bannerImage {
-  flex: 0 1 700px;
-  height: 220px;
-  margin-top: 30px;
-  margin-left: -85px;
+  flex: 0 1 1000px;
+  height: 280px;
+  margin-top: 20px;
+  /* margin-left: -85px; */
 
   border-radius: 20px;
 
-  background-image: url('./../../../assets/img/catalog/catalog-banner.jpg');
+  background-image: url('./../../../assets/svg/catalog-banner.svg');
+  /* background-image: url('./../../../assets/img/catalog/catalog-banner.jpg'); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
