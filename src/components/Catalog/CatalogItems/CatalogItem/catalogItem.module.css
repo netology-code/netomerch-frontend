@@ -41,6 +41,18 @@
   overflow: hidden;
 }
 
+.popular_star {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  width: 29px;
+  height: 30px;
+  z-index: 10000;
+  mask-image: url(../../../../assets/svg/atr_star_mini.svg);
+  background-size: contain;
+  background-color: #006AFF;
+}
+
 .catalogItem_image img {
   border-radius: 20px;
 }
