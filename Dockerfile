@@ -26,4 +26,4 @@ RUN mv static front
 RUN sed -i.bak "s/assets\//front\//g" index.html
 RUN sed -i.bak "s/static\//front\//g" asset-manifest.json
 RUN cd /var/www/front/js && sed -i.bak "s/assets\//front\//g" *.js *.map
-RUN cd /var/www/front/css && sed -i.bak "s/assets\//front\//g" *.js *.map *.css
+RUN cd /var/www/front/css && sed -i.bak "s/assets\//front\//g" *.map *.css
