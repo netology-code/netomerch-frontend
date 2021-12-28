@@ -21,3 +21,9 @@ WORKDIR /var/www
 COPY --from=build /app/build .
 RUN sed -i.bak "s/root.*;/root \/var\/www;/" /etc/nginx/conf.d/default.conf
 RUN sed -i.bak "s/80;/3000;/" /etc/nginx/conf.d/default.conf
+RUN sed -i.bak "s/localhost;/frontend;/" /etc/nginx/conf.d/default.conf
+RUN mv static front
+RUN sed -i.bak "s/assets\//front\//g" index.html
+RUN sed -i.bak "s/static\//front\//g" asset-manifest.json
+RUN cd /var/www/front/js && sed -i.bak "s/assets\//front\//g" *.js *.map
+RUN cd /var/www/front/css && && sed -i.bak "s/assets\//front\//g" *.js *.map *.css
