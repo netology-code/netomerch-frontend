@@ -154,6 +154,11 @@
   overflow: hidden;
 }
 
+.review-popup__avatar img {
+  max-width: 100%;
+  width: 100%;
+}
+
 .review-popup__author-name {
   font-weight: 500;
   font-size: 20px;
