@@ -126,11 +126,9 @@ const CartForm = () => {
   const { errorPromo, loadingPromo, productWithPromo, orderIsSent } = useSelector((state) => state.fetchOrder);
   const { products } = useSelector((state) => state.productInCart);
   const dispatch = useDispatch();
-  console.log('productWithPromo', productWithPromo);
 
   if (orderIsSent && statusOrder) {
     setStatusOrder(false);
-    console.log('send order');
     setTimeout(() => { dispatch(clearCart()); history.push('/catalog'); }, 3000);
   }
 
@@ -204,7 +202,6 @@ const CartForm = () => {
   };
   //-----------------------------------------
   const PopapCart = ({ item }) => {
-    console.log(item);
     const { sizes, colors, item_id, name, price } = item.item;
     const [currSize, setCurrSize] = useState(null);
     const [currColor, setCurrColor] = useState(null);

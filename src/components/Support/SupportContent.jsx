@@ -18,7 +18,7 @@ const SupportContent = ({
       ? (
         <div className={styles.supportAnswerContent}>
           <div className={styles.supportAnswer} id="answer">
-            <p>{answer}</p>
+            <pre className={styles.supportAnswerText}>{answer}</pre>
           </div>
           <div className={styles.supportBackground} />
         </div>
