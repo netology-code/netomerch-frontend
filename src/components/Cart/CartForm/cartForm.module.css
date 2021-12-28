@@ -43,6 +43,7 @@
   border-radius: 4px 0px 0px 4px;
   width: 250px;
   height: 52px;
+  padding: 5px 10px;
 }
 
 .form__input_promo:focus {
@@ -245,7 +246,7 @@ textarea.form__input { min-height: 180px; }
 .statusOrder {
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: -50%;
   width: 675px;
   padding-top: 10px;
   padding-left: 8px;
@@ -267,8 +268,10 @@ textarea.form__input { min-height: 180px; }
   font-weight: 900;
 }
 
+.form_wrapper__col:first-child { margin-right: 25px; }
+
 @media (max-width: 1600px) {
-  .form_wrapper__col:first-child { margin-right: 25px; }
+  
 }
 
 @media (max-width: 1350px) {
