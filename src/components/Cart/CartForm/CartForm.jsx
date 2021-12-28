@@ -36,7 +36,7 @@ const useValidation = (value, validations) => {
 
   const [inputValid, setInputValid] = useState(false);
 
-  useEffect(() => { // хук для проверок
+  useEffect(() => {
     for (const validation in validations) {
       switch (validation) {
         case 'isEmpty':
@@ -53,8 +53,8 @@ const useValidation = (value, validations) => {
           re.test(value) ? setFirstOrLastNameError(false) : setFirstOrLastNameError(true);
           break;
         case 'isPhone':
-          // const req = /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/;
-          const req = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+          // const req = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+          const req = /^\d{10}$/;
           req.test(value) ? setPhoneError(false) : setPhoneError(true);
           break;
         case 'isEmail':
@@ -105,9 +105,9 @@ const useInput = (initialValue, validations) => {
 const CartForm = () => {
   const firstOrLastName = useInput('', { isEmpty: true, minLength: 2, maxLength: 100, isfirstOrLastName: true });
   const address = useInput('', { isEmpty: true });
-  const phone = useInput('', { isEmpty: true, maxLength: 10, isPhone: true });
+  const phone = useInput('', { isEmpty: true, minLength: 10, maxLength: 10, isPhone: true });
   const email = useInput('', { isEmpty: true, minLength: 3, maxLength: 100, isEmail: true });
-  const comment = useInput('', { maxLength: 10000 });
+  const comment = useInput('', { isEmpty: true, maxLength: 10000 });
   const history = useHistory();
 
   const promocod = useInput('', { isEmpty: true });
@@ -124,7 +124,7 @@ const CartForm = () => {
   const { errorPromo, loadingPromo, productWithPromo, orderIsSent } = useSelector((state) => state.fetchOrder);
   const { products } = useSelector((state) => state.productInCart);
   const dispatch = useDispatch();
-  console.log('productWithPromo', productWithPromo);
+  // console.log('productWithPromo', productWithPromo);
 
   if (orderIsSent && statusOrder) {
     setStatusOrder(false);
@@ -172,16 +172,6 @@ const CartForm = () => {
       dispatch(fetchOrder(order));
     }
   };
-
-  // есть проверка если поле промокод пустое и нажата кнопка применить = border розовый
-  // есть проверка если поле промокод заполенено и поле email в промокоде пустое и нажата кнопка применить = попап розовый
-  // есть проверка на валидный емайл
-  // есть проверка на минимальную длину емайл
-
-  // стили для попапа успех (зеленая кнопка) styles.popap_success
-  // стили для попапа провал (розовая кнопка) styles.popap_error
-  // div для вставки попапа проверки
-  // {(!btnPromoError && promocodEmail.isEmpty) && <div className={`${styles.form__promo_popap} ${styles.popap_error}`}>Введите E-mail</div>}
 
   const handleClickCheckbox = () => {
     if (clickCheckbox) {
@@ -258,28 +248,29 @@ const CartForm = () => {
         </div>
 
         {products.length !== 0 && (
-        <>
-          <Title cn={styles.form__title} text="ещё совсем чуть-чуть и мерч твой" sqColor="green" />
-          <div className={styles.form_wrapper}>
-            <div className={styles.form_wrapper__col}>
-              <div className={styles.form__item}>
-                <label
-                  htmlFor="forName"
-                  className={`
+          <>
+            <Title cn={styles.form__title} text="ещё совсем чуть-чуть и мерч твой" sqColor="green" />
+            <div className={styles.form_wrapper}>
+              <div className={styles.form_wrapper__col}>
+                <div className={styles.form__item}>
+                  <label
+                    htmlFor="forName"
+                    className={`
                   ${styles.form__label}
                   ${(!btnError && firstOrLastName.isEmpty) && styles.form__label_error_message}
                 `}
-                >
-                  Имя и фамилия *
-                </label>
-                <input
-                  onChange={(e) => firstOrLastName.onChange(e)}
-                  onBlur={(e) => firstOrLastName.onBlur(e)}
-                  value={firstOrLastName.value}
-                  id="forName"
-                  type="name"
-                  name="firstOrLastName"
-                  className={`
+                  >
+                    {(firstOrLastName.isEmpty) ? 'Имя и фамилия *' : ''}
+                  </label>
+                  <input
+                    onChange={(e) => firstOrLastName.onChange(e)}
+                    onBlur={(e) => firstOrLastName.onBlur(e)}
+                    value={firstOrLastName.value}
+                    autoComplete="off"
+                    id="forName"
+                    type="name"
+                    name="firstOrLastName"
+                    className={`
                   ${styles.form__input}
                   ${(firstOrLastName.isDirty && firstOrLastName.isEmpty) && styles.form__input_error}
                   ${(firstOrLastName.isDirty && firstOrLastName.minLengthError) && styles.form__input_error}
@@ -287,142 +278,156 @@ const CartForm = () => {
                   ${(firstOrLastName.isDirty && firstOrLastName.firseNameError) && styles.form__input_error}
                   ${(!btnError && firstOrLastName.isEmpty) && styles.form__input_error}
                 `}
-                />
-              </div>
-              <div className={styles.form__item}>
-                <label
-                  htmlFor="forAddress"
-                  className={`
-                  ${styles.form__label}
-                  ${(!btnError && address.isEmpty) && styles.form__label_error_message}
-                `}
-                >
-                  Адрес доставки *
-                </label>
-                <input
-                  onChange={(e) => address.onChange(e)}
-                  onBlur={(e) => address.onBlur(e)}
-                  value={address.value}
-                  id="forAddress"
-                  type="text"
-                  name="address"
-                  className={`
+                  />
+                </div>
+                <div className={styles.form__item}>
+                  <label
+                    htmlFor="forAddress"
+                    className={`
+                    ${styles.form__label}
+                    ${(!btnError && address.isEmpty) && styles.form__label_error_message}
+                  `}
+                  >
+                    {address.isEmpty ? 'Адрес доставки *' : ''}
+                  </label>
+                  <input
+                    onChange={(e) => address.onChange(e)}
+                    onBlur={(e) => address.onBlur(e)}
+                    value={address.value}
+                    autoComplete="off"
+                    id="forAddress"
+                    type="text"
+                    name="address"
+                    className={`
                   ${styles.form__input}
                   ${(address.isDirty && address.isEmpty) && styles.form__input_error}
                   ${(!btnError && address.isEmpty) && styles.form__input_error}
                 `}
-                />
-              </div>
-              <div className={styles.form__item}>
-                <label
-                  htmlFor="forPhone"
-                  className={`
+                  />
+                </div>
+                <div className={styles.form__item}>
+                  <label
+                    htmlFor="forPhone"
+                    className={`
                   ${styles.form__label}
                   ${(!btnError && phone.isEmpty) && styles.form__label_error_message}
                 `}
-                >
-                  Телефон (10 цифр без 8)*
-                </label>
-                <input
-                  onChange={(e) => phone.onChange(e)}
-                  onBlur={(e) => phone.onBlur(e)}
-                  value={phone.value}
-                  id="forPhone"
-                  type="tel"
-                  name="phone"
-                  className={`
+                  >
+                    {phone.isEmpty ? 'Введите номер телефона (10 цифр, без 8) *' : ''}
+                  </label>
+                  <input
+                    onChange={(e) => phone.onChange(e)}
+                    onBlur={(e) => phone.onBlur(e)}
+                    autoComplete="off"
+                    value={phone.value}
+                    id="forPhone"
+                    type="tel"
+                    name="phone"
+                    className={`
                   ${styles.form__input}
                   ${(phone.isDirty && phone.isEmpty) && styles.form__input_error}
                   ${(phone.isDirty && phone.phoneError) && styles.form__input_error}
+                  ${(phone.isDirty && phone.minLength) && styles.form__input_error}
+                  ${(phone.isDirty && phone.maxLength) && styles.form__input_error}
                   ${(!btnError && phone.isEmpty) && styles.form__input_error}
                 `}
-                />
+                  />
+                </div>
               </div>
-            </div>
-            <div className={styles.form_wrapper__col}>
-              <div className={styles.form__item}>
-                <label
-                  htmlFor="forEmail"
-                  className={`
+              <div className={styles.form_wrapper__col}>
+                <div className={styles.form__item}>
+                  <label
+                    htmlFor="forEmail"
+                    className={`
                   ${styles.form__label} 
                   ${(!btnError && email.isEmpty) && styles.form__label_error_message}
                 `}
-                >
-                  E-mail *
-                </label>
-                <input
-                  onChange={(e) => email.onChange(e)}
-                  onBlur={(e) => email.onBlur(e)}
-                  value={email.value}
-                  id="forEmail"
-                  type="email"
-                  name="email"
-                  className={`
+                  >
+                    {email.isEmpty ? 'E-mail *' : ''}
+                  </label>
+                  <input
+                    onChange={(e) => email.onChange(e)}
+                    onBlur={(e) => email.onBlur(e)}
+                    value={email.value}
+                    autoComplete="off"
+                    id="forEmail"
+                    type="email"
+                    name="email"
+                    className={`
                   ${styles.form__input}
                   ${(email.isDirty && email.isEmpty) && styles.form__input_error}
                   ${(email.isDirty && email.minLengthError) && styles.form__input_error}
                   ${(email.isDirty && email.emailError) && styles.form__input_error}
                   ${(!btnError && email.isEmpty) && styles.form__input_error}
                 `}
-                />
-              </div>
-              <div className={styles.form__item}>
-                <label htmlFor="forComment" className={styles.form__label}>Комментарий к заказу</label>
-                <textarea onChange={(e) => comment.onChange(e)} value={comment.value} name="comment" id="forComment" className={styles.form__input} />
+                  />
+                </div>
+                <div className={styles.form__item}>
+                  <label htmlFor="forComment" className={styles.form__label}>
+                    {comment.isEmpty ? 'Комментарий к заказу' : ''}
+                  </label>
+                  <textarea
+                    onChange={(e) => comment.onChange(e)}
+                    value={comment.value}
+                    name="comment"
+                    id="forComment"
+                    className={styles.form__input}
+                    style={{ paddingTop: '8px' }}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          <div className={`${styles.form__item} ${styles.statusOrder_block}`}>
-            <div className={styles.checkbox}>
-              <input
-                id="formAgreement"
-                type="checkbox"
-                name="agreement"
-                className={`${styles.checkbox__input}`}
-                onClick={handleClickCheckbox}
-              />
-              <label
-                htmlFor="formAgreement"
-                className={`
+            <div className={`${styles.form__item} ${styles.statusOrder_block}`}>
+              <div className={styles.checkbox}>
+                <input
+                  id="formAgreement"
+                  type="checkbox"
+                  name="agreement"
+                  className={`${styles.checkbox__input}`}
+                  onClick={handleClickCheckbox}
+                />
+                <label
+                  htmlFor="formAgreement"
+                  className={`
                 ${styles.checkbox__label}
                 ${(!clickCheckbox && !btnError) && styles.checkbox__label_false}
               `}
-              >
-                <span>
-                  Согласен (согласна) с условиями
-                  {' '}
-                  <a href="#">пользовательского соглашения</a>
-                </span>
-              </label>
-            </div>
-            {/* <div className={styles.checkbox}>
+                >
+                  <span>
+                    Согласен (согласна) с условиями
+                    {' '}
+                    <a href="#">пользовательского соглашения</a>
+                  </span>
+                </label>
+              </div>
+              {/* <div className={styles.checkbox}>
       <input id="formSubscribe" type="checkbox" name="subscribe" className={styles.checkbox__input} />
       <label htmlFor="formSubscribe" className={styles.checkbox__label}>
         <span>Согласен (согласна) получать информационные рассылки от Нетологии</span>
       </label>
     </div> */}
-            <button
-              onClick={handleClick}
-              type="button"
-              className={`${styles.form__button} btn`}
-            >
-              Оформить заказ
-            </button>
-            {orderIsSent && (
-              <div className={styles.statusOrder}>
-                <p>Ваш заказ оформлен :)</p>
-                <p>
-                  Письмо с подтверждением придёт на почту :
-                  <span>
-                    {' '}
-                    {email.value}
-                  </span>
-                </p>
-              </div>
-            )}
-          </div>
-        </>
-      )}
+              <button
+                onClick={handleClick}
+                type="button"
+                className={`${styles.form__button} btn`}
+              >
+                Оформить заказ
+              </button>
+              {orderIsSent && (
+                <div className={styles.statusOrder}>
+                  <p>Ваш заказ оформлен :)</p>
+                  <p>
+                    Письмо с подтверждением придёт на почту :
+                    <span>
+                      {' '}
+                      {email.value}
+                    </span>
+                  </p>
+                </div>
+              )}
+            </div>
+          </>
+        )}
       </form>
     </div>
   );
