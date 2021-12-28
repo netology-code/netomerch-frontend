@@ -76,6 +76,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  white-space: pre-line;
 }
 
 @media(max-width: 1200px) {
