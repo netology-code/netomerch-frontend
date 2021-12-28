@@ -201,6 +201,11 @@ export const deleteProductInCart = (id) => async (dispatch) => {
   dispatch(updateCart());
 };
 
+export const clearCart = () => async (dispatch) => {
+  storageService.clear('cart');
+  dispatch(updateCart());
+};
+
 export const changeQuantityInCart = (id, quantity) => async (dispatch) => {
   storageService.changeQuantity('cart', id, quantity);
   dispatch(updateCart());

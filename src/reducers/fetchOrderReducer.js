@@ -44,7 +44,7 @@ function fetchOrderReducer(state = initialState, action) {
     case FETCH_ORDER_SUCCESS:
       return { ...initialState, orderIsSent: true };
     default:
-      return { ...initialState };
+      return { ...state };
   }
 }
 

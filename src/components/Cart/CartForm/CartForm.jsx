@@ -24,8 +24,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import styles from './cartForm.module.css';
 import Title from '../../ui/Title';
-import storageService from '../../../services/storage.service';
-import { deletePromo, fetchPromo, fetchOrder } from '../../../actions/actionCreators';
+import { deletePromo, fetchPromo, fetchOrder, clearCart } from '../../../actions/actionCreators';
 
 const useValidation = (value, validations) => {
   const [isEmpty, setIsEmpty] = useState(true);
@@ -103,8 +102,6 @@ const useInput = (initialValue, validations) => {
   };
 };
 
-const mockObj_orderContract = []; // объект собирает данные из формы
-
 const CartForm = () => {
   const firstOrLastName = useInput('', { isEmpty: true, minLength: 2, maxLength: 100, isfirstOrLastName: true });
   const address = useInput('', { isEmpty: true });
@@ -118,6 +115,7 @@ const CartForm = () => {
 
   const [btnError, setBtnError] = useState(true);
   const [statusOrder, setStatusOrder] = useState(false);
+  const [statusPromo, setStatusPromo] = useState(false);
 
   const [clickCheckbox, setClickCheckbox] = useState(false);
 
@@ -131,8 +129,11 @@ const CartForm = () => {
   if (orderIsSent && statusOrder) {
     setStatusOrder(false);
     console.log('send order');
-    storageService.clear('cart');
-    setTimeout(() => history.push('/catalog'), 3000);
+    setTimeout(() => { dispatch(clearCart()); history.push('/catalog'); }, 3000);
+  }
+
+  if (errorPromo && statusPromo) {
+    setTimeout(() => setStatusPromo(false), 3000);
   }
 
   const handleClick = (e) => {
@@ -140,9 +141,7 @@ const CartForm = () => {
 
     if (!firstOrLastName.inputValid || !address.inputValid || !phone.inputValid || !email.inputValid || !clickCheckbox) {
       setBtnError(false);
-      console.log('blabla');
     } else {
-      console.log('ololo');
       setBtnError(true);
 
       if (products.length === 0) return;
@@ -171,28 +170,6 @@ const CartForm = () => {
 
       setStatusOrder(true);
       dispatch(fetchOrder(order));
-
-      // onSubmitForm(formParams);
-
-      // mockObj_orderContract.push({ // объект собирает данные из формы
-      //   name: firstOrLastName.value,
-      //   email: email.value,
-      //   phone: phone.value,
-      //   total_sum: 'decimal',
-      //   final_sum: 'decimal',
-      //   address: address.value,
-      //   comment: comment.value,
-      //   code: 'string',
-      //   items: [
-      //     {
-      //       item_id: 'integer',
-      //       count: 'integer',
-      //       size: 'string',
-      //       color: 'string',
-      //       price: 'integer',
-      //     },
-      //   ],
-      // });
     }
   };
 
@@ -226,12 +203,15 @@ const CartForm = () => {
 
     if (!promocod.inputValid || !promocodEmail.inputValid) {
       setBtnPromoError(false);
-      setTimeout(() => setBtnPromoError(true), 3000);
+      setTimeout(() => setBtnPromoError(true), 1000);
     } else {
       setBtnPromoError(true);
+      setStatusPromo(true);
       dispatch(fetchPromo(promocod.value, promocodEmail.value));
     }
   };
+
+  // console.log('orderIsSent', orderIsSent);
 
   return (
     <div className={styles.form}>
@@ -273,7 +253,7 @@ const CartForm = () => {
             <button onClick={handleClickPromo} type="button" className={`${styles.form__button_promo} btn`}>{Object.keys(productWithPromo).length !== 0 ? 'Отменить' : 'Применить'}</button>
             {(!btnPromoError && promocodEmail.isEmpty) && <div className={`${styles.form__promo_popap} ${styles.popap_error}`}>Введите E-mail</div>}
             {Object.keys(productWithPromo).length !== 0 && <div className={`${styles.form__promo_popap} ${styles.popap_success}`}>Промокод применен</div>}
-            {errorPromo && <div className={`${styles.form__promo_popap} ${styles.popap_error}`}>Промокод не найден</div>}
+            {(errorPromo && statusPromo) && <div className={`${styles.form__promo_popap} ${styles.popap_error}`}>Промокод не найден</div>}
           </div>
         </div>
 
@@ -428,21 +408,21 @@ const CartForm = () => {
             >
               Оформить заказ
             </button>
-            {(orderIsSent && setStatusOrder) && (
-            <div className={styles.statusOrder}>
-              <p>Ваш заказ оформлен :)</p>
-              <p>
-                Письмо с подтверждением придёт на почту :
-                <span>
-                  {' '}
-                  {email.value}
-                </span>
-              </p>
-            </div>
+            {orderIsSent && (
+              <div className={styles.statusOrder}>
+                <p>Ваш заказ оформлен :)</p>
+                <p>
+                  Письмо с подтверждением придёт на почту :
+                  <span>
+                    {' '}
+                    {email.value}
+                  </span>
+                </p>
+              </div>
             )}
           </div>
         </>
-)}
+      )}
       </form>
     </div>
   );

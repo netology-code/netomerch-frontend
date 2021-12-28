@@ -246,7 +246,7 @@ textarea.form__input { min-height: 180px; }
 .statusOrder {
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: -50%;
   width: 675px;
   padding-top: 10px;
   padding-left: 8px;
