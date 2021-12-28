@@ -46,26 +46,26 @@ jobs:
           target: "/srv/netomerch/frontend/${{ env.MODE }}"
           strip_components: 1
 
-#      - name: Deploy on server
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.SSH_SERVER }}
-#          username: ${{ secrets.SSH_USER }}
-#          key: ${{ secrets.SSH_KEY }}
-#          script: |
-#            cd /srv/netomerch/frontend/${{ env.MODE }}
-#
-#            export REGISTRY=${{ env.REGISTRY }}
-#            export FRONTEND_IMAGE_NAME=${{ env.FRONTEND_IMAGE_NAME }}
-#            export MODE=${{ env.MODE }}
-#            export DOMAIN_NAME=${{ secrets.DOMAIN_NAME }}
-#            export APIENDPOINT=${{ env.APIENDPOINT }}
-#
-#            echo "${{ github.token }}" | docker login ${{ env.REGISTRY }} --username ${{ github.actor }} --password-stdin
-#            docker pull ${{ env.REGISTRY }}/${{ env.FRONTEND_IMAGE_NAME }}:${{ env.MODE }}
-#
-#            docker-compose stop frontend
-#            docker-compose rm -f frontend
-#            docker-compose up -d
-#
-#            for image in $(docker images | grep none | awk '{print $3}' | cat); do docker rmi "$image"; done
+      - name: Deploy on server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_SERVER }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /srv/netomerch/frontend/${{ env.MODE }}
+
+            export REGISTRY=${{ env.REGISTRY }}
+            export FRONTEND_IMAGE_NAME=${{ env.FRONTEND_IMAGE_NAME }}
+            export MODE=${{ env.MODE }}
+            export DOMAIN_NAME=${{ secrets.DOMAIN_NAME }}
+            export APIENDPOINT=${{ env.APIENDPOINT }}
+
+            echo "${{ github.token }}" | docker login ${{ env.REGISTRY }} --username ${{ github.actor }} --password-stdin
+            docker pull ${{ env.REGISTRY }}/${{ env.FRONTEND_IMAGE_NAME }}:${{ env.MODE }}
+
+            docker-compose stop frontend
+            docker-compose rm -f frontend
+            docker-compose up -d
+
+            for image in $(docker images | grep none | awk '{print $3}' | cat); do docker rmi "$image"; done
