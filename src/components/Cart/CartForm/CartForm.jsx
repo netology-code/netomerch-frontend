@@ -389,7 +389,7 @@ sizes: Array(3)
               />
             </div>
             <button onClick={handleClickPromo} type="button" className={`${styles.form__button_promo} btn`}>{Object.keys(productWithPromo).length !== 0 ? 'Отменить' : 'Применить'}</button>
-            {(!btnPromoError && promocodEmail.isEmpty) && <div className={`${styles.form__promo_popap} ${styles.popap_error}`}>Введите E-mail</div>}
+            {(!btnPromoError && !promocod.isEmpty && promocodEmail.isEmpty) && <div className={`${styles.form__promo_popap} ${styles.popap_error}`}>Введите E-mail</div>}
             {Object.keys(productWithPromo).length !== 0 && <div className={`${styles.form__promo_popap} ${styles.popap_success}`}>Промокод применен</div>}
             {(errorPromo && statusPromo) && <div className={`${styles.form__promo_popap} ${styles.popap_error}`}>Промокод не найден</div>}
           </div>
