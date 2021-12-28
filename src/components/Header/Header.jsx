@@ -1,9 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './header.module.css';
 import logo from '../../assets/svg/logo_nemerch_main.svg';
 
 const Header = () => {
+  const { products } = useSelector((state) => state.productInCart);
   const location = useLocation();
 
   if (location.pathname === '/notfaund') {
@@ -33,7 +35,9 @@ const Header = () => {
               <div className={styles.headerHelp} />
             </Link>
             <Link to="/cart">
-              <div className={styles.headerCart} />
+              <div className={styles.headerCart}>
+                <div style={products.length === 0 ? { display: 'none' } : {}} className={styles.cartCount}>{products.length}</div>
+              </div>
             </Link>
           </div>
         </div>

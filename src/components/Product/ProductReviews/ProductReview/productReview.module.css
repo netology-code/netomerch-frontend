@@ -31,6 +31,10 @@
   text-indent: -9999px;
 }
 
+.productReview_img img {
+  border-radius: 50%;
+}
+
 /* скрывает изображение сломанной иконки */ 
 .productReview_img img[alt]:after {
   position: absolute;
@@ -64,6 +68,7 @@
   font-size: 14px;
   line-height: 1.2;
   font-weight: normal;
+  white-space: pre-line;
 }
 
 .productReview_date {

@@ -16,7 +16,7 @@ export default function ProductReviews({ reviews, product }) {
   //     id: i,
   //     author: `${i}`,
   //     image: '',
-  //     text: i,
+  //     text: 'kwejflkje \n sfjkhsdkjf',
   //   });
   // }
   // console.log('reviews', reviews);

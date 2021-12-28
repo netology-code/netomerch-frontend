@@ -27,7 +27,7 @@ export default function ReviewPopup({ review }) {
         <div className="review-popup__text">{review.text}</div>
         <div className="review-popup__author">
           <div className="review-popup__avatar">
-            <img src="" alt="author" />
+            <img src={review.author_image} alt="author" />
           </div>
           <div className="review-popup__author-name">{review.author}</div>
         </div>

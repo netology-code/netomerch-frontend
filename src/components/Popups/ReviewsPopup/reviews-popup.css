@@ -118,6 +118,7 @@
   font-size: 16px;
   line-height: calc(19 / 16 * 100%);
   letter-spacing: normal;
+  white-space: pre-line;
 }
 
 .review-popup__title::before {
@@ -130,6 +131,7 @@
 
 .review-popup__text {
   margin-bottom: 30px;
+  white-space: pre-line;
 
   font-weight: 500;
   font-size: 14px;
@@ -150,6 +152,11 @@
   border-radius: 50%;
   background-color: #E5E5E5;
   overflow: hidden;
+}
+
+.review-popup__avatar img {
+  max-width: 100%;
+  width: 100%;
 }
 
 .review-popup__author-name {
