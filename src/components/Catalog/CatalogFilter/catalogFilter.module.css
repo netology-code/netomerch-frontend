@@ -89,8 +89,8 @@
     flex-grow: 1;
 }
 
-.checkbox {
-    /* margin-right: 80px; */
+.checkbox label {
+    width: 176px;
 }
 
 .customCheckbox {
