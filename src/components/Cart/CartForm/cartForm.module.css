@@ -144,17 +144,14 @@
   height: 65px;
   border: 1.3px solid #4B4950;
   border-radius: 4px;
-  
-  padding-top: 8px; /* заменить на стили от дизайнеров */
-  padding-left: 8px; /* заменить на стили от дизайнеров */
-  padding-bottom: 14px; /* заменить на стили от дизайнеров */
-  font-family: inherit; /* заменить на стили от дизайнеров */
-  font-style: normal; /* заменить на стили от дизайнеров */
-  font-weight: 600; /* заменить на стили от дизайнеров */
-  font-size: 24px; /* заменить на стили от дизайнеров */
-  line-height: 19px; /* заменить на стили от дизайнеров */
-  letter-spacing: 1.2; /* заменить на стили от дизайнеров */
-  color: #4B4950; /* заменить на стили от дизайнеров */
+  padding-left: 6px;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 19px;
+  letter-spacing: 1.2;
+  color: #4B4950;
 }
 
 .form__input:focus {
@@ -166,11 +163,20 @@
 .form__input_error { 
   border: 1.3px solid #E61A5E;
 }
-
-/* .form__label_error_message::after {
+/* 
+.form__label_error_message::after {
   content: ' Поле обязательно для заполнения';
   color: #E61A5E;
 } */
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
 
 textarea.form__input { min-height: 180px; }
 
