@@ -21,5 +21,4 @@ WORKDIR /var/www
 COPY --from=build /app/build .
 RUN mkdir -p netomerch-frontend && mv static netomerch-frontend/ && mv favicon.ico netomerch-frontend/
 RUN sed -i.bak "s/root.*;/root \/var\/www;/" /etc/nginx/conf.d/default.conf
-# Uses port which is used by the actual application
-EXPOSE 80
+RUN sed -i.bak "s/80;/3000;/" /etc/nginx/conf.d/default.conf
