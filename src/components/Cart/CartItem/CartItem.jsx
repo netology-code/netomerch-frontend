@@ -3,11 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeQuantityInCart, deleteProductInCart } from '../../../actions/actionCreators';
 import Title from '../../ui/Title';
-import DeletePopup from './DeletePopup';
 import styles from './cartItem.module.css';
 
 const Cart = ({ cartItem }) => {
   const [currCount, setCurrCount] = useState(cartItem.count);
+  const [currPopup, setCurrPopup] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,15 +26,28 @@ const Cart = ({ cartItem }) => {
   };
 
   const handleOnCountDecClick = () => {
-    if (currCount < 1) return;
+    if (currCount < 2) {
+      setCurrPopup(true);
+      return;
+    }
     setCurrCount(parseInt(currCount, 10) - 1);
   };
 
   return (
     <div className={styles.cart}>
       <Title cn={styles.item_header} text={cartItem.name} sqColor="blue" />
-      <button className={styles.bucket} type="button" onClick={() => dispatch(deleteProductInCart(cartItem.id))}> </button>
-      <DeletePopup onClick={() => dispatch(deleteProductInCart(cartItem.id))} />
+      <button className={styles.bucket} type="button" onClick={() => setCurrPopup(true)}> </button>
+      { currPopup
+        ? (
+          <div className={styles.popup}>
+            <p className={styles.popupText}>Вы точно хотите удалить товар?</p>
+            <div className={styles.buttons}>
+              <button type="button" className={styles.buttonYes} onClick={() => dispatch(deleteProductInCart(cartItem.id))}>ДА</button>
+              <button type="button" className={styles.buttonNo} onClick={() => setCurrPopup(false)}>НЕТ</button>
+            </div>
+          </div>
+        )
+        : false}
       <div className={styles.cartContent}>
         <img src={cartItem.image} alt={cartItem.name} className={styles.cartImage} />
         <div className={styles.cartContentData}>
