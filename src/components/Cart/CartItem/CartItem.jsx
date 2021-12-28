@@ -59,7 +59,7 @@ const Cart = ({ cartItem }) => {
             <div className={styles.cartPrice}>
               <p className={styles.label}>Стоимость</p>
               <div className={styles.priceText}>
-                {cartItem.price}
+                {parseInt(cartItem.price, 10)}
                 {' '}
                 ₽
               </div>
@@ -96,8 +96,8 @@ const Cart = ({ cartItem }) => {
                   <div className={styles.cartDiscountSum}>
                     <p className={styles.label}>Итого со скидкой</p>
                     <div className={styles.discountSumText}>
-                      {(cartItem.itemPrice * cartItem.itemNumber)
-                - (((cartItem.itemPrice * cartItem.itemNumber) / 100) * cartItem.itemDiscount)}
+                      {parseInt((cartItem.price * cartItem.count)
+                - (((cartItem.price * cartItem.count) / 100) * cartItem.itemDiscount), 10)}
                       {' '}
                       ₽
                     </div>
