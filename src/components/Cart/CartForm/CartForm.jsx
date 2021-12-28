@@ -126,7 +126,7 @@ const CartForm = () => {
   const { errorPromo, loadingPromo, productWithPromo, orderIsSent } = useSelector((state) => state.fetchOrder);
   const { products } = useSelector((state) => state.productInCart);
   const dispatch = useDispatch();
-  // console.log('productWithPromo', productWithPromo);
+  console.log('productWithPromo', productWithPromo);
 
   if (orderIsSent && statusOrder) {
     setStatusOrder(false);
@@ -347,7 +347,12 @@ sizes: Array(3)
           <p>Самое время его применить!</p>
           <div className={styles.form_promo_block}>
             <div className={styles.form__item}>
-              <label htmlFor="forPromo" className={`${styles.form__label_promo}`}>Промокод</label>
+              <label
+                htmlFor="forPromo"
+                className={`${styles.form__label_promo}`}
+              >
+                {promocod.isEmpty ? 'Промокод' : ''}
+              </label>
               <input
                 onChange={(e) => promocod.onChange(e)}
                 value={promocod.value}
@@ -361,7 +366,14 @@ sizes: Array(3)
               />
             </div>
             <div className={styles.form__item}>
-              <label htmlFor="forEmailPromo" className={`${styles.form__label_promo} ${styles.promo_email}`}>E-mail</label>
+              <label
+                htmlFor="forEmailPromo"
+                className={`
+                  ${styles.form__label_promo}
+                  ${styles.promo_email}`}
+              >
+                {promocodEmail.isEmpty ? 'E-mail' : ''}
+              </label>
               <input
                 onChange={(e) => promocodEmail.onChange(e)}
                 value={promocodEmail.value}
