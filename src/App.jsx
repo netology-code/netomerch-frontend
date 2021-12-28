@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  HashRouter as Router, Route, Switch, Redirect,
+  BrowserRouter as Router, Route, Switch, Redirect,
 } from 'react-router-dom';
 import Error404 from './components/Error404/Error404';
 import ParentElement from './components/ParentElement/ParentElement';
