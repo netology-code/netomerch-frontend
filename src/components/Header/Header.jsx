@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './header.module.css';
 import logo from '../../assets/svg/logo_nemerch_main.svg';
+import Feedback from '../Popups/Feedback/Feedback';
 
 const Header = () => {
   const { products } = useSelector((state) => state.productInCart);
@@ -42,6 +43,7 @@ const Header = () => {
           </div>
         </div>
       </div>
+      <Feedback />
     </header>
   );
 };
