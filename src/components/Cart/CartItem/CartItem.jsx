@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeQuantityInCart, deleteProductInCart } from '../../../actions/actionCreators';
 import Title from '../../ui/Title';
+import DeletePopup from './DeletePopup';
 import styles from './cartItem.module.css';
 
 const Cart = ({ cartItem }) => {
@@ -33,6 +34,7 @@ const Cart = ({ cartItem }) => {
     <div className={styles.cart}>
       <Title cn={styles.item_header} text={cartItem.name} sqColor="blue" />
       <button className={styles.bucket} type="button" onClick={() => dispatch(deleteProductInCart(cartItem.id))}> </button>
+      <DeletePopup onClick={() => dispatch(deleteProductInCart(cartItem.id))} />
       <div className={styles.cartContent}>
         <img src={cartItem.image} alt={cartItem.name} className={styles.cartImage} />
         <div className={styles.cartContentData}>
