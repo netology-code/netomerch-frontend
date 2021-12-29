@@ -21,6 +21,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-shadow */
+import { nanoid } from 'nanoid';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -240,29 +241,9 @@ const CartForm = () => {
         setIsChoseComplete(true);
         setTimeout(() => setIsChoseComplete(false), 3000);
 
-        // mockData_addProductCart.push({
-        //   id,
-        //   count: 1,
-        //   size: currSize,
-        //   color: currColor,
-        // });
-/*
-{code: 'BB8', item: {…}}
-code: "BB8"
-
-item:
-colors: [{…}]
-description: "Унисекс футболка для аналитика.\r\n\r\nМодель кроя oversize c заниженной плечевой линией и универсальным круглым вырезом. Рукава удлинённые.\r\n\r\nФутболка сшита из 100% хлопка. Ткань приятна на ощупь, хорошо пропускает воздух и не деформируется даже после многократных стирок. Благодаря этому футболка согреет вас зимой и спасёт от жары летом. \r\n\r\nПринт нанесён методом сублимации, поэтому держится до победного, как диджитал-специалист в ночь перед дедлайном. Выдержит и прямые солнечные лучи, и многочисленные стирки. \r\n\r\nВсе материалы экологичны и безопасны даже для обладателей чувствительной кожи.\r\n\r\nЧёрная футболка с неброской оригинальной цитатой хорошо сочетается с большинством вещей повседневного стиля. Если захочется чего-нибудь необычного, то можно носить даже с брюками и деловым костюмом."
-item_id: 154
-name: "Футболка «Было непросто, но оно того стоит»"
-price: "1999.00"
-sizes: Array(3)
-0: "S"
-1: "M"
-2: "L"
-*/
         const orderedProduct = {
-          id: item_id,
+          id: nanoid(),
+          item_id,
           name,
           image: colors.find((item) => item.color_code === currColor).images[0].images,
           size: currSize,
