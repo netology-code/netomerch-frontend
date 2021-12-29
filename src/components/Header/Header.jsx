@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './header.module.css';
@@ -12,6 +12,16 @@ const Header = () => {
   if (location.pathname === '/notfaund') {
     return null;
   }
+
+  const [isFeedback, setIsFeedback] = useState(false);
+
+  const showFeedback = () => {
+    setIsFeedback(true);
+  };
+
+  const closeFeedback = () => {
+    setIsFeedback(false);
+  };
 
   return (
     <header className={styles.header}>
@@ -32,9 +42,9 @@ const Header = () => {
           </nav>
           <div className={styles.headerIcons}>
             {/* <div className={styles.headerSearch} /> */}
-            <Link to="/support">
+            <button type="button" onClick={showFeedback}>
               <div className={styles.headerHelp} />
-            </Link>
+            </button>
             <Link to="/cart">
               <div className={styles.headerCart}>
                 <div style={products.length === 0 ? { display: 'none' } : {}} className={styles.cartCount}>{products.length}</div>
@@ -43,7 +53,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <Feedback />
+      {isFeedback && <Feedback closeFeedback={closeFeedback} />}
     </header>
   );
 };
