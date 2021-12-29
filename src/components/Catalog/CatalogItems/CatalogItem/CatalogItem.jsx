@@ -143,6 +143,7 @@ const CatalogItem = (props) => {
                 `}
     >
       <Link className={`${s.catalogItem_image} ibg`} to={`/catalog/${id}`}>
+        {popular && <div className={s.popular_star} />}
         <img src={image} alt="photo product" />
         {colors.map((color) => (
           <span

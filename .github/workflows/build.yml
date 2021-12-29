@@ -2,14 +2,13 @@ name: ci-cd
 
 on:
   push:
-    branches:
-      - master
+    branches: [ master, production ]
 
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ secrets.IMAGE_NAME }}
   FRONTEND_IMAGE_NAME: ${{ github.repository }}
-  MODE: dev
+  MODE: ${{ github.ref_name == 'master' && 'dev' || 'prod' }}
 
 jobs:
   build-push:
@@ -31,6 +30,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
+          build-args: MODE=${{ env.MODE }}
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.FRONTEND_IMAGE_NAME }}:${{ env.MODE }}
           cache-from: type=gha
@@ -59,12 +59,24 @@ jobs:
             export FRONTEND_IMAGE_NAME=${{ env.FRONTEND_IMAGE_NAME }}
             export MODE=${{ env.MODE }}
             export DOMAIN_NAME=${{ secrets.DOMAIN_NAME }}
+            export APIENDPOINT=${{ env.APIENDPOINT }}
 
             echo "${{ github.token }}" | docker login ${{ env.REGISTRY }} --username ${{ github.actor }} --password-stdin
             docker pull ${{ env.REGISTRY }}/${{ env.FRONTEND_IMAGE_NAME }}:${{ env.MODE }}
 
-            docker-compose stop frontend
-            docker-compose rm -f frontend
+            if [[ ${{ env.MODE }} == "dev" ]]; then
+              docker-compose stop frontend
+              docker-compose rm -f frontend
+            else
+              sed -i.bak 's/frontend/frontend_prod/' docker-compose.yml nginx.conf
+              docker-compose stop frontend_prod
+              docker-compose rm -f frontend_prod
+            fi
+
             docker-compose up -d
+
+            declare -a arr=("docker-compose.yml" "nginx.conf")
+            for f in "${arr[@]}"; do chown :developer $f && chmod 660 $f; done
+
 
             for image in $(docker images | grep none | awk '{print $3}' | cat); do docker rmi "$image"; done

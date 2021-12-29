@@ -8,6 +8,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import styles from './catalogFilter.module.css';
 import arrow from '../../../assets/img/filter_arrow.png';
 import arrowDown from '../../../assets/img/filter_arrow_down.png';
@@ -15,14 +16,31 @@ import arrowDown from '../../../assets/img/filter_arrow_down.png';
 const CatalogFilter = ({
   categories, specialization, sizes, passParams,
 }) => {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
   const [isPopular, setPopular] = useState(true);
-  const [filterCategories, setFilterCategories] = useState([]);
-  const [filterSpecialization, setFilterSpecialization] = useState([]);
+  const [filterCategories, setFilterCategories] = useState(searchParser('category'));
+  const [filterSpecialization, setFilterSpecialization] = useState(searchParser('specialization'));
   const [filterSizes, setFilterSizes] = useState([]);
   const [priceRange, setPriceRange] = useState({ from: '', to: '' });
   const [priceSort, setPriceSort] = useState({ up: false, down: false });
   const [isOpenDopPanel, setOpenDopPanel] = useState({ price: false, size: false });
   const [errorPrice, setErrorPrice] = useState(false);
+
+  function searchParser(unit) {
+    const filter = [];
+    if (location.search !== '') {
+      if (searchParams.has(unit)) {
+        filter.push(searchParams.get(unit));
+      }
+    }
+    return filter;
+  }
+
+  useEffect(() => {
+    setFilterCategories(searchParser('category'));
+    setFilterSpecialization(searchParser('specialization'));
+  }, [location]);
 
   useEffect(() => {
     passParams({
