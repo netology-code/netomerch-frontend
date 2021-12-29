@@ -7,37 +7,38 @@
 
 .bannerBody {
   display: flex;
-  align-items: flex-start;
-  padding-left: 160px;
+  /* align-items: flex-start; */
+  justify-content: center;
+  /* padding-left: 160px; */
   padding-bottom: 50px;
-
+  height: 331px;
 }
 
-.bannerText {
+/* .bannerText {
   flex: 0 1 470px;
   padding: 30px 110px 30px 40px;
   margin-top: 110px;
 
   background-color:#631AD9;
-  /* min-height: 242px; */
+  min-height: 242px;
   border-radius: 20px;
 
-  
   font-size: 34px;
   line-height: calc(37 / 34 * 100%);
   font-weight: 700;
   color: #FFFFFF;
-}
+} */
 
 .bannerImage {
-  flex: 0 1 700px;
-  height: 220px;
-  margin-top: 30px;
-  margin-left: -85px;
+  flex: 0 1 1000px;
+  height: 280px;
+  margin-top: 20px;
+  /* margin-left: -85px; */
 
   border-radius: 20px;
 
-  background-image: url('./../../../assets/img/catalog/catalog-banner.jpg');
+  background-image: url('./../../../assets/svg/catalog-banner.svg');
+  /* background-image: url('./../../../assets/img/catalog/catalog-banner.jpg'); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

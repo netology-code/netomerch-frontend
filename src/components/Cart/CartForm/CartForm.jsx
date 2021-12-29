@@ -361,7 +361,7 @@ sizes: Array(3)
                 name="promo"
                 className={`
                             ${styles.form__input_promo}
-                            ${(!btnPromoError && promocod.isEmpty) && styles.popap_error_input} 
+                            ${(!btnPromoError && promocod.isEmpty) && styles.popap_error_input}
                           `}
               />
             </div>
@@ -381,7 +381,7 @@ sizes: Array(3)
                 type="email"
                 name="emailPromo"
                 className={`
-                            ${styles.form__input_promo}
+                            ${styles.form__input_promo} ${styles.promo_email}
                             ${(!btnPromoError && promocodEmail.isEmpty) && styles.popap_error_input}
                             ${(!btnPromoError && promocodEmail.minLengthError) && styles.popap_error_input}
                             ${(!btnPromoError && promocodEmail.emailError) && styles.popap_error_input}
