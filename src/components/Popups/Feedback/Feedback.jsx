@@ -1,12 +1,25 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 import './feedback.css';
-
 import helpCenterImg from '../../../assets/img/feedback/help-center.svg';
+import FormFeedback from './FormFeedback';
 
 export default function Feedback({ closeFeedback }) {
+  const [form, setForm] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    text: '',
+  });
+
+  const [isConfirm, setIsConfirm] = useState(false);
+
+  const setConfirm = () => {
+    setIsConfirm(true);
+  };
+
   return (
-    <div className="feedback">
+    <div className={`feedback${isConfirm ? ' feedback-confirm' : ''}`}>
       <header className="feedback__header header-feedback">
         <div className="header-feedback_text">
           <p>Есть вопрос?</p>
@@ -17,29 +30,7 @@ export default function Feedback({ closeFeedback }) {
         </button>
       </header>
 
-      <form className="feedback__form form-feedback">
-        <div className="form-feedback__data">
-          <div className="form-feedback__row">
-            <input className="form-feedback__input" placeholder="Имя и фамилия *" />
-          </div>
-
-          <div className="form-feedback__row">
-            <input className="form-feedback__input" placeholder="Телефон *" />
-          </div>
-
-          <div className="form-feedback__row">
-            <input className="form-feedback__input" placeholder="E-mail *" />
-          </div>
-
-          <div className="form-feedback__row">
-            <textarea className="form-feedback__input form-feedback__input-text" placeholder="Текст сообщения *" />
-          </div>
-        </div>
-
-        <div className="form-feedback__footer">
-          <button className="form-feedback__btn-send btn" type="button">Отправить сообщение</button>
-        </div>
-      </form>
+      <FormFeedback form={form} setForm={setForm} setConfirm={setConfirm} />
 
       <div className="feedback-confirm__content">
         <div className="feedback-confirm__img">
