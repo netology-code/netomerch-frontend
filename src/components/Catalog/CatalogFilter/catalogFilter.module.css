@@ -169,6 +169,7 @@ li.pressCategory {
 
 li.pressSpec {
     position: relative;
+    color: #4B4950;
 }
 
 li.pressSpec::after {
