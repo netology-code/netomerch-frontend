@@ -19,9 +19,6 @@ RUN npm run build
 FROM nginx:alpine
 WORKDIR /var/www
 COPY --from=build /app/build .
-RUN sed -i.bak "s/root.*;/root \/var\/www;/" /etc/nginx/conf.d/default.conf
-RUN sed -i.bak "s/80;/3000;/" /etc/nginx/conf.d/default.conf
-RUN sed -i.bak "s/localhost;/frontend;/" /etc/nginx/conf.d/default.conf
 RUN mv static front
 RUN sed -i.bak "s/static\//front\//g" index.html
 RUN sed -i.bak "s/static\//front\//g" asset-manifest.json
