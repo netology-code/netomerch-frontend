@@ -24,8 +24,8 @@
 }
 
 .supportQuestions {
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 18px;
   line-height: 19px;
   color: #FFFFFF;
   padding-left: 40px;
@@ -92,7 +92,7 @@
   width: 60px;
   font-family: 'Golos Text', sans-serif;
   font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 18px;
   line-height: 19px;
 }
