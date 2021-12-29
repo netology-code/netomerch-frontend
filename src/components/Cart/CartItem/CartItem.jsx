@@ -107,18 +107,20 @@ const Cart = ({ cartItem }) => {
               ) : false}
           </div>
           <div className={styles.contentLine}>
-            <div className={styles.cartNumber}>
-              <p className={styles.label}>Количество</p>
-              <div className={styles.numberControls}>
-                <button className={styles.numberMinus} type="button" onClick={handleOnCountDecClick}>-</button>
-                <input
-                  className={styles.numberQuantity}
-                  value={currCount}
-                  onChange={handleOnCountChange}
-                />
-                <button className={styles.numberPlus} type="button" onClick={handleOnCountIncClick}>+</button>
+            { !cartItem.isPromo ? (
+              <div className={styles.cartNumber}>
+                <p className={styles.label}>Количество</p>
+                <div className={styles.numberControls}>
+                  <button className={styles.numberMinus} type="button" onClick={handleOnCountDecClick}>-</button>
+                  <input
+                    className={styles.numberQuantity}
+                    value={currCount}
+                    onChange={handleOnCountChange}
+                  />
+                  <button className={styles.numberPlus} type="button" onClick={handleOnCountIncClick}>+</button>
+                </div>
               </div>
-            </div>
+            ) : null}
           </div>
         </div>
       </div>

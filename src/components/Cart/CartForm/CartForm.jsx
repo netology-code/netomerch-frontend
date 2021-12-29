@@ -27,7 +27,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import styles from './cartForm.module.css';
 import Title from '../../ui/Title';
-import { deletePromo, fetchPromo, fetchOrder, clearCart, addProductInCart } from '../../../actions/actionCreators';
+import { deletePromo, fetchPromo, fetchOrder, clearCart, addProductInCart, deleteProductInCart } from '../../../actions/actionCreators';
 
 const useValidation = (value, validations) => {
   const [isEmpty, setIsEmpty] = useState(true);
@@ -153,8 +153,18 @@ const CartForm = () => {
         phone: `+7${phone.value}`,
         address: address.value,
         comment: comment.value,
-        total_sum: products.reduce((acc, curr) => acc + (Number(curr.count) * Number(curr.price)), 0),
-        final_sum: products.reduce((acc, curr) => acc + (Number(curr.count) * Number(curr.price)), 0),
+        total_sum: products.reduce((acc, curr) => {
+          if (curr.isPromo) {
+            return acc + 0;
+          }
+          return acc + curr.count * Number(curr.price);
+        }, 0),
+        final_sum: products.reduce((acc, curr) => {
+          if (curr.isPromo) {
+            return acc + 0;
+          }
+          return acc + curr.count * Number(curr.price);
+        }, 0),
         items: products.map((prod) => {
           const {
             count, color, size, price, item_id,
@@ -189,6 +199,8 @@ const CartForm = () => {
       promocod.setValue('');
       promocodEmail.setValue('');
       dispatch(deletePromo());
+      const productDelete = products.find((prod) => prod.isPromo);
+      dispatch(deleteProductInCart(productDelete.id));
       return;
     }
 
@@ -251,10 +263,11 @@ const CartForm = () => {
           price,
           count: 1,
           itemDiscount: 100,
+          isPromo: true,
         };
 
         dispatch(addProductInCart(orderedProduct));
-        dispatch(deletePromo());
+        // dispatch(deletePromo());
       } else {
         setIsAddProduct(false);
       }
@@ -318,7 +331,7 @@ const CartForm = () => {
 
   return (
     <div className={styles.form}>
-      { productWithPromo.code ? <PopapCart item={productWithPromo} /> : false}
+      { (!products.some((prod) => prod.isPromo) && Object.keys(productWithPromo).length !== 0) ? <PopapCart item={productWithPromo} /> : false}
       <form action="#" id="form" className={styles.form_body}>
         <div className={styles.form_promo_body}>
           <p>Есть промокод?</p>

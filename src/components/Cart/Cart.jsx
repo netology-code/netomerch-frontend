@@ -23,7 +23,12 @@ const Cart = () => {
             <div className={styles.cartSum}>
               <p className={styles.label}>Итого</p>
               <div className={styles.sumText}>
-                {products.reduce((item1, item2) => item1 + (item2.price * item2.count), 0)}
+                {products.reduce((acc, curr) => {
+                  if (curr.isPromo) {
+                    return acc + 0;
+                  }
+                  return acc + curr.count * Number(curr.price);
+                }, 0)}
                 {' '}
                 ₽
               </div>
