@@ -33,7 +33,7 @@ a {
 	cursor: pointer;
 }
 
-button, input {
+button, input, textarea {
 	font-family: inherit;
 	font-size: inherit;
 
