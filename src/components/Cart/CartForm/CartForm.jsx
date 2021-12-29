@@ -272,7 +272,7 @@ sizes: Array(3)
           color: currColor,
           price,
           count: 1,
-          itemDiscount: 99,
+          itemDiscount: 100,
         };
 
         dispatch(addProductInCart(orderedProduct));
@@ -288,7 +288,7 @@ sizes: Array(3)
           Сделайте выбор цвета
           <br />
           {' '}
-          и размера мерча?
+          и размера мерча
         </p>
         <div className={styles.catalogItem_popap_sizes}>
           {sizes.map((size) => (
@@ -361,7 +361,7 @@ sizes: Array(3)
                 name="promo"
                 className={`
                             ${styles.form__input_promo}
-                            ${(!btnPromoError && promocod.isEmpty) && styles.popap_error_input} 
+                            ${(!btnPromoError && promocod.isEmpty) && styles.popap_error_input}
                           `}
               />
             </div>
@@ -381,7 +381,7 @@ sizes: Array(3)
                 type="email"
                 name="emailPromo"
                 className={`
-                            ${styles.form__input_promo}
+                            ${styles.form__input_promo} ${styles.promo_email}
                             ${(!btnPromoError && promocodEmail.isEmpty) && styles.popap_error_input}
                             ${(!btnPromoError && promocodEmail.minLengthError) && styles.popap_error_input}
                             ${(!btnPromoError && promocodEmail.emailError) && styles.popap_error_input}
@@ -389,7 +389,7 @@ sizes: Array(3)
               />
             </div>
             <button onClick={handleClickPromo} type="button" className={`${styles.form__button_promo} btn`}>{Object.keys(productWithPromo).length !== 0 ? 'Отменить' : 'Применить'}</button>
-            {(!btnPromoError && promocodEmail.isEmpty) && <div className={`${styles.form__promo_popap} ${styles.popap_error}`}>Введите E-mail</div>}
+            {(!btnPromoError && !promocod.isEmpty && promocodEmail.isEmpty) && <div className={`${styles.form__promo_popap} ${styles.popap_error}`}>Введите E-mail</div>}
             {Object.keys(productWithPromo).length !== 0 && <div className={`${styles.form__promo_popap} ${styles.popap_success}`}>Промокод применен</div>}
             {(errorPromo && statusPromo) && <div className={`${styles.form__promo_popap} ${styles.popap_error}`}>Промокод не найден</div>}
           </div>

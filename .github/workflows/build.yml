@@ -64,8 +64,19 @@ jobs:
             echo "${{ github.token }}" | docker login ${{ env.REGISTRY }} --username ${{ github.actor }} --password-stdin
             docker pull ${{ env.REGISTRY }}/${{ env.FRONTEND_IMAGE_NAME }}:${{ env.MODE }}
 
-            docker-compose stop frontend
-            docker-compose rm -f frontend
+            if [[ ${{ env.MODE }} == "dev" ]]; then
+              docker-compose stop frontend
+              docker-compose rm -f frontend
+            else
+              sed -i.bak 's/frontend/frontend_prod/' docker-compose.yml nginx.conf
+              docker-compose stop frontend_prod
+              docker-compose rm -f frontend_prod
+            fi
+
             docker-compose up -d
+
+            declare -a arr=("docker-compose.yml" "nginx.conf")
+            for f in "${arr[@]}"; do chown :developer $f && chmod 660 $f; done
+
 
             for image in $(docker images | grep none | awk '{print $3}' | cat); do docker rmi "$image"; done
