@@ -4,7 +4,6 @@
 import React, { useState, useEffect } from 'react';
 
 const regEmail = /@/;
-console.log(regEmail.test('1'));
 
 export default function FormFeedback({ form, setForm, setConfirm }) {
   const [errors, setErrors] = useState({
@@ -22,7 +21,7 @@ export default function FormFeedback({ form, setForm, setConfirm }) {
 
   const handeleSubmit = (event) => {
     event.preventDefault();
-    console.log('form', form);
+
     let isError = false;
     if (form.name.length < 3) {
       isError = true;
@@ -47,10 +46,6 @@ export default function FormFeedback({ form, setForm, setConfirm }) {
     console.log('Отправка данных');
     setConfirm();
   };
-
-  useEffect(() => {
-    console.log('errors', errors);
-  }, [errors]);
 
   return (
     <form className="feedback__form form-feedback" onSubmit={handeleSubmit}>
