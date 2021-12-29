@@ -6,9 +6,9 @@ const CatalogBanner = () => (
   <div className={styles.banner}>
     <div className="container">
       <div className={styles.bannerBody}>
-        <div className={styles.bannerText}>
+        {/* <div className={styles.bannerText}>
           У нас появились новые стартовые наборы
-        </div>
+        </div> */}
         <div className={styles.bannerImage} />
       </div>
     </div>
