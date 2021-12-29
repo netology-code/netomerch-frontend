@@ -272,7 +272,7 @@ sizes: Array(3)
           color: currColor,
           price,
           count: 1,
-          itemDiscount: 99,
+          itemDiscount: 100,
         };
 
         dispatch(addProductInCart(orderedProduct));
@@ -288,7 +288,7 @@ sizes: Array(3)
           Сделайте выбор цвета
           <br />
           {' '}
-          и размера мерча?
+          и размера мерча
         </p>
         <div className={styles.catalogItem_popap_sizes}>
           {sizes.map((size) => (
