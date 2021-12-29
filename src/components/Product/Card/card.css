@@ -39,7 +39,7 @@
 .card__imgs {
   display: flex;
   justify-content: space-between;
-  margin: 0 -15px 100px -15px;
+  margin: 0 -15px 60px -15px;
 }
 
 .card__img-wrapp {
@@ -61,7 +61,7 @@
   content: '';
   position: absolute;
   left: 50%;
-  bottom: -12px;
+  bottom: -20px;
   width: 66.67%;
   height: 2px;
 
